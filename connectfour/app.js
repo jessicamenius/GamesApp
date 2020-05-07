@@ -1,6 +1,6 @@
 $(document).ready(function () {
   var gameField = new Array();
-  var board = document.getElementById("game-table");
+  var board = $("game-table").val();
   var currentCol;
   var currentRow;
   var currentPlayer;
@@ -202,6 +202,6 @@ $(document).ready(function () {
   }
 
   function moveit(who, where) {
-    document.getElementById("d" + who).style.top = where + "px";
+    $("d" + who).style.top = where + "px";
   }
 });
