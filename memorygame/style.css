@@ -1,0 +1,8 @@
+.img-fluid {
+  max-width: 50%;
+  height: auto;
+}
+
+nav {
+  height: 10vh;
+}

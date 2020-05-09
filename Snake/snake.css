@@ -1,0 +1,16 @@
+#body {
+  background-color: white;
+}
+#container {
+  text-align: center;
+}
+
+#canvas {
+  background-color: #17e9e0;
+}
+
+#header {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #ffb48f;
+}
