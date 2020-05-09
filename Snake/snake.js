@@ -32,13 +32,6 @@ $(function () {
       oldY: 0,
       drawn: false,
     },
-    {
-      x: 200,
-      y: 10,
-      oldX: 0,
-      oldY: 0,
-      drawn: false,
-    },
   ];
   var food = {
     x: 50,
@@ -57,7 +50,7 @@ $(function () {
   startGame();
 
   function startGame() {
-    game = setInterval(gameLoop, 300);
+    game = setInterval(gameLoop, 100);
   }
 
   function stopGame() {
@@ -73,7 +66,7 @@ $(function () {
   }
 
   function drawSnake() {
-    ctx.fillStyle = "red";
+    ctx.fillStyle = "#a64ac9";
     ctx.lineWidth = 2;
     ctx.strokeStyle = "white";
     $.each(snake, function (index, value) {
@@ -127,7 +120,7 @@ $(function () {
   }
 
   function drawFood() {
-    ctx.fillStyle = "yellow";
+    ctx.fillStyle = "#fccd04";
     let xy = getPositionForFood();
     food = {
       x: xy.x,
