@@ -13,15 +13,6 @@ body {
   display: none;
 }
 
-svg {
-  position: absolute;
-  width: 2em;
-  height: 2em;
-  padding: 1.2em;
-  fill: #555555;
-  cursor: pointer;
-}
-
 #selector .instructions {
   text-align: center;
   width: 100%;
@@ -80,26 +71,6 @@ svg {
 
 #howtoplay {
   display: none;
-}
-
-#howtoplay .instructions {
-  text-align: center;
-  width: 100%;
-  font-size: 1.3em;
-  padding-top: 1em;
-  -webkit-transition: 0.3s ease-in-out;
-  -moz-transition: 0.3s ease-in-out;
-  -o-transition: 0.3s ease-in-out;
-  transition: 0.3s ease-in-out;
-}
-
-#howtoplay ol {
-  margin-top: 3em;
-}
-
-#howtoplay ol li {
-  margin-bottom: 1em;
-  font-size: 1.2em;
 }
 
 .selected {
@@ -165,12 +136,20 @@ table tr td {
     margin-left: -0.5em;
   }
 
-  #howtoplay .instructions {
+  .instructions {
     text-align: right;
     margin-left: -0.5em;
+    margin-top: 100px;
   }
 
   svg {
     padding: 1.2em 0.5em;
   }
+}
+
+#nav {
+  height: 80px;
+  background-color: #fccd04;
+  display: flex;
+  justify-content: center;
 }
