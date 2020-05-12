@@ -54,3 +54,12 @@
 .theme5 {
   color: #17e9e0;
 }
+
+.btn-custom {
+  background-color: #ffb48f;
+  margin-left: 110px;
+}
+
+.card {
+  border-color: #fccd04;
+}
