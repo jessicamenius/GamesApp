@@ -138,3 +138,42 @@ table tr td {
   display: flex;
   justify-content: center;
 }
+
+.toggler {
+  height: 30px;
+  width: 60px;
+  background-color: #17e9e0;
+  border-radius: 25px;
+  margin-right: 20px;
+}
+.toggle {
+  height: 30px;
+  width: 30px;
+  background-color: aliceblue;
+  border-radius: 100%;
+  transition: margin-left 0.5s ease;
+}
+.toggleTrue {
+  margin-left: 30px;
+}
+.toggleFalse {
+  margin-left: 0px;
+}
+.dark-mode {
+  background-color: black;
+  color: white;
+}
+.light-mode {
+  background-color: white;
+  color: black;
+}
+
+.navbar {
+  background-color: #a64ac9;
+}
+
+.instructions {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}

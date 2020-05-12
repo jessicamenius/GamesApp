@@ -9,18 +9,72 @@
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="./stylecf.css" />
+    <link rel="stylesheet" href="./style.css" />
     <title>ReactionTime</title>
   </head>
   <body>
-    <div id="nav" class="navbar text-center">
-      <h1 class = "text-light">Reaction Time Game</h1>
-    </div>
+    <nav class="navbar navbar-expand-lg light-mode">
+      <a class="navbar-brand" href="./index.html">Games App</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="./index.html"
+              >Home <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./highscores.html">Highscores</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Games
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="./memorygame/memorygame.html"
+                >Memory</a
+              >
+              <a class="dropdown-item" href="./reactiongame/index.html"
+                >Reaction</a
+              >
+              <a class="dropdown-item" href="./Snake/snake.html">Snake</a>
+              <a class="dropdown-item" href="#">Tic Tac Toe</a>
+              <a class="dropdown-item" href="./triviaGame/trivia.html"
+                >Trivia</a
+              >
+              <a class="dropdown-item" href="./warcardgame/index.html">War</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div id="toggleBtn" class="toggler">
+        <div id="toggleDisplay" class="toggle toggleFalse"></div>
+      </div>
+    </nav>
     <div id="selector">
 
 
       <div class="instructions">
-        <h4>Choose a Difficulty Level</h4>
+        <h4>Choose a Level</h4>
       </div>
 
       <div class="level">
@@ -133,12 +187,12 @@
     </table>
 
     <div id="gameover">
-      <span class="gameoverheader">GAME OVER!</span>
+      <span class="gameoverheader">GAME OVER</span>
       <span class="gameovertext">Average Reaction Time</span>
       <span class="average gameovervalue"></span>
       <span class="gameovertext">Score</span>
       <span class="score gameovervalue"></span>
-      <span class="gameovertext">Highest Score</span>
+      <span class="gameovertext">High Score</span>
       <span class="highscore gameovervalue"></span>
       <a href="javascript:void(0)" class="gameovertext" onclick="restart()"
         >Restart</a
@@ -147,6 +201,16 @@
     <script
       src="https://code.jquery.com/jquery-3.5.1.min.js"
       integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
       crossorigin="anonymous"
     ></script>
     <script src="./app.js"></script>

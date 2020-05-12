@@ -1,0 +1,65 @@
+.toggler {
+  height: 30px;
+  width: 60px;
+  background-color: #17e9e0;
+  border-radius: 25px;
+  margin-right: 20px;
+}
+.toggle {
+  height: 30px;
+  width: 30px;
+  background-color: aliceblue;
+  border-radius: 100%;
+  transition: margin-left 0.5s ease;
+}
+.toggleTrue {
+  margin-left: 30px;
+}
+.toggleFalse {
+  margin-left: 0px;
+}
+.dark-mode {
+  background-color: black;
+  color: white;
+}
+.light-mode {
+  background-color: white;
+  color: black;
+}
+
+.navbar {
+  background-color: #a64ac9;
+}
+
+#footer {
+  background-color: #a64ac9;
+}
+
+.theme1 {
+  color: #a641c9;
+}
+
+.theme2 {
+  color: #fccd04;
+}
+
+.theme3 {
+  color: #ffb48f;
+}
+
+.theme4 {
+  color: #f5e6cc;
+}
+
+.theme5 {
+  color: #17e9e0;
+}
+
+.btn-custom {
+  background-color: #ffb48f;
+  margin-left: 110px;
+}
+
+.card {
+  border-color: #fccd04;
+}
