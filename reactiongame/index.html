@@ -10,11 +10,11 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="./stylecf.css" />
-    <title>Document</title>
+    <title>ReactionTime</title>
   </head>
   <body>
     <div id="nav" class="navbar text-center">
-      <h3 class = "text-light">Reaction Game</h3>
+      <h1 class = "text-light">REACTION TIME GAME</h1>
     </div>
     <div id="selector">
 
@@ -24,23 +24,23 @@
       </div>
 
       <div class="level">
-        <span
+          <span
           class="levelicon"
-          style="background-color: #555555;"
+          style="background-color: #F5E6CC;"
           onclick="prepare('easy')"
           onmouseover="highlight(1)"
           onmouseout="unhighlight()"
         ></span>
         <span
           class="levelicon"
-          style="background-color: #555555;"
+          style="background-color: #F5E6CC;"
           onclick="prepare('medium')"
           onmouseover="highlight(2)"
           onmouseout="unhighlight()"
         ></span>
         <span
           class="levelicon"
-          style="background-color: #555555;"
+          style="background-color: #F5E6CC;"
           onclick="prepare('hard')"
           onmouseover="highlight(3)"
           onmouseout="unhighlight()"
@@ -133,12 +133,12 @@
     </table>
 
     <div id="gameover">
-      <span class="gameoverheader">GAME OVER!</span>
+      <span class="gameoverheader">GAME OVER</span>
       <span class="gameovertext">Average Reaction Time</span>
       <span class="average gameovervalue"></span>
       <span class="gameovertext">Score</span>
       <span class="score gameovervalue"></span>
-      <span class="gameovertext">Highest Score</span>
+      <span class="gameovertext">High Score</span>
       <span class="highscore gameovervalue"></span>
       <a href="javascript:void(0)" class="gameovertext" onclick="restart()"
         >Restart</a

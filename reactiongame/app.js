@@ -25,7 +25,7 @@ var lastRandomRow = 0;
 var lastRandomCell = 0;
 var reactionTimes = [];
 
-$(function () {
+$(document).ready(function () {
   clearCells();
 
   $("td").click(function () {
@@ -39,20 +39,9 @@ $(function () {
       endGame();
     }
   });
-
-  $("svg").click(function () {
-    if ($("#selector").is(":hidden")) {
-      $("#selector").show();
-      $("#howtoplay").hide();
-    } else {
-      $("#selector").hide();
-      $("#howtoplay").show();
-    }
-  });
 });
 
 function prepare(level) {
-  $("svg").hide();
   countdown();
   intensity = level;
   switch (level) {
@@ -92,11 +81,11 @@ function unhighlight() {
 function getBackgroundColour(count) {
   switch (count) {
     case 1:
-      return "#59DB28";
+      return "#FFB48F";
     case 2:
-      return "#F6B921";
+      return "#17E9E0";
     case 3:
-      return "#CA0424";
+      return "#A64AC9";
   }
 }
 
@@ -187,7 +176,6 @@ function restart() {
   time = 0;
   reactionTimes = [];
   $("#gameover").hide();
-  $("svg").show();
   $(".level").show();
   $(".countdown").hide();
   $("#selector").show();
