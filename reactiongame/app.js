@@ -50,10 +50,7 @@ $(document).ready(function () {
       );
       $(".card").attr("class", "card dark-mode border-white");
     } else {
-      $(".navbar").attr(
-        "class",
-        "navbar navbar-expand-lg navbar-light bg-light light-mode"
-      );
+      $(".navbar").attr("class", "navbar navbar-expand-lg  light-mode");
       $(".card").attr("class", "card light-mode");
     }
   });

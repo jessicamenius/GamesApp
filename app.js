@@ -30,12 +30,22 @@ $(document).ready(function () {
     }
   });
 
-  $.ajax({
-    type: "GET",
-    url:
-      "https://sv443.net/jokeapi/v2/joke/Any?blacklistFlags=religious,racist,sexist",
-    dataType: "json",
-  }).then(function (res) {
-    console.log(res);
+  newJoke();
+
+  function newJoke() {
+    $.ajax({
+      type: "GET",
+      url: "https://icanhazdadjoke.com/",
+      dataType: "json",
+    }).then(function (res) {
+      console.log(res);
+      var joke = res.joke;
+      $("#joke").html(joke);
+    });
+  }
+
+  $("#joke").on("click", function (e) {
+    e.preventDefault();
+    newJoke();
   });
 });
