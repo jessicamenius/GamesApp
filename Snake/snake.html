@@ -20,15 +20,73 @@
     <title>Snake Game</title>
   </head>
   <div id="header">
-    <h1>Snake Game</h1>
+  
   </div>
   <body id="body">
-    <div id="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light light-mode">
+      <a class="navbar-brand" href="#">Games App</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#"
+              >Home <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Highscores</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Games
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="./memorygame/memorygame.html"
+                >Memory</a
+              >
+              <a class="dropdown-item" href="./reactiongame/index.html"
+                >Reaction</a
+              >
+              <a class="dropdown-item" href="./Snake/snake.html">Snake</a>
+              <a class="dropdown-item" href="#">Tic Tac Toe</a>
+              <a class="dropdown-item" href="./triviaGame/trivia.html"
+                >Trivia</a
+              >
+              <a class="dropdown-item" href="./warcardgame/index.html">War</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div id="toggleBtn" class="toggler">
+        <div id="toggleDisplay" class="toggle toggleFalse"></div>
+      </div>
+    </nav>
+    <div id="header"><h1>Snake Game</h1></div>
+    <div class="container">
       <br />
       <canvas id="canvas" width="600" height="400"></canvas>
       <br />
-      <span>Score: <b id="score"> 0 </b></span>
-      <br /><button id="start">Start Game</button>
+      <span>Score: <b id="score"></b> 0 </b></span>
+      <br /><button id="submitBtn">Start Game</button>
     </div>
 
     <!-- Optional JavaScript -->
