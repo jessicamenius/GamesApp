@@ -29,4 +29,13 @@ $(document).ready(function () {
       $(".card").attr("class", "card light-mode");
     }
   });
+
+  $.ajax({
+    type: "GET",
+    url:
+      "https://sv443.net/jokeapi/v2/joke/Any?blacklistFlags=religious,racist,sexist",
+    dataType: "json",
+  }).then(function (res) {
+    console.log(res);
+  });
 });

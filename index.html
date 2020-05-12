@@ -9,19 +9,12 @@
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
       crossorigin="anonymous"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css"
-      integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I="
-      crossorigin="anonymous"
-    />
-
     <link rel="stylesheet" href="./style.css" />
     <title>Games App</title>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light light-mode">
-      <a class="navbar-brand" href="#">Games App</a>
+      <a class="navbar-brand" href="./index.html">Games App</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -37,12 +30,12 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#"
+            <a class="nav-link" href="./index.html"
               >Home <span class="sr-only">(current)</span></a
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Highscores</a>
+            <a class="nav-link" href="./highscores.html">Highscores</a>
           </li>
           <li class="nav-item dropdown">
             <a
@@ -57,12 +50,18 @@
               Games
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Memory</a>
-              <a class="dropdown-item" href="#">Reaction</a>
+              <a class="dropdown-item" href="./memorygame/memorygame.html"
+                >Memory</a
+              >
+              <a class="dropdown-item" href="./reactiongame/index.html"
+                >Reaction</a
+              >
               <a class="dropdown-item" href="./Snake/snake.html">Snake</a>
               <a class="dropdown-item" href="#">Tic Tac Toe</a>
-              <a class="dropdown-item" href="#">Trivia</a>
-              <a class="dropdown-item" href="#">War</a>
+              <a class="dropdown-item" href="./triviaGame/trivia.html"
+                >Trivia</a
+              >
+              <a class="dropdown-item" href="./warcardgame/index.html">War</a>
             </div>
           </li>
         </ul>
@@ -75,6 +74,11 @@
       <div id="row" class="row mt-4">
         <div class="col-4">
           <div class="card light-mode">
+            <img
+              src="./assets/war-icon.png"
+              class="card-img-top img-fluid"
+              alt="..."
+            />
             <div class="card-body">
               <h5 class="card-title">War Game</h5>
               <p class="card-text">
@@ -87,6 +91,11 @@
         </div>
         <div class="col-4">
           <div class="card light-mode">
+            <img
+              src="./assets/memory-icon.png"
+              class="card-img-top"
+              alt="..."
+            />
             <div class="card-body">
               <h5 class="card-title">Memory Game</h5>
               <p class="card-text">
@@ -99,6 +108,11 @@
         </div>
         <div class="col-4">
           <div class="card light-mode">
+            <img
+              src="./assets/trivia-icon.jpg"
+              class="card-img-top"
+              alt="..."
+            />
             <div class="card-body">
               <h5 class="card-title">Trivia Game</h5>
               <p class="card-text">
@@ -113,6 +127,11 @@
       <div id="row" class="row mt-5">
         <div class="col-4">
           <div class="card light-mode">
+            <img
+              src="./assets/snake-icon.png"
+              class="card-img-top img-fluid"
+              alt="..."
+            />
             <div class="card-body">
               <h5 class="card-title">Snake Game</h5>
               <p class="card-text">
@@ -125,6 +144,11 @@
         </div>
         <div class="col-4">
           <div class="card light-mode">
+            <img
+              src="./assets/reaction-icon.png"
+              class="card-img-top img-fluid"
+              alt="..."
+            />
             <div class="card-body">
               <h5 class="card-title">Reaction Time Game</h5>
               <p class="card-text">
@@ -137,6 +161,11 @@
         </div>
         <div class="col-4">
           <div class="card light-mode">
+            <img
+              src="./assets/tic-icon.png"
+              class="card-img-top img-fluid"
+              alt="..."
+            />
             <div class="card-body">
               <h5 class="card-title">Tic Tac Toe Game</h5>
               <p class="card-text">
@@ -154,15 +183,14 @@
       <div class="card-body">
         <blockquote class="blockquote mb-0">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-            posuere erat a ante.
+            Jokes go here
           </p>
         </blockquote>
       </div>
     </div>
     <script
-      src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js"
-      integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o="
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
       crossorigin="anonymous"
     ></script>
     <script
@@ -173,11 +201,6 @@
     <script
       src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
       integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
       crossorigin="anonymous"
     ></script>
     <script
