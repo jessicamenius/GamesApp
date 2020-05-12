@@ -13,17 +13,6 @@ body {
   display: none;
 }
 
-#selector .instructions {
-  text-align: center;
-  width: 100%;
-  font-size: 1.3em;
-  padding-top: 1em;
-  -webkit-transition: 0.3s ease-in-out;
-  -moz-transition: 0.3s ease-in-out;
-  -o-transition: 0.3s ease-in-out;
-  transition: 0.3s ease-in-out;
-}
-
 #selector .level {
   text-align: center;
   position: absolute;
@@ -140,10 +129,6 @@ table tr td {
     text-align: right;
     margin-left: -0.5em;
     margin-top: 100px;
-  }
-
-  svg {
-    padding: 1.2em 0.5em;
   }
 }
 
