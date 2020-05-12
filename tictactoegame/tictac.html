@@ -1,30 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+    <meta charset="UFT-8" />
+    <title>Tic Tac Toe</title>
 
-    <!-- Bootstrap CSS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
       rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="snake.css" />
-
-    <title>Snake Game</title>
+    <link
+      href="http://fonts.googleapis.com/css?family=Raleway:400,700"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
   </head>
-  <div id="header">
-  
-  </div>
-  <body id="body">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light light-mode">
-      <a class="navbar-brand" href="#">Games App</a>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light light-mode">
+      <a class="navbar-brand" href="./index.html">Games App</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -40,12 +35,12 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#"
+            <a class="nav-link" href="./index.html"
               >Home <span class="sr-only">(current)</span></a
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Highscores</a>
+            <a class="nav-link" href="./highscores.html">Highscores</a>
           </li>
           <li class="nav-item dropdown">
             <a
@@ -80,32 +75,30 @@
         <div id="toggleDisplay" class="toggle toggleFalse"></div>
       </div>
     </nav>
-    <div id="header"><h1>Snake Game</h1></div>
+
     <div class="container">
-      <br />
-      <canvas id="canvas" width="600" height="400"></canvas>
-      <br />
-      <span>Score: <b id="score"></b> 0 </b></span>
-      <br /><button id="submitBtn">Start Game</button>
+      <h2>Tic Tac Toe</h2>
+      <p>
+        Play an <span class="red">X</span> and the computer plays an
+        <span class="blue">O</span><br />
+      </p>
+
+      <div class="button" id="reset-button">Reset</div>
     </div>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
-    <script src="snake.js" ?></script>
+    <div class="tic-tac-toe">
+      <div id="square1" class="tile free"></div>
+      <div id="square2" class="tile free"></div>
+      <div id="square3" class="tile free"></div>
+      <div id="square4" class="tile free"></div>
+      <div id="square5" class="tile free"></div>
+      <div id="square6" class="tile free"></div>
+      <div id="square7" class="tile free"></div>
+      <div id="square8" class="tile free"></div>
+      <div id="square9" class="tile free"></div>
+    </div>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="./app.js"></script>
   </body>
 </html>

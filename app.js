@@ -24,7 +24,7 @@ $(document).ready(function () {
     } else {
       $(".navbar").attr(
         "class",
-        "navbar navbar-expand-lg navbar-light bg-light light-mode"
+        "navbar navbar-expand-lg navbar-light light-mode"
       );
       $(".card").attr("class", "card light-mode");
     }

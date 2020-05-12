@@ -1,7 +1,7 @@
 .toggler {
   height: 30px;
   width: 60px;
-  background-color: gray;
+  background-color: #17e9e0;
   border-radius: 25px;
   margin-right: 20px;
 }
@@ -25,4 +25,12 @@
 .light-mode {
   background-color: white;
   color: black;
+}
+
+.navbar {
+  background-color: #a64ac9;
+}
+
+#footer {
+  background-color: #a64ac9;
 }
