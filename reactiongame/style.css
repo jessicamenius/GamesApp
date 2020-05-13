@@ -14,8 +14,20 @@ body {
 }
 
 .levelText {
-  color: #17e9e0;
   font-size: 2rem;
+  cursor: pointer;
+}
+
+.easyL {
+  color: #fccd04;
+}
+
+.mediumL {
+  color: #ffb48f;
+}
+
+.hardL {
+  color: #17e9e0;
 }
 
 .hidden {
@@ -76,7 +88,7 @@ body {
 }
 
 .cellselect {
-  background-color: #a64ac9;
+  background-color: #ffb48f;
 }
 
 table {

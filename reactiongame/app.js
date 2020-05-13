@@ -150,6 +150,7 @@ function endGame() {
   $("#gameover .score").text(score);
   $("#gameover .average").text(getAverage() + " seconds");
   $("#gameover").show();
+  fastReaction();
 }
 
 function getAverage() {
@@ -181,9 +182,13 @@ function restart() {
 function fastReaction() {
   $.ajax({
     type: "GET",
-    url: `http://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=fastr&limit=1`,
+    url: `http://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=tooslow&limit=1`,
     dataType: "JSON",
   }).then(function (res) {
     console.log(res);
+    var gif = res.data[0].images.original.url;
+    $("#gameover").prepend(
+      `<img class="gif"  data-gif=${gif} src=${gif}></img>`
+    );
   });
 }
