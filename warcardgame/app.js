@@ -1,58 +1,74 @@
 $(document).ready(function () {
   var cardDeck = [
-    "14C.jpg",
-    "2C.jpg",
-    "3C.jpg",
-    "4C.jpg",
-    "5C.jpg",
-    "6C.jpg",
-    "7C.jpg",
     "8C.jpg",
     "9C.jpg",
     "10C.jpg",
-    "11C.jpg",
-    "12C.jpg",
     "13C.jpg",
     "14D.jpg",
     "2D.jpg",
     "3D.jpg",
-    "4D.jpg",
-    "5D.jpg",
-    "6D.jpg",
-    "7D.jpg",
-    "8D.jpg",
-    "9D.jpg",
     "10D.jpg",
-    "11D.jpg",
-    "12D.jpg",
-    "13D.jpg",
-    "14H.jpg",
-    "2H.jpg",
-    "3H.jpg",
-    "4H.jpg",
-    "5H.jpg",
-    "6H.jpg",
-    "7H.jpg",
     "8H.jpg",
     "9H.jpg",
     "10H.jpg",
     "11H.jpg",
-    "12H.jpg",
-    "13H.jpg",
-    "14S.jpg",
     "2S.jpg",
     "3S.jpg",
-    "4S.jpg",
-    "5S.jpg",
-    "6S.jpg",
-    "7S.jpg",
-    "8S.jpg",
-    "9S.jpg",
-    "10S.jpg",
-    "11S.jpg",
-    "12S.jpg",
-    "13S.jpg",
   ];
+  // var cardDeck = [
+  //   "14C.jpg",
+  //   "2C.jpg",
+  //   "3C.jpg",
+  //   "4C.jpg",
+  //   "5C.jpg",
+  //   "6C.jpg",
+  //   "7C.jpg",
+  //   "8C.jpg",
+  //   "9C.jpg",
+  //   "10C.jpg",
+  //   "11C.jpg",
+  //   "12C.jpg",
+  //   "13C.jpg",
+  //   "14D.jpg",
+  //   "2D.jpg",
+  //   "3D.jpg",
+  //   "4D.jpg",
+  //   "5D.jpg",
+  //   "6D.jpg",
+  //   "7D.jpg",
+  //   "8D.jpg",
+  //   "9D.jpg",
+  //   "10D.jpg",
+  //   "11D.jpg",
+  //   "12D.jpg",
+  //   "13D.jpg",
+  //   "14H.jpg",
+  //   "2H.jpg",
+  //   "3H.jpg",
+  //   "4H.jpg",
+  //   "5H.jpg",
+  //   "6H.jpg",
+  //   "7H.jpg",
+  //   "8H.jpg",
+  //   "9H.jpg",
+  //   "10H.jpg",
+  //   "11H.jpg",
+  //   "12H.jpg",
+  //   "13H.jpg",
+  //   "14S.jpg",
+  //   "2S.jpg",
+  //   "3S.jpg",
+  //   "4S.jpg",
+  //   "5S.jpg",
+  //   "6S.jpg",
+  //   "7S.jpg",
+  //   "8S.jpg",
+  //   "9S.jpg",
+  //   "10S.jpg",
+  //   "11S.jpg",
+  //   "12S.jpg",
+  //   "13S.jpg",
+  // ];
   var randNum = 0;
   var userDeck = [];
   var userSideDeck = [];
@@ -100,16 +116,16 @@ $(document).ready(function () {
 
   function startGame() {
     shuffleCards(cardDeck);
-    compDeck = cardDeck.splice(26);
-    userDeck = cardDeck.splice(0, 26);
+    compDeck = cardDeck.splice(7);
+    userDeck = cardDeck.splice(0, 7);
     for (var i = 0; i < 6; i++) {
       $("#canvas").append(`<div class="col-md-2" id="col${i + 1}"></div>`);
     }
     $("#col2").html(
-      `<div><img src="./assets/0.jpg" class="choice img-fluid rounded" id="compDeck"/></div><div><img class="img-fluid rounded" id="compWon"/></div>`
+      `<div><img src="./assets/00.png" class="choice img-fluid rounded" id="compDeck"/></div><div><img class="img-fluid rounded" id="compWon"/></div>`
     );
     $("#col5").html(
-      `<div><img src="./assets/0.jpg" class="choice img-fluid rounded" id="userDeck"/></div><div><img class="img-fluid rounded" id="userWon"/></div>`
+      `<div><img src="./assets/00.png" class="choice img-fluid rounded" id="userDeck"/></div><div><img class="img-fluid rounded" id="userWon"/></div>`
     );
     $("#col3").html(
       `<img src="" class="choice img-fluid rounded" id="compPlaySide"/>`
@@ -135,6 +151,7 @@ $(document).ready(function () {
           console.log(userDeck);
           console.log(compSideDeck);
           console.log(userSideDeck);
+          endGame();
         }, 2000);
       }
       if (parseInt(compDeck[0]) < parseInt(userDeck[0])) {
@@ -151,6 +168,7 @@ $(document).ready(function () {
           console.log(userDeck);
           console.log(compSideDeck);
           console.log(userSideDeck);
+          endGame();
         }, 2000);
       }
       if (parseInt(compDeck[0]) === parseInt(userDeck[0])) {
@@ -158,6 +176,7 @@ $(document).ready(function () {
         warCard = 0;
         $("#alert").text("It's a War. Play 4 Cards");
         $("#alert").attr("class", `alert alert-danger`);
+        endGame();
       }
     }
     if (war && warCard === 5) {
@@ -178,6 +197,7 @@ $(document).ready(function () {
           war = false;
           warCard = 0;
           console.log(war);
+          endGame();
         }, 2000);
       }
       if (parseInt(compDeck[3]) < parseInt(userDeck[3])) {
@@ -197,38 +217,30 @@ $(document).ready(function () {
           war = false;
           warCard = 0;
           console.log(war);
+          endGame();
         }, 2000);
       }
       if (parseInt(compDeck[3]) === parseInt(userDeck[3])) {
         war = true;
+        warCard = 0;
         $("#alert").text("!!!!!!!!WAR ON WAR!!!!!!!!!");
         $("#alert").attr("class", `alert alert-danger`);
+        endGame();
       }
     }
   }
 
-  // $(document).on("click", "#userDeck", function () {
-  //   if (war === true) {
-  //     window.setTimeout(function () {
-  //       warCard++;
-  //     }, 100);
-  //     window.setTimeout(function () {
-  //       $("#compPlaySide").attr("src", "./assets/0.jpg");
-  //     }, 1000);
-  //     $("#userPlaySide").attr("src", "./assets/0.jpg");
-  //     $("#alert").text(`It's a War. Play ${3 - warCard} more Cards`);
-  //     if (warCard > 3) {
-  //       window.setTimeout(function () {
-  //         $("#compPlaySide").attr("src", `./assets/${compDeck[3]}`);
-  //       }, 1000);
-  //       $("#userPlaySide").attr("src", `./assets/${userDeck[3]}`);
-  //       warCard = 0;
-  //       checkWhoWon();
-  //     }
-  //   }
-  // });
+  function endGame() {
+    if (userDeck === [] && userSideDeck === []) {
+      console.log("You lose the game");
+    }
 
-  $(document).on("click", "#userDeck", function () {
+    if (compDeck === [] && compSideDeck === []) {
+      console.log("You win the game");
+    }
+  }
+
+  function checkLastCard() {
     if (compDeck.length === 1) {
       window.setTimeout(function () {
         $("#compDeck").attr("src", "./assets/Misc/Blank_back.png");
@@ -241,20 +253,30 @@ $(document).ready(function () {
       compDeck.push(compSideDeck);
       compSideDeck = [];
       compDeck = compDeck.flat();
-      $("#compDeck").attr("src", `./assets/0.jpg`);
+      $("#compDeck").attr("src", `./assets/00.png`);
       $("#compWon").attr("src", ``);
     }
+    if (userDeck.length === 1) {
+      $("#userDeck").attr("src", "./assets/Misc/Blank_back.png");
+      userDeck.push(userSideDeck);
+      userSideDeck = [];
+      userDeck = userDeck.flat();
+    }
+  }
+
+  $(document).on("click", "#userDeck", function () {
     if ($("#userDeck").attr("src") === "./assets/Misc/Blank_back.png") {
       userDeck.push(userSideDeck);
       userSideDeck = [];
       userDeck = userDeck.flat();
-      $("#userDeck").attr("src", `./assets/0.jpg`);
+      $("#userDeck").attr("src", `./assets/00.png`);
       $("#userWon").attr("src", ``);
     } else {
       if (war) {
+        checkLastCard();
         if (warCard < 3) {
-          $("#compPlaySide").attr("src", "./assets/0.jpg");
-          $("#userPlaySide").attr("src", "./assets/0.jpg");
+          $("#compPlaySide").attr("src", "./assets/00.png");
+          $("#userPlaySide").attr("src", "./assets/00.png");
           warCard++;
           $("#alert").text(`It's a War. Play ${4 - warCard} more Cards`);
         } else {
@@ -262,60 +284,18 @@ $(document).ready(function () {
           $("#userPlaySide").attr("src", `./assets/${userDeck[3]}`);
           warCard = 5;
           checkWhoWon();
+          endGame();
         }
       }
       if (!war) {
-        if (userDeck.length === 1) {
-          $("#userDeck").attr("src", "./assets/Misc/Blank_back.png");
-          userDeck.push(userSideDeck);
-          userSideDeck = [];
-          userDeck = userDeck.flat();
-        }
+        checkLastCard();
         $("#compPlaySide").attr("src", `./assets/${compDeck[0]}`);
         $("#userPlaySide").attr("src", `./assets/${userDeck[0]}`);
         checkWhoWon();
+        endGame();
       }
     }
   });
-
-  // $(document).on("click", "#userDeck", function () {
-  //   if ($("#compDeck").attr("src") === "./assets/Misc/Blank_back.png") {
-  //     compDeck.push(compSideDeck);
-  //     compSideDeck = [];
-  //     compDeck = compDeck.flat();
-  //     $("#compDeck").attr("src", `./assets/0.jpg`);
-  //     $("#compWon").attr("src", ``);
-  //   }
-  //   if ($("#userDeck").attr("src") === "./assets/Misc/Blank_back.png") {
-  //     userDeck.push(userSideDeck);
-  //     userSideDeck = [];
-  //     userDeck = userDeck.flat();
-  //     $("#userDeck").attr("src", `./assets/0.jpg`);
-  //     $("#userWon").attr("src", ``);
-  //   } else {
-  //     if (war === false) {
-  //       window.setTimeout(function () {
-  //         $("#compPlaySide").attr("src", `./assets/${compDeck[0]}`);
-  //       }, 1000);
-  //       $("#userPlaySide").attr("src", `./assets/${userDeck[0]}`);
-  //       checkWhoWon();
-  //     }
-  //     if (compDeck.length === 1) {
-  //       window.setTimeout(function () {
-  //         $("#compDeck").attr("src", "./assets/Misc/Blank_back.png");
-  //       }, 1000);
-  //       compDeck.push(compSideDeck);
-  //       compSideDeck = [];
-  //       compDeck = compDeck.flat();
-  //     }
-  //     if (userDeck.length === 1) {
-  //       $("#userDeck").attr("src", "./assets/Misc/Blank_back.png");
-  //       userDeck.push(userSideDeck);
-  //       userSideDeck = [];
-  //       userDeck = userDeck.flat();
-  //     }
-  //   }
-  // });
 
   $("#startGame").on("click", function () {
     startGame();
