@@ -1,3 +1,4 @@
+//sizes for each level
 var defaults = {
   easy: {
     gridSize: 3,
@@ -25,6 +26,7 @@ var lastRandomCell = 0;
 var apiKey = "ne5Joz1LAIF9FLe8LEIb6bMrrVfVxST7";
 var reactionTimes = [];
 
+//toggle between light and dark mode
 var toggleBtn = document.querySelector("#toggleBtn");
 var toggleDisplay = document.querySelector("#toggleDisplay");
 var toggleStatus;
@@ -66,6 +68,11 @@ $(document).ready(function () {
       endGame();
     }
   });
+
+  $("#restart").on("click", function (e) {
+    e.preventDefault();
+    restart();
+  });
 });
 
 function prepare(level) {
@@ -91,7 +98,7 @@ function prepare(level) {
 }
 
 function countdown() {
-  var timer = 3;
+  var timer = 5;
   $(".level").hide();
   $(".countdown").show();
   $(".countdown").text(timer);
@@ -152,7 +159,7 @@ function endGame() {
   $("#gameover").show();
   fastReaction();
 }
-
+//gets average reaction time
 function getAverage() {
   var count = 0;
   $.each(reactionTimes, function (index, value) {
@@ -163,7 +170,7 @@ function getAverage() {
     return (count / reactionTimes.length / 1000).toFixed(2);
   else return 0;
 }
-
+// restarts the game
 function restart() {
   intensity = null;
   correct = false;
@@ -178,17 +185,15 @@ function restart() {
   $(".countdown").hide();
   $("#selector").show();
 }
-
+//function to show giphy at the end of game
 function fastReaction() {
   $.ajax({
     type: "GET",
-    url: `http://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=tooslow&limit=1`,
+    url: `http://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=slow&limit=1`,
     dataType: "JSON",
   }).then(function (res) {
     console.log(res);
     var gif = res.data[0].images.original.url;
-    $("#gameover").prepend(
-      `<img class="gif"  data-gif=${gif} src=${gif}></img>`
-    );
+    $("#giphy").html(`<img class="gif"  data-gif=${gif} src=${gif}></img>`);
   });
 }
