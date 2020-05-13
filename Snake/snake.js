@@ -1,6 +1,8 @@
 var toggleBtn = document.querySelector("#toggleBtn");
 var toggleDisplay = document.querySelector("#toggleDisplay");
 var toggleStatus;
+var apiKey = "fZd83cUM8MNVbIKeK8MuxdZLC4oIMih2";
+
 toggleBtn.addEventListener("click", function () {
   toggleStatus = toggleDisplay.getAttribute("class");
   if (toggleStatus === "toggle toggleFalse") {
@@ -13,7 +15,6 @@ toggleBtn.addEventListener("click", function () {
 });
 
 $(document).ready(function () {
-  console.log("hello");
   $("#toggleBtn").on("click", function () {
     if (toggleStatus === "toggle toggleFalse") {
       $(".navbar").attr(
@@ -76,6 +77,8 @@ $(function () {
   const RIGHT = 39;
   const DOWN = 40;
 
+  var fps = 100;
+
   var keyPressed = DOWN;
 
   var game;
@@ -84,13 +87,20 @@ $(function () {
     event.preventDefault();
     startGame();
     function startGame() {
-      game = setInterval(gameLoop, 100);
+      game = setInterval(gameLoop, fps);
     }
   });
 
   function stopGame() {
     clearInterval(game);
-    alert("Game over");
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    $.ajax({
+      type: "GET",
+      url: `http://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=gameover&limit=1`,
+      dataType: "JSON",
+    }).then(function (response) {
+      //  add gif into card
+    });
   }
 
   function gameLoop() {
@@ -125,6 +135,14 @@ $(function () {
   function updateScore() {
     score++;
     $("#score").text(score);
+
+    if (score % 5 == 0) {
+      updateSpeed();
+    }
+  }
+
+  function updateSpeed() {
+    fps += 10;
   }
 
   function updateFoodEatenFlag() {
