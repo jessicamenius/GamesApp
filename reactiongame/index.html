@@ -13,7 +13,7 @@
     <title>ReactionTime</title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg light-mode">
+    <nav id = "nav" class="navbar navbar-expand-lg light-mode">
       <a class="navbar-brand" href="./index.html">Games App</a>
       <button
         class="navbar-toggler"
@@ -57,7 +57,7 @@
                 >Reaction</a
               >
               <a class="dropdown-item" href="./Snake/snake.html">Snake</a>
-              <a class="dropdown-item" href="#">Tic Tac Toe</a>
+              <a class="dropdown-item" href="../tictactoegame/tictac.html">Tic Tac Toe</a>
               <a class="dropdown-item" href="./triviaGame/trivia.html"
                 >Trivia</a
               >
@@ -78,29 +78,10 @@
       </div>
 
       <div class="level">
-          <span
-          class="levelicon"
-          style="background-color: #F5E6CC;"
-          onclick="prepare('easy')"
-          onmouseover="highlight(1)"
-          onmouseout="unhighlight()"
-        ></span>
-        <span
-          class="levelicon"
-          style="background-color: #F5E6CC;"
-          onclick="prepare('medium')"
-          onmouseover="highlight(2)"
-          onmouseout="unhighlight()"
-        ></span>
-        <span
-          class="levelicon"
-          style="background-color: #F5E6CC;"
-          onclick="prepare('hard')"
-          onmouseover="highlight(3)"
-          onmouseout="unhighlight()"
-        ></span>
+          <div class="levelText" onclick="prepare('easy')">Easy</div>
+        <div class="levelText" onclick="prepare('medium')">Medium</div>
+        <div class="levelText" onclick="prepare('hard')">Hard</div>
       </div>
-
       <div class="countdown"></div>
     </div>
   </div>
@@ -192,8 +173,6 @@
       <span class="average gameovervalue"></span>
       <span class="gameovertext">Score</span>
       <span class="score gameovervalue"></span>
-      <span class="gameovertext">High Score</span>
-      <span class="highscore gameovervalue"></span>
       <a href="javascript:void(0)" class="gameovertext" onclick="restart()"
         >Restart</a
       >

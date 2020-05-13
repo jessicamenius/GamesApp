@@ -17,12 +17,12 @@ var intensity;
 var time;
 
 var score = 0;
-var highscore = 0;
 var gameTimeout = 0;
 var timeout = 0;
 var correct = false;
 var lastRandomRow = 0;
 var lastRandomCell = 0;
+var apiKey = "ne5Joz1LAIF9FLe8LEIb6bMrrVfVxST7";
 var reactionTimes = [];
 
 var toggleBtn = document.querySelector("#toggleBtn");
@@ -90,32 +90,6 @@ function prepare(level) {
   }
 }
 
-function highlight(count) {
-  unhighlight();
-  $(".levelicon").each(function (index) {
-    var itemCount = index + 1;
-    var backgroundColour = getBackgroundColour(count);
-    if (itemCount <= count) $(this).css("background-color", backgroundColour);
-  });
-}
-
-function unhighlight() {
-  $(".levelicon").each(function () {
-    $(this).css("background-color", "#555555");
-  });
-}
-
-function getBackgroundColour(count) {
-  switch (count) {
-    case 1:
-      return "#FFB48F";
-    case 2:
-      return "#17E9E0";
-    case 3:
-      return "#A64AC9";
-  }
-}
-
 function countdown() {
   var timer = 3;
   $(".level").hide();
@@ -171,14 +145,10 @@ function clearCells() {
 }
 
 function endGame() {
-  if (score > highscore) {
-    highscore = score;
-  }
   $("#" + intensity).addClass("hidden");
   $("#" + intensity).removeClass("selected");
   $("#gameover .score").text(score);
   $("#gameover .average").text(getAverage() + " seconds");
-  $("#gameover .highscore").text(highscore);
   $("#gameover").show();
 }
 
@@ -206,4 +176,14 @@ function restart() {
   $(".level").show();
   $(".countdown").hide();
   $("#selector").show();
+}
+
+function fastReaction() {
+  $.ajax({
+    type: "GET",
+    url: `http://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=fastr&limit=1`,
+    dataType: "JSON",
+  }).then(function (res) {
+    console.log(res);
+  });
 }
