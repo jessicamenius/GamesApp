@@ -9,6 +9,27 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
+#nav a {
+  color: white;
+}
+
+.levelText {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.easyL {
+  color: #fccd04;
+}
+
+.mediumL {
+  color: #ffb48f;
+}
+
+.hardL {
+  color: #17e9e0;
+}
+
 .hidden {
   display: none;
 }
@@ -67,7 +88,7 @@ body {
 }
 
 .cellselect {
-  background-color: #a64ac9;
+  background-color: #ffb48f;
 }
 
 table {
@@ -107,7 +128,7 @@ table tr td {
 }
 
 #gameover a {
-  color: green;
+  color: #a64ac9;
 }
 
 @media screen and (max-height: 270px) {
@@ -130,13 +151,6 @@ table tr td {
     margin-left: -0.5em;
     margin-top: 100px;
   }
-}
-
-#nav {
-  height: 80px;
-  background-color: #fccd04;
-  display: flex;
-  justify-content: center;
 }
 
 .toggler {
