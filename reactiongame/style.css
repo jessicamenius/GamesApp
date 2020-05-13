@@ -89,19 +89,21 @@ table tr td {
   display: none;
   margin: 0 auto;
   text-align: center;
-  padding-top: 2em;
+  padding-top: 10px;
 }
 
 #gameover .gameovervalue {
   display: block;
-  font-size: 1.5em;
+  font-size: 1.3em;
   margin-bottom: 1em;
+  color: #ffb48f;
 }
 
 #gameover .gameovertext {
   display: block;
-  font-size: 1.5em;
+  font-size: 1.3em;
   font-weight: bold;
+  color: #fccd04;
 }
 
 #gameover a {
