@@ -11,7 +11,7 @@ body {
 }
 
 .levelText {
-  font-size: 2rem;
+  font-size: 3rem;
   cursor: pointer;
 }
 
@@ -31,32 +31,26 @@ body {
   display: none;
 }
 
+#selector  {
+flex-direction: column;
+}
+
 #selector .level {
   text-align: center;
-  position: absolute;
   width: 100%;
   top: 50%;
-  margin-top: -1em;
 }
 
 #selector .countdown {
   text-align: center;
   display: none;
-  font-size: 5em;
+  font-size: 6em;
   position: absolute;
   width: 100%;
   top: 50%;
   margin-top: -1em;
 }
 
-#selector .level .levelicon {
-  width: 5em;
-  height: 5em;
-  display: inline-block;
-  border-radius: 100%;
-  margin-right: 10%;
-  cursor: grab;
-}
 
 #selector .level .levelicon:last-child {
   margin: 0;
@@ -129,6 +123,7 @@ table tr td {
     text-align: right;
     margin-left: -0.5em;
     margin-top: 100px;
+    font-size: 2rem;
   }
 }
 
@@ -171,6 +166,24 @@ table tr td {
   margin-top: 40px;
 }
 
-#restart {
-  background-color: #ffb48f;
+
+.btn {
+  border: 2px solid black;
+  background-color: white;
+  color: black;
+  padding: 14px 28px;
+  font-size: 18px;
+  cursor: pointer;
 }
+
+
+
+/* Orange */
+.warning {
+  border-color: #ffb48f;
+  color: orange;
+}
+
+.warning:hover {
+  background: #ffb48f;
+  color: white;

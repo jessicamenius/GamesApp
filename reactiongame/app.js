@@ -95,7 +95,7 @@ function prepare(level) {
 }
 
 function countdown() {
-  var timer = 5;
+  var timer = 3;
   $(".level").hide();
   $(".countdown").show();
   $(".countdown").text(timer);
@@ -158,7 +158,7 @@ function endGame() {
   fastReaction();
   setTimeout(function () {
     window.location.href = "./../highscores/highscores.html";
-  }, 3000);
+  }, 5000);
 }
 //gets average reaction time
 function getAverage() {

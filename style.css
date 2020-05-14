@@ -59,17 +59,35 @@
   color: #17e9e0;
 }
 
-.btn-custom {
-  background-color: #ffb48f;
+.card {
+  border: solid #17e9e0 4px;
 }
 
-.card {
-  border: solid #17e9e0 3px;
+.card:hover {
+  border: solid #17e9e0 8px;
 }
 
 .btn {
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
-    0px;
   color: hsl(0, 0%, 100%);
   text-align: center;
+  background-color: #ffb48f;
+}
+
+.btn {
+  border: 2px solid black;
+  background-color: white;
+  color: black;
+  padding: 14px 28px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.warning {
+  border-color: #ffb48f;
+  color: black;
+}
+
+.warning:hover {
+  background: #ffb48f;
+  color: white;
 }
