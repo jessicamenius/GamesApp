@@ -156,10 +156,14 @@ function endGame() {
   $("#gameover .average").text(getAverage() + " seconds");
   $("#gameover").show();
   fastReaction();
+}
+
+function highScores() {
   setTimeout(function () {
     window.location.href = "./../highscores/highscores.html";
   }, 5000);
 }
+
 //gets average reaction time
 function getAverage() {
   var count = 0;
@@ -190,7 +194,7 @@ function restart() {
 function fastReaction() {
   $.ajax({
     type: "GET",
-    url: `http://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=slow&limit=1`,
+    url: `http://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=slow&limit=5`,
     dataType: "JSON",
   }).then(function (res) {
     console.log(res);

@@ -31,26 +31,32 @@ body {
   display: none;
 }
 
-#selector  {
-flex-direction: column;
-}
-
 #selector .level {
   text-align: center;
-  width: 100%;
-  top: 50%;
-}
-
-#selector .countdown {
-  text-align: center;
-  display: none;
-  font-size: 6em;
   position: absolute;
   width: 100%;
   top: 50%;
   margin-top: -1em;
 }
 
+#selector .countdown {
+  text-align: center;
+  display: none;
+  font-size: 5em;
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  margin-top: -1em;
+}
+
+#selector .level .levelicon {
+  width: 5em;
+  height: 5em;
+  display: inline-block;
+  border-radius: 100%;
+  margin-right: 10%;
+  cursor: grab;
+}
 
 #selector .level .levelicon:last-child {
   margin: 0;
