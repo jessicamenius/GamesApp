@@ -52,11 +52,11 @@
 }
 
 .navbar {
-  background-color: #a641c9;
+  background-color: #a64ac9;
 }
 
 #footer {
-  background-color: #a641c9;
+  background-color: #a64ac9;
 }
 
 .theme1 {
@@ -77,4 +77,12 @@
 
 .theme5 {
   color: #17e9e0;
+}
+
+.btn-custom {
+  background-color: #ffb48f;
+}
+
+.card {
+  border-color: #fccd04;
 }
