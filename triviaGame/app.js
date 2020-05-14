@@ -76,8 +76,8 @@ $(document).ready(function () {
 
     function displayQuestion() {
       document.getElementById("question").innerHTML =
-        questions[currentQuestion].title;
-      for (var i = 0; i < questions[currentQuestion].choices.length; i += 1) {
+        question[currentQuestion].title;
+      for (var i = 0; i < question[currentQuestion].choices.length; i += 1) {
         var button = document.createElement("button");
         button.type = "button";
         button.value = i;
@@ -99,10 +99,6 @@ $(document).ready(function () {
           // move onto next question
           document.getElementById("answers").innerHTML = "";
         });
-        });
-  });
-});
-});
-});
-});
+        };
+  };
 });
