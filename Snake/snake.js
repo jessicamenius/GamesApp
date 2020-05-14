@@ -1,6 +1,9 @@
 var apiKey = "fZd83cUM8MNVbIKeK8MuxdZLC4oIMih2";
 
 $(document).ready(function () {
+  var playgame = "snakeGame";
+  window.localStorage.setItem("playgame", playgame);
+
   $("#toggleBtn").on("click", function () {
     if ($("#toggleDisplay").attr("class") === "toggle toggleFalse") {
       $(".navbar").attr(
@@ -11,7 +14,10 @@ $(document).ready(function () {
       $("#toggleDisplay").attr("class", "toggle toggleTrue");
       $(".card").attr("class", "card dark-mode border-white");
     } else {
-      $(".navbar").attr("class", "navbar navbar-expand-lg light-mode");
+      $(".navbar").attr(
+        "class",
+        "navbar navbar-expand-lg navbar-light light-mode"
+      );
       $(".card").attr("class", "card light-mode");
       $("body").attr("class", "light-mode");
       $("#toggleDisplay").attr("class", "toggle toggleFalse");
@@ -81,6 +87,9 @@ $(function () {
   function stopGame() {
     clearInterval(game);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    setTimeout(function () {
+      window.location.href = "./../highscores/highscores.html";
+    }, 3000);
     $.ajax({
       type: "GET",
       url: `http://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=gameover&limit=1`,
@@ -123,7 +132,7 @@ $(function () {
   function updateScore() {
     score++;
     $("#score").text(score);
-
+    window.localStorage.setItem("score", score);
     if (score % 5 == 0) {
       updateSpeed();
     }

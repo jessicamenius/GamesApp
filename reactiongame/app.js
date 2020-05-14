@@ -14,6 +14,9 @@ var defaults = {
   },
 };
 
+var playgame = "Reaction Game";
+window.localStorage.setItem("playgame", playgame);
+
 var intensity;
 var time;
 
@@ -155,9 +158,13 @@ function endGame() {
   $("#" + intensity).addClass("hidden");
   $("#" + intensity).removeClass("selected");
   $("#gameover .score").text(score);
+  window.localStorage.setItem("score", score);
   $("#gameover .average").text(getAverage() + " seconds");
   $("#gameover").show();
   fastReaction();
+  setTimeout(function () {
+    window.location.href = "./../highscores/highscores.html";
+  }, 3000);
 }
 //gets average reaction time
 function getAverage() {
