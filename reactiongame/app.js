@@ -1,3 +1,4 @@
+//sizes for each level
 var defaults = {
   easy: {
     gridSize: 3,
@@ -13,18 +14,22 @@ var defaults = {
   },
 };
 
+var playgame = "Reaction Game";
+window.localStorage.setItem("playgame", playgame);
+
 var intensity;
 var time;
 
 var score = 0;
-var highscore = 0;
 var gameTimeout = 0;
 var timeout = 0;
 var correct = false;
 var lastRandomRow = 0;
 var lastRandomCell = 0;
+var apiKey = "ne5Joz1LAIF9FLe8LEIb6bMrrVfVxST7";
 var reactionTimes = [];
 
+//toggle between light and dark mode
 var toggleBtn = document.querySelector("#toggleBtn");
 var toggleDisplay = document.querySelector("#toggleDisplay");
 var toggleStatus;
@@ -50,10 +55,7 @@ $(document).ready(function () {
       );
       $(".card").attr("class", "card dark-mode border-white");
     } else {
-      $(".navbar").attr(
-        "class",
-        "navbar navbar-expand-lg navbar-light bg-light light-mode"
-      );
+      $(".navbar").attr("class", "navbar navbar-expand-lg  light-mode");
       $(".card").attr("class", "card light-mode");
     }
   });
@@ -68,6 +70,11 @@ $(document).ready(function () {
     } else {
       endGame();
     }
+  });
+
+  $("#restart").on("click", function (e) {
+    e.preventDefault();
+    restart();
   });
 });
 
@@ -93,34 +100,8 @@ function prepare(level) {
   }
 }
 
-function highlight(count) {
-  unhighlight();
-  $(".levelicon").each(function (index) {
-    var itemCount = index + 1;
-    var backgroundColour = getBackgroundColour(count);
-    if (itemCount <= count) $(this).css("background-color", backgroundColour);
-  });
-}
-
-function unhighlight() {
-  $(".levelicon").each(function () {
-    $(this).css("background-color", "#555555");
-  });
-}
-
-function getBackgroundColour(count) {
-  switch (count) {
-    case 1:
-      return "#FFB48F";
-    case 2:
-      return "#17E9E0";
-    case 3:
-      return "#A64AC9";
-  }
-}
-
 function countdown() {
-  var timer = 3;
+  var timer = 5;
   $(".level").hide();
   $(".countdown").show();
   $(".countdown").text(timer);
@@ -174,17 +155,18 @@ function clearCells() {
 }
 
 function endGame() {
-  if (score > highscore) {
-    highscore = score;
-  }
   $("#" + intensity).addClass("hidden");
   $("#" + intensity).removeClass("selected");
   $("#gameover .score").text(score);
+  window.localStorage.setItem("score", score);
   $("#gameover .average").text(getAverage() + " seconds");
-  $("#gameover .highscore").text(highscore);
   $("#gameover").show();
+  fastReaction();
+  setTimeout(function () {
+    window.location.href = "./../highscores/highscores.html";
+  }, 3000);
 }
-
+//gets average reaction time
 function getAverage() {
   var count = 0;
   $.each(reactionTimes, function (index, value) {
@@ -195,7 +177,7 @@ function getAverage() {
     return (count / reactionTimes.length / 1000).toFixed(2);
   else return 0;
 }
-
+// restarts the game
 function restart() {
   intensity = null;
   correct = false;
@@ -209,4 +191,16 @@ function restart() {
   $(".level").show();
   $(".countdown").hide();
   $("#selector").show();
+}
+//function to show giphy at the end of game
+function fastReaction() {
+  $.ajax({
+    type: "GET",
+    url: `http://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=slow&limit=1`,
+    dataType: "JSON",
+  }).then(function (res) {
+    console.log(res);
+    var gif = res.data[0].images.original.url;
+    $("#giphy").html(`<img class="gif"  data-gif=${gif} src=${gif}></img>`);
+  });
 }

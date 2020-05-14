@@ -1,24 +1,7 @@
-/* #body {
-  background-color: white;
-} */
-.container {
-  text-align: center;
-}
-
-#canvas {
-  background-color: #17e9e0;
-}
-
-#header {
-  text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #ffb48f;
-}
-
 .toggler {
   height: 30px;
   width: 60px;
-  background-color: gray;
+  background-color: #17e9e0;
   border-radius: 25px;
   margin-right: 20px;
 }
@@ -43,6 +26,39 @@
   background-color: white;
   color: black;
 }
+
 .navbar {
   background-color: #a64ac9;
+}
+
+#footer {
+  background-color: #a64ac9;
+}
+
+.theme1 {
+  color: #a641c9;
+}
+
+.theme2 {
+  color: #fccd04;
+}
+
+.theme3 {
+  color: #ffb48f;
+}
+
+.theme4 {
+  color: #f5e6cc;
+}
+
+.theme5 {
+  color: #17e9e0;
+}
+
+.btn-custom {
+  background-color: #ffb48f;
+}
+
+.card {
+  border-color: #fccd04;
 }

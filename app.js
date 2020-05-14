@@ -24,18 +24,28 @@ $(document).ready(function () {
     } else {
       $(".navbar").attr(
         "class",
-        "navbar navbar-expand-lg navbar-light bg-light light-mode"
+        "navbar navbar-expand-lg navbar-light light-mode"
       );
       $(".card").attr("class", "card light-mode");
     }
   });
 
-  $.ajax({
-    type: "GET",
-    url:
-      "https://sv443.net/jokeapi/v2/joke/Any?blacklistFlags=religious,racist,sexist",
-    dataType: "json",
-  }).then(function (res) {
-    console.log(res);
+  newJoke();
+
+  function newJoke() {
+    $.ajax({
+      type: "GET",
+      url: "https://icanhazdadjoke.com/",
+      dataType: "json",
+    }).then(function (res) {
+      console.log(res);
+      var joke = res.joke;
+      $("#joke").html(joke);
+    });
+  }
+
+  $("#joke").on("click", function (e) {
+    e.preventDefault();
+    newJoke();
   });
 });

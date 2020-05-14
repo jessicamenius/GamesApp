@@ -3,10 +3,28 @@ html,
 body {
   margin: 0;
   font-family: "Open Sans", sans-serif;
-  background-color: white;
   height: 100%;
-  color: #020202;
-  -webkit-tap-highlight-color: transparent;
+}
+
+#nav a {
+  color: rgb(7, 7, 7);
+}
+
+.levelText {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.easyL {
+  color: #fccd04;
+}
+
+.mediumL {
+  color: #ffb48f;
+}
+
+.hardL {
+  color: #17e9e0;
 }
 
 .hidden {
@@ -19,10 +37,6 @@ body {
   width: 100%;
   top: 50%;
   margin-top: -1em;
-  -webkit-transition: 0.3s ease-in-out;
-  -moz-transition: 0.3s ease-in-out;
-  -o-transition: 0.3s ease-in-out;
-  transition: 0.3s ease-in-out;
 }
 
 #selector .countdown {
@@ -33,11 +47,6 @@ body {
   width: 100%;
   top: 50%;
   margin-top: -1em;
-  -webkit-transition: 0.3s ease-in-out;
-  -moz-transition: 0.3s ease-in-out;
-  -o-transition: 0.3s ease-in-out;
-  -ms-transition: 0.3s ease-in-out;
-  transition: 0.3s ease-in-out;
 }
 
 #selector .level .levelicon {
@@ -47,11 +56,6 @@ body {
   border-radius: 100%;
   margin-right: 10%;
   cursor: grab;
-  -webkit-transition: 0.2s ease-in-out;
-  -moz-transition: 0.2s ease-in-out;
-  -o-transition: 0.2s ease-in-out;
-  -ms-transition: 0.2s ease-in-out;
-  transition: 0.2s ease-in-out;
 }
 
 #selector .level .levelicon:last-child {
@@ -67,7 +71,7 @@ body {
 }
 
 .cellselect {
-  background-color: #a64ac9;
+  background-color: #ffb48f;
 }
 
 table {
@@ -85,29 +89,25 @@ table tr td {
   display: none;
   margin: 0 auto;
   text-align: center;
-  padding-top: 2em;
-}
-
-#gameover .gameoverheader {
-  display: block;
-  font-size: 2.5em;
-  margin-bottom: 1em;
+  padding-top: 10px;
 }
 
 #gameover .gameovervalue {
   display: block;
-  font-size: 1.5em;
-  margin-bottom: 1em;
+  font-size: 1.3em;
+  margin-bottom: 10px;
+  color: #ffb48f;
 }
 
 #gameover .gameovertext {
   display: block;
-  font-size: 1.5em;
+  font-size: 1.3em;
   font-weight: bold;
+  color: #fccd04;
 }
 
 #gameover a {
-  color: green;
+  color: #a64ac9;
 }
 
 @media screen and (max-height: 270px) {
@@ -132,17 +132,10 @@ table tr td {
   }
 }
 
-#nav {
-  height: 80px;
-  background-color: #fccd04;
-  display: flex;
-  justify-content: center;
-}
-
 .toggler {
   height: 30px;
   width: 60px;
-  background-color: gray;
+  background-color: #17e9e0;
   border-radius: 25px;
   margin-right: 20px;
 }
@@ -166,4 +159,18 @@ table tr td {
 .light-mode {
   background-color: white;
   color: black;
+}
+
+.navbar {
+  background-color: #a64ac9;
+}
+
+.instructions {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+#restart {
+  background-color: #ffb48f;
 }
