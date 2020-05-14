@@ -16,22 +16,22 @@ $(document).ready(function () {
     }
   });
 
-    $("#submitBtn").on("click", function (e) {
-      e.preventDefault();
-      $("#submitBtn").html("");
-    });
+  $("#submitBtn").on("click", function (e) {
+    e.preventDefault();
+    $("#submitBtn").html("");
+  });
 
-    $.ajax({
-      type: "GET",
-      url: `https://opentdb.com/api.php?amount=10&category=9&type=multiple`,
-      dataType: "json",
-    }).then(function (res) {
-      console.log(res);
-      console.log(res.results[0].question);
+  $.ajax({
+    type: "GET",
+    url: `https://opentdb.com/api.php?amount=10&category=9&type=multiple`,
+    dataType: "json",
+  }).then(function (res) {
+    console.log(res);
+    console.log(res.results[0].question);
 
-      for (i = 0; i < 11; i++) {
-        $("#triviaGame").append(
-          `<div class="card-header center">
+    for (i = 0; i < 11; i++) {
+      $("#triviaGame").append(
+        `<div class="card-header center">
         ${res.results[i].question}
       </div>
       <br>
@@ -45,12 +45,10 @@ $(document).ready(function () {
         <li class="list-group-item">Answer 4</li>
         <br>
       </ul>`
-        );
-      }
-    });
+      );
+    }
   });
 });
-
 
 function shuffleAnswers(array) {
   var i = array.length;
