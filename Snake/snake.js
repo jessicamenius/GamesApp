@@ -1,9 +1,9 @@
 var apiKey = "fZd83cUM8MNVbIKeK8MuxdZLC4oIMih2";
-​
+
 $(document).ready(function () {
   var playgame = "snakeGame";
   window.localStorage.setItem("playgame", playgame);
-​
+
   $("#toggleBtn").on("click", function () {
     if ($("#toggleDisplay").attr("class") === "toggle toggleFalse") {
       $(".navbar").attr(
@@ -24,19 +24,19 @@ $(document).ready(function () {
     }
   });
 });
-​
+
 $(function () {
   var canvas = $("#canvas")[0];
   var ctx = canvas.getContext("2d");
-​
+
   var cHeight = canvas.height;
   var cWidth = canvas.width;
   var snakeHeight = 10;
   var snakeWidth = 10;
   var blockSize = 10;
-​
+
   var score = 0;
-​
+
   var snake = [
     {
       x: 200,
@@ -69,13 +69,13 @@ $(function () {
   const UP = 38;
   const RIGHT = 39;
   const DOWN = 40;
-​
+
   var fps = 100;
-​
+
   var keyPressed = DOWN;
-​
+
   var game;
-​
+
   $("#submitBtn").on("click", function (event) {
     event.preventDefault();
     startGame();
@@ -83,7 +83,7 @@ $(function () {
       game = setInterval(gameLoop, fps);
     }
   });
-​
+
   function stopGame() {
     clearInterval(game);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -99,14 +99,14 @@ $(function () {
       // `https://giphy.com/gifs/universalafrica-back-to-you-matthewmole-matthew-mole-eJ4j2VnYOZU8qJU3Py`,
     });
   }
-​
+
   function gameLoop() {
     clearCanvas();
     drawFood();
     moveSnake(keyPressed);
     drawSnake();
   }
-​
+
   function drawSnake() {
     ctx.fillStyle = "#a64ac9";
     ctx.lineWidth = 2;
@@ -128,7 +128,7 @@ $(function () {
       }
     });
   }
-​
+
   function updateScore() {
     score++;
     $("#score").text(score);
@@ -137,22 +137,22 @@ $(function () {
       updateSpeed();
     }
   }
-​
+
   function updateSpeed() {
     fps += 10;
   }
-​
+
   function updateFoodEatenFlag() {
     food.eaten = true;
   }
-​
+
   function makeSnakeBigger() {
     snake.push({
       x: snake[snake.length - 1].x,
       y: snake[snake.length - 1].y,
     });
   }
-​
+
   function collided(x, y) {
     return (
       snake.filter((item, index) => {
@@ -164,11 +164,11 @@ $(function () {
       y > cHeight
     );
   }
-​
+
   function caughtFood(x, y) {
     return x == food.x && y == food.y;
   }
-​
+
   function drawFood() {
     ctx.fillStyle = "#fccd04";
     let xy = getPositionForFood();
@@ -179,7 +179,7 @@ $(function () {
     };
     ctx.fillRect(food.x, food.y, snakeWidth, snakeHeight);
   }
-​
+
   function getPositionForFood() {
     let xy;
     if (food.eaten == true) {
@@ -198,7 +198,7 @@ $(function () {
     }
     return xy;
   }
-​
+
   function getEmptyBlock(xArray, yArray) {
     let newXY = {};
     newX = getRandomNumber(cWidth - 10, 10);
@@ -211,23 +211,23 @@ $(function () {
       return getEmptyBlock(xArray, yArray);
     }
   }
-​
+
   function getRandomNumber(max, multipleOf) {
     let result = Math.floor(Math.random() * max);
     result = result % 10 == 0 ? result : result + (multipleOf - (result % 10));
     return result;
   }
-​
+
   function clearCanvas() {
     ctx.clearRect(0, 0, cWidth, cHeight);
   }
-​
+
   $(document).keydown(function (e) {
     if ($.inArray(e.which, [LEFT, UP, RIGHT, DOWN]) != -1) {
       keyPressed = checkKeyAllowed(e.which);
     }
   });
-​
+
   function checkKeyAllowed(tempKey) {
     let key;
     if (tempKey == DOWN) {
@@ -241,7 +241,7 @@ $(function () {
     }
     return key;
   }
-​
+
   function moveSnake(keyPressed) {
     $.each(snake, function (index, value) {
       if (snake[index].drawn == true) {
