@@ -11,20 +11,72 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header>
-      <nav>
-        <!-- TO BE COPIED FROM MAIN PAGE -->
-      </nav>
-    </header>
-
-    <div class="center" id="button">
-      <button id="submitBtn" type="submit" class="btn bg-primary text-light">
-        Let's play some trivia!
+    <!-- Start placeholder  -->
+    <nav class="navbar navbar-expand-lg light-mode">
+      <a class="navbar-brand" href="./index.html">Games App</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
       </button>
-    </div>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="./index.html"
+              >Home <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./highscores.html">Highscores</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Games
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="./memorygame/memorygame.html"
+                >Memory</a
+              >
+              <a class="dropdown-item" href="./reactiongame/index.html"
+                >Reaction</a
+              >
+              <a class="dropdown-item" href="./Snake/snake.html">Snake</a>
+              <a class="dropdown-item" href="#">Tic Tac Toe</a>
+              <a class="dropdown-item" href="./triviaGame/trivia.html"
+                >Trivia</a
+              >
+              <a class="dropdown-item" href="./warcardgame/index.html">War</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div id="toggleBtn" class="toggler">
+        <div id="toggleDisplay" class="toggle toggleFalse"></div>
+      </div>
+    </nav>
+    <!-- End placeholder -->
+
+    <button id="submitBtn" type="submit" class="btn center">
+      Let's play some trivia!
+    </button>
+    <br />
 
     <div id="triviaGame"></div>
 
