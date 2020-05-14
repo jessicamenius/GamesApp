@@ -29,6 +29,12 @@ var lastRandomCell = 0;
 var apiKey = "ne5Joz1LAIF9FLe8LEIb6bMrrVfVxST7";
 var reactionTimes = [];
 
+function highScores() {
+  var timer = setTimeout(function () {
+    window.location.href = "./../highscores/highscores.html";
+  }, 5000);
+}
+
 //toggle between light and dark mode
 
 $(document).ready(function () {
@@ -69,6 +75,7 @@ $(document).ready(function () {
   $("#restart").on("click", function (e) {
     e.preventDefault();
     restart();
+    clearTimeout(timer);
   });
 });
 
@@ -159,7 +166,7 @@ function endGame() {
 }
 
 function highScores() {
-  setTimeout(function () {
+  var timer = setTimeout(function () {
     window.location.href = "./../highscores/highscores.html";
   }, 5000);
 }
