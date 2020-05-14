@@ -19,6 +19,7 @@ window.localStorage.setItem("playgame", playgame);
 
 var intensity;
 var time;
+var timer = "";
 
 var score = 0;
 var gameTimeout = 0;
@@ -30,7 +31,7 @@ var apiKey = "ne5Joz1LAIF9FLe8LEIb6bMrrVfVxST7";
 var reactionTimes = [];
 
 function highScores() {
-  var timer = setTimeout(function () {
+  timer = setTimeout(function () {
     window.location.href = "./../highscores/highscores.html";
   }, 5000);
 }
@@ -163,12 +164,7 @@ function endGame() {
   $("#gameover .average").text(getAverage() + " seconds");
   $("#gameover").show();
   fastReaction();
-}
-
-function highScores() {
-  var timer = setTimeout(function () {
-    window.location.href = "./../highscores/highscores.html";
-  }, 5000);
+  highScores();
 }
 
 //gets average reaction time
