@@ -1,33 +1,20 @@
-var toggleBtn = document.querySelector("#toggleBtn");
-var toggleDisplay = document.querySelector("#toggleDisplay");
-var toggleStatus;
 var apiKey = "fZd83cUM8MNVbIKeK8MuxdZLC4oIMih2";
-
-toggleBtn.addEventListener("click", function () {
-  toggleStatus = toggleDisplay.getAttribute("class");
-  if (toggleStatus === "toggle toggleFalse") {
-    document.body.setAttribute("class", "dark-mode");
-    toggleDisplay.setAttribute("class", "toggle toggleTrue");
-  } else {
-    toggleDisplay.setAttribute("class", "toggle toggleFalse");
-    document.body.setAttribute("class", "light-mode");
-  }
-});
 
 $(document).ready(function () {
   $("#toggleBtn").on("click", function () {
-    if (toggleStatus === "toggle toggleFalse") {
+    if ($("#toggleDisplay").attr("class") === "toggle toggleFalse") {
       $(".navbar").attr(
         "class",
         "navbar navbar-expand-lg navbar-dark bg-dark dark-mode"
       );
+      $("body").attr("class", "dark-mode");
+      $("#toggleDisplay").attr("class", "toggle toggleTrue");
       $(".card").attr("class", "card dark-mode border-white");
     } else {
-      $(".navbar").attr(
-        "class",
-        "navbar navbar-expand-lg navbar-light bg-light light-mode"
-      );
+      $(".navbar").attr("class", "navbar navbar-expand-lg light-mode");
       $(".card").attr("class", "card light-mode");
+      $("body").attr("class", "light-mode");
+      $("#toggleDisplay").attr("class", "toggle toggleFalse");
     }
   });
 });
