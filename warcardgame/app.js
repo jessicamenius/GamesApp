@@ -1,4 +1,8 @@
 $(document).ready(function () {
+  var score = 34;
+  window.localStorage.setItem("score", score);
+  var game = "warGame";
+  window.localStorage.setItem("game", game);
   var cardDeck = [
     "14C.jpg",
     "2C.jpg",
@@ -100,11 +104,11 @@ $(document).ready(function () {
 
   function startGame() {
     shuffleCards(cardDeck);
-    // compDeck = ["10H.jpg", "9C.jpg", "10C.jpg"];
-    // userDeck = ["8S.jpg", "3S.jpg", "4S.jpg"];
+    compDeck = ["10H.jpg", "9C.jpg", "10C.jpg"];
+    userDeck = ["8S.jpg", "3S.jpg", "4S.jpg"];
 
-    compDeck = cardDeck.splice(26);
-    userDeck = cardDeck.splice(0, 26);
+    // compDeck = cardDeck.splice(26);
+    // userDeck = cardDeck.splice(0, 26);
     for (var i = 0; i < 6; i++) {
       $("#canvas").append(`<div class="col-md-2" id="col${i + 1}"></div>`);
     }
