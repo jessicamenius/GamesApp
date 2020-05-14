@@ -1,4 +1,8 @@
 $(document).ready(function () {
+  var score = 34;
+  window.localStorage.setItem("score", score);
+  var game = "memoryGame";
+  window.localStorage.setItem("game", game);
   var cardDeck = [
     "./assets/1C.jpg",
     "./assets/2C.jpg",
