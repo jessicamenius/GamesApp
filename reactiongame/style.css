@@ -3,14 +3,11 @@ html,
 body {
   margin: 0;
   font-family: "Open Sans", sans-serif;
-  background-color: white;
   height: 100%;
-  color: #020202;
-  -webkit-tap-highlight-color: transparent;
 }
 
 #nav a {
-  color: white;
+  color: rgb(7, 7, 7);
 }
 
 .levelText {
@@ -40,10 +37,6 @@ body {
   width: 100%;
   top: 50%;
   margin-top: -1em;
-  -webkit-transition: 0.3s ease-in-out;
-  -moz-transition: 0.3s ease-in-out;
-  -o-transition: 0.3s ease-in-out;
-  transition: 0.3s ease-in-out;
 }
 
 #selector .countdown {
@@ -54,11 +47,6 @@ body {
   width: 100%;
   top: 50%;
   margin-top: -1em;
-  -webkit-transition: 0.3s ease-in-out;
-  -moz-transition: 0.3s ease-in-out;
-  -o-transition: 0.3s ease-in-out;
-  -ms-transition: 0.3s ease-in-out;
-  transition: 0.3s ease-in-out;
 }
 
 #selector .level .levelicon {
@@ -68,11 +56,6 @@ body {
   border-radius: 100%;
   margin-right: 10%;
   cursor: grab;
-  -webkit-transition: 0.2s ease-in-out;
-  -moz-transition: 0.2s ease-in-out;
-  -o-transition: 0.2s ease-in-out;
-  -ms-transition: 0.2s ease-in-out;
-  transition: 0.2s ease-in-out;
 }
 
 #selector .level .levelicon:last-child {
@@ -106,25 +89,21 @@ table tr td {
   display: none;
   margin: 0 auto;
   text-align: center;
-  padding-top: 2em;
-}
-
-#gameover .gameoverheader {
-  display: block;
-  font-size: 2.5em;
-  margin-bottom: 1em;
+  padding-top: 10px;
 }
 
 #gameover .gameovervalue {
   display: block;
-  font-size: 1.5em;
+  font-size: 1.3em;
   margin-bottom: 1em;
+  color: #ffb48f;
 }
 
 #gameover .gameovertext {
   display: block;
-  font-size: 1.5em;
+  font-size: 1.3em;
   font-weight: bold;
+  color: #fccd04;
 }
 
 #gameover a {
@@ -190,4 +169,8 @@ table tr td {
   display: flex;
   justify-content: center;
   margin-top: 40px;
+}
+
+#restart {
+  background-color: #ffb48f;
 }
