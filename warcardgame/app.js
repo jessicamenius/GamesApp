@@ -1,4 +1,26 @@
 $(document).ready(function () {
+  $("#toggleBtn").on("click", function () {
+    if ($("#toggleDisplay").attr("class") === "toggle toggleFalse") {
+      $(".navbar").attr(
+        "class",
+        "navbar navbar-expand-lg navbar-dark bg-dark dark-mode"
+      );
+      $("body").attr("class", "dark-mode");
+      $("#toggleDisplay").attr("class", "toggle toggleTrue");
+      $(".card").attr("class", "card dark-mode border-white");
+    } else {
+      $(".navbar").attr(
+        "class",
+        "navbar navbar-expand-lg navbar-light light-mode"
+      );
+      $(".card").attr("class", "card light-mode");
+      $("body").attr("class", "light-mode");
+      $("#toggleDisplay").attr("class", "toggle toggleFalse");
+    }
+  });
+
+  var playgame = "warGame";
+  window.localStorage.setItem("playgame", playgame);
   var cardDeck = [
     "14C.jpg",
     "2C.jpg",
@@ -62,6 +84,7 @@ $(document).ready(function () {
   var war = false;
   var warCard = 0;
   $("#score").text(`Score: ${score}`);
+  window.localStorage.setItem("score", score);
 
   function randNumber(num) {
     randNum = Math.floor(Math.random() * num);
@@ -100,11 +123,11 @@ $(document).ready(function () {
 
   function startGame() {
     shuffleCards(cardDeck);
-    // compDeck = ["10H.jpg", "9C.jpg", "10C.jpg"];
-    // userDeck = ["8S.jpg", "3S.jpg", "4S.jpg"];
+    compDeck = ["10H.jpg", "9C.jpg", "10C.jpg"];
+    userDeck = ["8S.jpg", "3S.jpg", "4S.jpg"];
 
-    compDeck = cardDeck.splice(26);
-    userDeck = cardDeck.splice(0, 26);
+    // compDeck = cardDeck.splice(26);
+    // userDeck = cardDeck.splice(0, 26);
     for (var i = 0; i < 6; i++) {
       $("#canvas").append(`<div class="col-md-2" id="col${i + 1}"></div>`);
     }

@@ -31,7 +31,7 @@ $(document).ready(function () {
   });
 
   newJoke();
-
+  // function to create random dad joke
   function newJoke() {
     $.ajax({
       type: "GET",
@@ -43,7 +43,7 @@ $(document).ready(function () {
       $("#joke").html(joke);
     });
   }
-
+  // event listener to create new dad joke
   $("#joke").on("click", function (e) {
     e.preventDefault();
     newJoke();

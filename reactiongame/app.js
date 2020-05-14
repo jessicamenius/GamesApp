@@ -1,4 +1,4 @@
-//sizes for each level
+//sizes and time limits for each level
 var defaults = {
   easy: {
     gridSize: 3,
@@ -14,6 +14,9 @@ var defaults = {
   },
 };
 
+var playgame = "Reaction Game";
+window.localStorage.setItem("playgame", playgame);
+
 var intensity;
 var time;
 
@@ -27,33 +30,27 @@ var apiKey = "ne5Joz1LAIF9FLe8LEIb6bMrrVfVxST7";
 var reactionTimes = [];
 
 //toggle between light and dark mode
-var toggleBtn = document.querySelector("#toggleBtn");
-var toggleDisplay = document.querySelector("#toggleDisplay");
-var toggleStatus;
-toggleBtn.addEventListener("click", function () {
-  toggleStatus = toggleDisplay.getAttribute("class");
-  if (toggleStatus === "toggle toggleFalse") {
-    document.body.setAttribute("class", "dark-mode");
-    toggleDisplay.setAttribute("class", "toggle toggleTrue");
-  } else {
-    toggleDisplay.setAttribute("class", "toggle toggleFalse");
-    document.body.setAttribute("class", "light-mode");
-  }
-});
 
 $(document).ready(function () {
   clearCells();
 
   $("#toggleBtn").on("click", function () {
-    if (toggleStatus === "toggle toggleFalse") {
+    if ($("#toggleDisplay").attr("class") === "toggle toggleFalse") {
       $(".navbar").attr(
         "class",
         "navbar navbar-expand-lg navbar-dark bg-dark dark-mode"
       );
+      $("body").attr("class", "dark-mode");
+      $("#toggleDisplay").attr("class", "toggle toggleTrue");
       $(".card").attr("class", "card dark-mode border-white");
     } else {
-      $(".navbar").attr("class", "navbar navbar-expand-lg  light-mode");
+      $(".navbar").attr(
+        "class",
+        "navbar navbar-expand-lg navbar-light light-mode"
+      );
       $(".card").attr("class", "card light-mode");
+      $("body").attr("class", "light-mode");
+      $("#toggleDisplay").attr("class", "toggle toggleFalse");
     }
   });
 
@@ -98,7 +95,7 @@ function prepare(level) {
 }
 
 function countdown() {
-  var timer = 5;
+  var timer = 3;
   $(".level").hide();
   $(".countdown").show();
   $(".countdown").text(timer);
@@ -155,10 +152,18 @@ function endGame() {
   $("#" + intensity).addClass("hidden");
   $("#" + intensity).removeClass("selected");
   $("#gameover .score").text(score);
+  window.localStorage.setItem("score", score);
   $("#gameover .average").text(getAverage() + " seconds");
   $("#gameover").show();
   fastReaction();
 }
+
+function highScores() {
+  setTimeout(function () {
+    window.location.href = "./../highscores/highscores.html";
+  }, 5000);
+}
+
 //gets average reaction time
 function getAverage() {
   var count = 0;
@@ -189,7 +194,7 @@ function restart() {
 function fastReaction() {
   $.ajax({
     type: "GET",
-    url: `http://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=slow&limit=1`,
+    url: `http://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=slow&limit=5`,
     dataType: "JSON",
   }).then(function (res) {
     console.log(res);
