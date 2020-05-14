@@ -1,4 +1,4 @@
-//sizes for each level
+//sizes and time limits for each level
 var defaults = {
   easy: {
     gridSize: 3,
@@ -30,33 +30,27 @@ var apiKey = "ne5Joz1LAIF9FLe8LEIb6bMrrVfVxST7";
 var reactionTimes = [];
 
 //toggle between light and dark mode
-var toggleBtn = document.querySelector("#toggleBtn");
-var toggleDisplay = document.querySelector("#toggleDisplay");
-var toggleStatus;
-toggleBtn.addEventListener("click", function () {
-  toggleStatus = toggleDisplay.getAttribute("class");
-  if (toggleStatus === "toggle toggleFalse") {
-    document.body.setAttribute("class", "dark-mode");
-    toggleDisplay.setAttribute("class", "toggle toggleTrue");
-  } else {
-    toggleDisplay.setAttribute("class", "toggle toggleFalse");
-    document.body.setAttribute("class", "light-mode");
-  }
-});
 
 $(document).ready(function () {
   clearCells();
 
   $("#toggleBtn").on("click", function () {
-    if (toggleStatus === "toggle toggleFalse") {
+    if ($("#toggleDisplay").attr("class") === "toggle toggleFalse") {
       $(".navbar").attr(
         "class",
         "navbar navbar-expand-lg navbar-dark bg-dark dark-mode"
       );
+      $("body").attr("class", "dark-mode");
+      $("#toggleDisplay").attr("class", "toggle toggleTrue");
       $(".card").attr("class", "card dark-mode border-white");
     } else {
-      $(".navbar").attr("class", "navbar navbar-expand-lg  light-mode");
+      $(".navbar").attr(
+        "class",
+        "navbar navbar-expand-lg navbar-light light-mode"
+      );
       $(".card").attr("class", "card light-mode");
+      $("body").attr("class", "light-mode");
+      $("#toggleDisplay").attr("class", "toggle toggleFalse");
     }
   });
 
