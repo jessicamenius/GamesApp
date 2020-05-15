@@ -1,28 +1,47 @@
 $(document).ready(function () {
   $("#toggleBtn").on("click", function () {
     if ($("#toggleDisplay").attr("class") === "toggle toggleFalse") {
-      $(".navbar").attr(
-        "class",
-        "navbar navbar-expand-lg navbar-dark bg-dark dark-mode"
-      );
-      $("body").attr("class", "dark-mode");
-      $("#toggleDisplay").attr("class", "toggle toggleTrue");
-      $(".card").attr("class", "card dark-mode border-white");
+      darkMode();
     } else {
-      $(".navbar").attr(
-        "class",
-        "navbar navbar-expand-lg navbar-light light-mode"
-      );
-      $(".card").attr("class", "card light-mode");
-      $("body").attr("class", "light-mode");
-      $("#toggleDisplay").attr("class", "toggle toggleFalse");
+      lightMode();
     }
   });
 
-  var score = 34;
-  window.localStorage.setItem("score", score);
-  var game = "memoryGame";
-  window.localStorage.setItem("game", game);
+  if (window.localStorage.getItem("mode") === "light-mode") {
+    lightMode();
+  }
+  if (window.localStorage.getItem("mode") === "dark-mode") {
+    darkMode();
+  }
+
+  function darkMode() {
+    window.localStorage.setItem("mode", "dark-mode");
+    $(".navbar").attr(
+      "class",
+      "navbar navbar-expand-lg navbar-dark bg-dark dark-mode fixed-top"
+    );
+    $("body").attr("class", "dark-mode");
+    $("#toggleDisplay").attr("class", "toggle toggleTrue");
+    $(".card").attr("class", "card dark-mode border-white mt-5");
+    $("#footer").attr("style", `background-color: #343A40; color: white;`);
+  }
+
+  function lightMode() {
+    window.localStorage.setItem("mode", "light-mode");
+    $(".navbar").attr(
+      "class",
+      "navbar navbar-expand-lg navbar-light light-mode fixed-top"
+    );
+    $(".card").attr("class", "card light-mode mt-5");
+    $("body").attr("class", "light-mode");
+    $("#toggleDisplay").attr("class", "toggle toggleFalse");
+    $("#footer").attr("style", `background-color: #a641c9; color: black`);
+  }
+
+  var score = 0;
+  var playgame = "Memory";
+  window.localStorage.setItem("playgame", playgame);
+  var apiKey = "WEBIEMxP2gpqmX8BNbn1G6i6BYEtlVML";
   var cardDeck = [
     "./assets/1C.jpg",
     "./assets/2C.jpg",
@@ -162,12 +181,40 @@ $(document).ready(function () {
     }, 5000);
   }
 
+  function checkEndGame() {
+    if (
+      (gameType === 2 && score === 2) ||
+      (gameType === 4 && score === 8) ||
+      (gameType === 6 && score === 18)
+    ) {
+      endGame();
+    }
+  }
+
+  function endGame() {
+    $(".container").html("");
+    window.localStorage.setItem("score", score);
+    $.ajax({
+      type: "GET",
+      url: `http://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=gameover`,
+      dataType: "JSON",
+    }).then(function (res) {
+      var gif = res.data[randNumber(res.data.length)].images.original.url;
+      $(".container").prepend(
+        `<img src=${gif} class="img-fluid rounded mx-auto d-block mt-5"/>`
+      );
+    });
+    setTimeout(function () {
+      window.location.href = "./../highscores/highscores.html";
+    }, 5000);
+  }
+
   $(document).on("click", ".choice", function () {
+    checkEndGame();
     if (revealCard === 0) {
       counterOne = $(this).attr("data-id");
       $(this).attr("src", `${cards[counterOne]}`);
       choiceOne = cards[counterOne];
-      console.log(choiceOne);
       window.setTimeout(function () {
         revealCard = 1;
       }, 10);
@@ -177,7 +224,6 @@ $(document).ready(function () {
       $(this).attr("src", `${cards[counterTwo]}`);
       revealCard = 2;
       choiceTwo = cards[counterTwo];
-      console.log(choiceTwo);
       if (choiceOne === choiceTwo) {
         score++;
         $("#score").text(`Score: ${score}`);

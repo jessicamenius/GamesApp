@@ -101,17 +101,18 @@ $(function () {
     clearInterval(game);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     $("#canvas").hide();
-
     $.ajax({
       type: "GET",
-      url: `http://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=loser&limit=1`,
+      url: `http://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=gameover`,
       dataType: "JSON",
-    }).then(function (response) {
-      var gif = response.data[0].images.original.url;
-      $(".container").prepend(`<img src=${gif} />`);
+    }).then(function (res) {
+      var gif =
+        res.data[Math.floor(Math.random() * res.data.length)].images.original
+          .url;
+      $(".container").prepend(
+        `<img src=${gif} class="img-fluid rounded mx-auto d-block mt-5"/>`
+      );
     });
-    ``;
-
     highScores();
   }
 

@@ -77,7 +77,9 @@ body {
   justify-content: center;
 }
 
+#giphy img {
+  border: solid #fccd04 3px;
+}
 #giphy {
-  height: 200px;
   padding-left: 20px;
 }
