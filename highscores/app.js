@@ -15,7 +15,10 @@ $(document).ready(function () {
       $(".card").attr("class", "card dark-mode border-white");
       mode = "darkMode";
     } else {
-      $(".navbar").attr("class", "navbar navbar-expand-lg light-mode");
+      $(".navbar").attr(
+        "class",
+        "navbar navbar-expand-lg navbar-light light-mode"
+      );
       $(".card").attr("class", "card light-mode");
       $("body").attr("class", "light-mode");
       $("#toggleDisplay").attr("class", "toggle toggleFalse");
@@ -83,7 +86,7 @@ $(document).ready(function () {
 
   function insertHighScoreTable() {
     $("#showQuestion").append(
-      `<div class='d-inline'>High Score</div>
+      `<div class='d-inline highScore'></div>
       <div class='d-inline float-right btn' id='resetHighScore'>RESET Score</div>
       <table class='table'>
       <thead>
