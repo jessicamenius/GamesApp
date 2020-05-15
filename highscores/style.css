@@ -76,3 +76,8 @@ body {
   display: flex;
   justify-content: center;
 }
+
+#giphy {
+  height: 200px;
+  padding-left: 20px;
+}
