@@ -19,7 +19,6 @@ window.localStorage.setItem("playgame", playgame);
 
 var intensity;
 var time;
-var timer = "";
 
 var score = 0;
 var gameTimeout = 0;
@@ -30,6 +29,7 @@ var lastRandomCell = 0;
 var apiKey = "ne5Joz1LAIF9FLe8LEIb6bMrrVfVxST7";
 var reactionTimes = [];
 
+var timer = "";
 function highScores() {
   timer = setTimeout(function () {
     window.location.href = "./../highscores/highscores.html";
