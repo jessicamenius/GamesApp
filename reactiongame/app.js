@@ -197,7 +197,7 @@ function restart() {
 function fastReaction() {
   $.ajax({
     type: "GET",
-    url: `http://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=slow&limit=5`,
+    url: `https://giphy.com/gifs/universalafrica-back-to-you-matthewmole-matthew-mole-eJ4j2VnYOZU8qJU3Py`,
     dataType: "JSON",
   }).then(function (res) {
     console.log(res);
