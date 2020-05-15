@@ -1,7 +1,3 @@
-body {
-  height: 100%;
-}
-
 .toggler {
   height: 30px;
   width: 60px;
@@ -32,15 +28,23 @@ body {
 }
 
 .navbar {
-  background-color: #a64ac9;
+  background-color: #a641c9;
+}
+
+.navbar a {
+  color: white !important;
+}
+
+.dropdown-menu {
+  background-color: #a641c9;
 }
 
 #footer {
-  background-color: #a64ac9;
-  position: relative;
-  width: 100%;
-  height: 60px;
-  margin-bottom: 0;
+  background-color: #a641c9;
+}
+
+#blockquote {
+  color: black;
 }
 
 .theme1 {
@@ -63,23 +67,35 @@ body {
   color: #17e9e0;
 }
 
-.btn-custom {
+.card {
+  border: solid #17e9e0 4px;
+}
+
+.card:hover {
+  border: solid #17e9e0 8px;
+}
+
+.btn {
+  color: hsl(0, 0%, 100%);
+  text-align: center;
   background-color: #ffb48f;
 }
 
-.card {
-  border: solid #17e9e0 3px;
-  height: 600px;
+.btn {
+  border: 2px solid black;
+  background-color: white;
+  color: black;
+  padding: 14px 28px;
+  font-size: 18px;
+  cursor: pointer;
 }
 
-.container {
-  display: flex;
-  justify-content: center;
+.warning {
+  border-color: #ffb48f;
+  color: black;
 }
 
-#giphy img {
-  border: solid #fccd04 3px;
-}
-#giphy {
-  padding-left: 20px;
+.warning:hover {
+  background: #ffb48f;
+  color: white;
 }

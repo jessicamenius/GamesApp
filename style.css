@@ -23,7 +23,6 @@
   color: white;
 }
 .light-mode {
-  background-color: white;
   color: black;
 }
 
@@ -33,6 +32,11 @@
 
 .navbar a {
   color: white !important;
+}
+
+.dropdown-menu {
+  background-color: #a641c9;
+  color: white;
 }
 
 #footer {
@@ -94,4 +98,8 @@
 .warning:hover {
   background: #ffb48f;
   color: white;
+}
+
+#dropdown a {
+  color: black !important;
 }
