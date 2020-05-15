@@ -2,6 +2,7 @@ $(document).ready(function () {
   var highScore = JSON.parse(window.localStorage.getItem("highScore")) || [];
   score = window.localStorage.getItem("score");
   playgame = window.localStorage.getItem("playgame");
+  console.log(playgame);
   var mode = "lightMode";
   enterInitials();
   $("#toggleBtn").on("click", function () {
@@ -71,6 +72,7 @@ $(document).ready(function () {
   }
 
   function showHighScore() {
+    $("#showOptions").hide();
     $(document).on("click", "#resetHighScore", function () {
       window.localStorage.removeItem("highScore");
       highScore = null;
@@ -85,8 +87,8 @@ $(document).ready(function () {
   }
 
   function insertHighScoreTable() {
-    $("#showQuestion").append(
-      `<div class='d-inline highScore'></div>
+    $("#showQuestion").html(
+      `<div class='d-inline highScore'>HighScore</div>
       <div class='d-inline float-right btn' id='resetHighScore'>RESET Score</div>
       <table class='table'>
       <thead>
@@ -112,4 +114,14 @@ $(document).ready(function () {
       }
     }
   }
+  var apiKey = "ne5Joz1LAIF9FLe8LEIb6bMrrVfVxST7";
+  $.ajax({
+    type: "GET",
+    url: `http://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${playgame}&limit=1`,
+    dataType: "JSON",
+  }).then(function (res) {
+    console.log(res);
+    var gif = res.data[0].images.original.url;
+    $("#giphy").html(`<img class="gif"  data-gif=${gif} src=${gif}></img>`);
+  });
 });
