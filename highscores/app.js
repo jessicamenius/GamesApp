@@ -71,6 +71,7 @@ $(document).ready(function () {
   }
 
   function showHighScore() {
+    $("#showOptions").hide();
     $(document).on("click", "#resetHighScore", function () {
       window.localStorage.removeItem("highScore");
       highScore = null;
@@ -85,8 +86,8 @@ $(document).ready(function () {
   }
 
   function insertHighScoreTable() {
-    $("#showQuestion").append(
-      `<div class='d-inline highScore'></div>
+    $("#showQuestion").html(
+      `<div class='d-inline highScore'>HighScore</div>
       <div class='d-inline float-right btn' id='resetHighScore'>RESET Score</div>
       <table class='table'>
       <thead>
