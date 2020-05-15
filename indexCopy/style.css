@@ -23,6 +23,7 @@
   color: white;
 }
 .light-mode {
+  background-color: white;
   color: black;
 }
 
@@ -36,7 +37,6 @@
 
 .dropdown-menu {
   background-color: #a641c9;
-  color: white;
 }
 
 #footer {
@@ -44,7 +44,7 @@
 }
 
 #blockquote {
-  color: white;
+  color: black;
 }
 
 .theme1 {

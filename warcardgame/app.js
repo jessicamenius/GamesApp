@@ -19,7 +19,7 @@ $(document).ready(function () {
     }
   });
 
-  var playgame = "warGame";
+  var playgame = "War";
   window.localStorage.setItem("playgame", playgame);
   var cardDeck = [
     "14C.jpg",
@@ -83,6 +83,8 @@ $(document).ready(function () {
   var score = 0;
   var war = false;
   var warCard = 0;
+  var gif = "";
+  var apiKey = "WEBIEMxP2gpqmX8BNbn1G6i6BYEtlVML";
   $("#score").text(`Score: ${score}`);
   window.localStorage.setItem("score", score);
 
@@ -123,11 +125,17 @@ $(document).ready(function () {
 
   function startGame() {
     shuffleCards(cardDeck);
-    compDeck = ["10H.jpg", "9C.jpg", "10C.jpg"];
-    userDeck = ["8S.jpg", "3S.jpg", "4S.jpg"];
-
-    // compDeck = cardDeck.splice(26);
-    // userDeck = cardDeck.splice(0, 26);
+    // compDeck = [
+    //   "11C.jpg",
+    //   "12C.jpg",
+    //   "13C.jpg",
+    //   "13C.jpg",
+    //   "13S.jpg",
+    //   "13C.jpg",
+    // ];
+    // userDeck = ["11S.jpg", "2C.jpg", "3C.jpg", "3C.jpg", "3C.jpg", "3C.jpg"];
+    compDeck = cardDeck.splice(26);
+    userDeck = cardDeck.splice(0, 26);
     for (var i = 0; i < 6; i++) {
       $("#canvas").append(`<div class="col-md-2" id="col${i + 1}"></div>`);
     }
@@ -143,10 +151,15 @@ $(document).ready(function () {
     $("#col4").html(
       `<img src="" class="choice img-fluid rounded" id="userPlaySide"/>`
     );
+    $("#col1").html(
+      `<img src="./assets/robot.png" class="img-fluid pt-3"/><h2 class="text-left font-weight-bold pl-2">Comp</h2>`
+    );
+    $("#col6").html(
+      `<img src="./assets/human.svg" class="img-fluid pt-3"/><h2 class="text-center pr-3 font-weight-bold">You</h2>`
+    );
   }
 
   function checkWhoWon() {
-    checkEndGame();
     if (!war) {
       if (parseInt(compDeck[0]) > parseInt(userDeck[0])) {
         window.setTimeout(function () {
@@ -158,13 +171,8 @@ $(document).ready(function () {
           compSideDeck.push(compDeck[0]);
           userDeck.splice(0, 1);
           compDeck.splice(0, 1);
-          console.log("compDeck: " + compDeck);
-          console.log("userDeck: " + userDeck);
-          console.log("userDeck.length: " + userDeck.length);
-          console.log("compSideDeck: " + compSideDeck);
-          console.log("userSideDeck: " + userSideDeck);
-          console.log("userSideDeck.length: " + userSideDeck.length);
-          checkEndGame();
+          score--;
+          $("#score").text(`Score: ${score}`);
         }, 2000);
       }
       if (parseInt(compDeck[0]) < parseInt(userDeck[0])) {
@@ -177,11 +185,8 @@ $(document).ready(function () {
           userSideDeck.push(userDeck[0]);
           compDeck.splice(0, 1);
           userDeck.splice(0, 1);
-          console.log("compDeck: " + compDeck);
-          console.log("userDeck: " + userDeck);
-          console.log("compSideDeck: " + compSideDeck);
-          console.log("userSideDeck: " + userSideDeck);
-          checkEndGame();
+          score++;
+          $("#score").text(`Score: ${score}`);
         }, 2000);
       }
       if (parseInt(compDeck[0]) === parseInt(userDeck[0])) {
@@ -203,14 +208,10 @@ $(document).ready(function () {
           compSideDeck.push(compDeck[0], compDeck[1], compDeck[2], compDeck[3]);
           compDeck.splice(0, 4);
           userDeck.splice(0, 4);
-          console.log("compDeck: " + compDeck);
-          console.log("userDeck: " + userDeck);
-          console.log("compSideDeck: " + compSideDeck);
-          console.log("userSideDeck: " + userSideDeck);
           war = false;
           warCard = 0;
-          console.log(war);
-          checkEndGame();
+          score -= 4;
+          $("#score").text(`Score: ${score}`);
         }, 2000);
       }
       if (parseInt(compDeck[3]) < parseInt(userDeck[3])) {
@@ -223,14 +224,10 @@ $(document).ready(function () {
           userSideDeck.push(compDeck[0], compDeck[1], compDeck[2], compDeck[3]);
           compDeck.splice(0, 4);
           userDeck.splice(0, 4);
-          console.log(compDeck);
-          console.log(userDeck);
-          console.log(compSideDeck);
-          console.log(userSideDeck);
           war = false;
           warCard = 0;
-          console.log(war);
-          checkEndGame();
+          score += 4;
+          $("#score").text(`Score: ${score}`);
         }, 2000);
       }
       if (parseInt(compDeck[3]) === parseInt(userDeck[3])) {
@@ -249,17 +246,37 @@ $(document).ready(function () {
       (userDeck === [] && userSideDeck === []) ||
       (userDeck === null && userSideDeck === null)
     ) {
-      $(".container").html("");
-      console.log("You lose the game");
+      endGame("lose");
     }
     if (
       (compDeck.length === 0 && compSideDeck.length === 0) ||
       (compDeck === [] && compSideDeck === []) ||
       (compDeck === null && compSideDeck === null)
     ) {
-      $(".container").html("");
-      console.log("You win the game");
+      endGame("won");
     }
+  }
+  function endGame(str) {
+    $(".container").html("");
+    window.localStorage.setItem("score", score);
+    getGiphy(`${str}`);
+    setTimeout(function () {
+      window.location.href = "./../highscores/highscores.html";
+    }, 5000);
+  }
+
+  function getGiphy(str) {
+    var apiKey = "WEBIEMxP2gpqmX8BNbn1G6i6BYEtlVML";
+    $.ajax({
+      type: "GET",
+      url: `http://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${str}`,
+      dataType: "JSON",
+    }).then(function (res) {
+      var gif = res.data[randNumber(res.data.length)].images.original.url;
+      $(".container").html(
+        `<img src=${gif} class="img-fluid rounded mx-auto d-block mt-5"/>`
+      );
+    });
   }
 
   function checkLastCard() {
@@ -269,25 +286,18 @@ $(document).ready(function () {
     if (userDeck.length === 2) {
       $("#userDeck").attr("src", "./assets/0.jpg");
     }
-    if (compDeck.length === 1) {
-      $("#compDeck").attr("src", "./assets/Misc/Blank_back.png");
-      compDeck.push(compSideDeck);
-      compSideDeck = [];
-      compDeck = compDeck.flat();
-    }
     if ($("#compDeck").attr("src") === "./assets/Misc/Blank_back.png") {
-      checkEndGame();
       compDeck.push(compSideDeck);
       compSideDeck = [];
       compDeck = compDeck.flat();
       $("#compDeck").attr("src", `./assets/00.png`);
       $("#compWon").attr("src", ``);
     }
+    if (compDeck.length === 1) {
+      $("#compDeck").attr("src", "./assets/Misc/Blank_back.png");
+    }
     if (userDeck.length === 1) {
       $("#userDeck").attr("src", "./assets/Misc/Blank_back.png");
-      userDeck.push(userSideDeck);
-      userSideDeck = [];
-      userDeck = userDeck.flat();
     }
   }
 
@@ -300,29 +310,28 @@ $(document).ready(function () {
       $("#userDeck").attr("src", `./assets/00.png`);
       $("#userWon").attr("src", ``);
     } else {
+      checkLastCard();
       if (war) {
-        checkLastCard();
-        checkEndGame();
         if (warCard < 3) {
-          checkLastCard();
-          checkEndGame();
-          $("#compPlaySide").attr("src", "./assets/00.png");
+          window.setTimeout(function () {
+            $("#compPlaySide").attr("src", "./assets/00.png");
+          }, 500);
           $("#userPlaySide").attr("src", "./assets/00.png");
           warCard++;
           $("#alert").text(`It's a War. Play ${4 - warCard} more Cards`);
         } else {
-          checkLastCard();
-          checkEndGame();
-          $("#compPlaySide").attr("src", `./assets/${compDeck[3]}`);
+          window.setTimeout(function () {
+            $("#compPlaySide").attr("src", `./assets/${compDeck[3]}`);
+          }, 500);
           $("#userPlaySide").attr("src", `./assets/${userDeck[3]}`);
           warCard = 5;
           checkWhoWon();
         }
       }
       if (!war) {
-        checkLastCard();
-        checkEndGame();
-        $("#compPlaySide").attr("src", `./assets/${compDeck[0]}`);
+        window.setTimeout(function () {
+          $("#compPlaySide").attr("src", `./assets/${compDeck[0]}`);
+        }, 500);
         $("#userPlaySide").attr("src", `./assets/${userDeck[0]}`);
         checkWhoWon();
       }
@@ -332,5 +341,9 @@ $(document).ready(function () {
   $("#startGame").on("click", function () {
     startGame();
     hideAlert();
+  });
+
+  $("#endGame").on("click", function () {
+    endGame("abandon");
   });
 });

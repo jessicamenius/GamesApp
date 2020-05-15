@@ -85,6 +85,16 @@ nav {
   color: white;
 }
 
+.medium {
+  border-color: #a64ac9;
+  color: black;
+}
+
+.medium:hover {
+  background: #a64ac9;
+  color: white;
+}
+
 #score {
   color: #a64ac9;
   font-size: 18px;

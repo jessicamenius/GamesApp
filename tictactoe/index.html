@@ -10,8 +10,8 @@
       crossorigin="anonymous"
     />
 
-    <link rel="stylesheet" href="./style.css" />
-    <title>Games App</title>
+    <link rel="stylesheet" href="./tictactoe.css" />
+    <title>Tic Tac Toe</title>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light light-mode fixed-top">
@@ -46,11 +46,7 @@
             >
               Games
             </a>
-            <div
-              id="dropdown"
-              class="dropdown-menu"
-              aria-labelledby="navbarDropdown"
-            >
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="./warcardgame/index.html">War</a>
               <a class="dropdown-item" href="./memorygame/memorygame.html"
                 >Memory</a
@@ -78,14 +74,12 @@
         <div id="toggleDisplay" class="toggle toggleFalse"></div>
       </div>
     </nav>
-    <br />
 
     <div class="container">
       <div id="row" class="row mt-4">
         <div class="col-4">
           <div class="card light-mode mt-5">
             <img
-              id="war"
               src="./assets/war.png"
               class="card-img-top img-fluid light-mode"
               alt="..."
@@ -101,12 +95,7 @@
         </div>
         <div class="col-4">
           <div class="card light-mode mt-5">
-            <img
-              id="memory"
-              src="./assets/memory.png"
-              class="card-img-top"
-              alt="..."
-            />
+            <img src="./assets/memory.png" class="card-img-top" alt="..." />
             <div class="card-body text-center">
               <h5 class="card-title">Memory</h5>
               <p class="card-text">
@@ -120,18 +109,13 @@
         </div>
         <div class="col-4">
           <div class="card light-mode mt-5">
-            <img
-              id="trivia"
-              src="./assets/trivia.png"
-              class="card-img-top"
-              alt="..."
-            />
+            <img src="./assets/trivia.png" class="card-img-top" alt="..." />
             <div class="card-body text-center">
               <h5 class="card-title">Trivia</h5>
               <p class="card-text">
                 Test your knowledge
               </p>
-              <a href="./trivia/trivia.html" class="btn warning">Play</a>
+              <a href="./triviaGame/trivia.html" class="btn warning">Play</a>
             </div>
           </div>
         </div>
@@ -140,7 +124,6 @@
         <div class="col-4">
           <div class="card light-mode">
             <img
-              id="snake"
               src="./assets/snake.png"
               class="card-img-top img-fluid"
               alt="..."
@@ -157,7 +140,6 @@
         <div class="col-4">
           <div class="card light-mode">
             <img
-              id="reaction"
               src="./assets/reaction.png"
               class="card-img-top img-fluid"
               alt="..."
@@ -174,7 +156,6 @@
         <div class="col-4">
           <div class="card light-mode">
             <img
-              id="tictactoe"
               src="./assets/tictactoe.png"
               class="card-img-top img-fluid"
               alt="..."
@@ -191,7 +172,50 @@
       </div>
     </div>
     <br />
-    <br />
+
+    <h1 class="center">
+      Tic-Tac-Toe
+    </h1>
+
+    <h3>
+      <form id="playerForm" class="center">
+        <div>
+          Would you like to be X or O?
+        </div>
+        <input type="radio" name="radio" value="X" />X
+
+        <input type="radio" name="radio" value="O" />O
+      </form>
+    </h3>
+
+    <h3>
+      <div id="playerOne" class="center"></div>
+    </h3>
+
+    <div id="gameResult" class="center"></div>
+    <div id="congratsOrSorry" class="center"></div>
+
+    <section id="gameInfo" class="infoContainer displayNone">
+      <div id="yourTurn" class="infoBox">your turn</div>
+      <button id="resetButton" class="infoBox">Reset Game</button>
+      <div id="compTurn" class="infoBox">computer's turn</div>
+    </section>
+
+    <div id="counter" class="center displayNone"></div>
+
+    <section id="gameGrid" class="gameContainer displayNone">
+      <div class="item item-1" id="one">item-1</div>
+      <div class="item item-2" id="two">item-2</div>
+      <div class="item item-3" id="three">item-3</div>
+
+      <div class="item item-4" id="four">item-4</div>
+      <div class="item item-5" id="five">item-5</div>
+      <div class="item item-6" id="six">item-6</div>
+
+      <div class="item item-7" id="seven">item-7</div>
+      <div class="item item-8" id="eight">item-8</div>
+      <div class="item item-9" id="nine">item-9</div>
+    </section>
 
     <div id="footer" class="border-0 fixed-bottom">
       <div class="card-body">
@@ -215,6 +239,6 @@
       integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
       crossorigin="anonymous"
     ></script>
-    <script src="./app.js"></script>
+    <script src="./tictactoe.js"></script>
   </body>
 </html>
