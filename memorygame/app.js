@@ -41,7 +41,6 @@ $(document).ready(function () {
   var score = 0;
   var playgame = "Memory";
   window.localStorage.setItem("playgame", playgame);
-  var apiKey = "WEBIEMxP2gpqmX8BNbn1G6i6BYEtlVML";
   var cardDeck = [
     "./assets/1C.jpg",
     "./assets/2C.jpg",
@@ -194,9 +193,17 @@ $(document).ready(function () {
   function endGame() {
     $(".container").html("");
     window.localStorage.setItem("score", score);
+    getGiphy("gameover");
+    setTimeout(function () {
+      window.location.href = "./../highscores/highscores.html";
+    }, 5000);
+  }
+
+  function getGiphy(str) {
+    var apiKey = "WEBIEMxP2gpqmX8BNbn1G6i6BYEtlVML";
     $.ajax({
       type: "GET",
-      url: `http://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=gameover`,
+      url: `http://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${str}`,
       dataType: "JSON",
     }).then(function (res) {
       var gif = res.data[randNumber(res.data.length)].images.original.url;
@@ -204,9 +211,6 @@ $(document).ready(function () {
         `<img src=${gif} class="img-fluid rounded mx-auto d-block mt-5"/>`
       );
     });
-    setTimeout(function () {
-      window.location.href = "./../highscores/highscores.html";
-    }, 5000);
   }
 
   $(document).on("click", ".choice", function () {
