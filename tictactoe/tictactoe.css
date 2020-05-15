@@ -22,20 +22,20 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 100px 100px 100px;
-  background-color: azure;
-  border: 5px solid blue;
+  background-color: #fccd04;
+
   text-align: center;
 }
 
-.gameContainer > .blue {
-  background-color: blue;
+.gameContainer > .theme3 {
+  background-color: #ffb48f;
   color: white;
   padding: 20px;
   font-size: 48px;
 }
 
-.gameContainer > .red {
-  background-color: red;
+.gameContainer > .theme4 {
+  background-color: f5e6cc;
   color: white;
   padding: 20px;
   font-size: 48px;
@@ -215,4 +215,67 @@ table {
 
 #dropdown a {
   color: black !important;
+}
+
+.toggler {
+  height: 30px;
+  width: 60px;
+  background-color: #17e9e0;
+  border-radius: 25px;
+  margin-right: 20px;
+}
+.toggle {
+  height: 30px;
+  width: 30px;
+  background-color: aliceblue;
+  border-radius: 100%;
+  transition: margin-left 0.5s ease;
+}
+.toggleTrue {
+  margin-left: 30px;
+}
+.toggleFalse {
+  margin-left: 0px;
+}
+.dark-mode {
+  background-color: black;
+  color: white;
+}
+.light-mode {
+  background-color: white;
+  color: black;
+}
+
+.navbar {
+  background-color: #a64ac9;
+}
+
+#btnArea {
+  margin-top: 20px;
+}
+
+#footer {
+  background-color: #a64ac9;
+  height: 8vh;
+}
+
+#blockquote {
+  color: black;
+}
+
+.btn {
+  color: hsl(0, 0%, 100%);
+  text-align: center;
+  background-color: #ffb48f;
+}
+
+.btn {
+  border: 2px solid black;
+  background-color: white;
+  color: black;
+  padding: 10px 22px;
+  font-size: 15px;
+  cursor: pointer;
+  margin: 5px;
+  width: 100px;
 }

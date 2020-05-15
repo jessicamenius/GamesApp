@@ -13,8 +13,9 @@
     <title>Tic Tac Toe</title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light light-mode fixed-top">
-      <a class="navbar-brand" href="./index.html">Games App</a>
+    <!-- nav bar -->
+    <nav class="navbar navbar-expand-lg navbar-light light-mode">
+      <a class="navbar-brand">Games App</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -26,12 +27,11 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
+
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="./index.html"
-              >Home <span class="sr-only">(current)</span></a
-            >
+            <a class="nav-link" href="../index.html">Home </a>
           </li>
           <li class="nav-item dropdown">
             <a
@@ -45,29 +45,23 @@
             >
               Games
             </a>
-            <div
-              id="dropdown"
-              class="dropdown-menu"
-              aria-labelledby="navbarDropdown"
-            >
-              <a class="dropdown-item" href="./warcardgame/index.html">War</a>
-              <a class="dropdown-item" href="./memorygame/memorygame.html"
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="../warcardgame/index.html">War</a>
+              <a class="dropdown-item" href="../memorygame/memorygame.html"
                 >Memory</a
               >
-              <a class="dropdown-item" href="./trivia/trivia.html">Trivia</a>
-              <a class="dropdown-item" href="./Snake/snake.html">Snake</a>
-              <a class="dropdown-item" href="./reactiongame/index.html"
+              <a class="dropdown-item" href="../trivia/trivia.html">Trivia</a>
+              <a class="dropdown-item" href="../Snake/snake.html">Snake</a>
+              <a class="dropdown-item" href="../reactiongame/index.html"
                 >Reaction</a
               >
-              <a class="dropdown-item" href="./tictactoe/tictactoe.html"
-                >Tic Tac Toe</a
+              <a class="dropdown-item" href="tictactoe.html"
+                >Tic Tac Toe<span class="sr-only">(current)</span></a
               >
             </div>
           </li>
           <li class="nav-item">
-            <a
-              class="nav-link"
-              href="../GroupProject1/highscores/highscores.html"
+            <a class="nav-link" href="../highscores/highscores.html"
               >Highscores</a
             >
           </li>
@@ -77,20 +71,18 @@
         <div id="toggleDisplay" class="toggle toggleFalse"></div>
       </div>
     </nav>
-    <br />
-    <br />
-    <br />
-    <br />
 
+    <!-- game  -->
     <h1 class="center">
       Tic-Tac-Toe
     </h1>
-    <p class="center">
-      Choose either X or O to play against the computer.
-    </p>
 
     <h3>
       <form id="playerForm" class="center">
+        <div>
+          Would you like to be X or O?
+          <br /><br />
+        </div>
         <input type="radio" name="radio" value="X" />X
         <input type="radio" name="radio" value="O" />O
       </form>
@@ -104,31 +96,41 @@
     <div id="congratsOrSorry" class="center"></div>
 
     <section id="gameInfo" class="infoContainer displayNone">
-      <div id="yourTurn" class="infoBox">your turn</div>
+      <div id="yourTurn" class="infoBox">Your turn</div>
       <button id="resetButton" class="infoBox">Reset Game</button>
-      <div id="compTurn" class="infoBox">computer's turn</div>
+      <div id="compTurn" class="infoBox">Computer's turn</div>
     </section>
 
     <div id="counter" class="center displayNone"></div>
 
     <section id="gameGrid" class="gameContainer displayNone">
-      <div class="item item-1" id="one">item-1</div>
-      <div class="item item-2" id="two">item-2</div>
-      <div class="item item-3" id="three">item-3</div>
+      <div class="item item-1" id="one"></div>
+      <div class="item item-2" id="two"></div>
+      <div class="item item-3" id="three"></div>
 
-      <div class="item item-4" id="four">item-4</div>
-      <div class="item item-5" id="five">item-5</div>
-      <div class="item item-6" id="six">item-6</div>
+      <div class="item item-4" id="four"></div>
+      <div class="item item-5" id="five"></div>
+      <div class="item item-6" id="six"></div>
 
-      <div class="item item-7" id="seven">item-7</div>
-      <div class="item item-8" id="eight">item-8</div>
-      <div class="item item-9" id="nine">item-9</div>
+      <div class="item item-7" id="seven"></div>
+      <div class="item item-8" id="eight"></div>
+      <div class="item item-9" id="nine"></div>
     </section>
 
     <!-- script  -->
     <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
       src="https://code.jquery.com/jquery-3.5.1.min.js"
       integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
       crossorigin="anonymous"
     ></script>
     <script src="tictactoe.js"></script>
