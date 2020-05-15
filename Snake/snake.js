@@ -1,5 +1,4 @@
 var apiKey = "fZd83cUM8MNVbIKeK8MuxdZLC4oIMih2";
-var timer = "";
 
 $(document).ready(function () {
   var playgame = "snakeGame";
@@ -77,25 +76,31 @@ $(function () {
 
   var game;
 
+  var redirectTimer;
+  $("#restart").hide();
   $("#submitBtn").on("click", function (event) {
     event.preventDefault();
     startGame();
-    function startGame() {
-      game = setInterval(gameLoop, fps);
-      $("#restart").on("click", function (e) {
-        e.preventDefault();
-        gameLoop();
-        clearTimeout(timer);
-      });
-    }
+    $("#submitBtn").hide();
+    $("#restart").show();
   });
+
+  $("#restart").on("click", function (event) {
+    event.preventDefault();
+    // console.log("hello");
+    window.location.href = "./snake.html";
+  });
+
+  function highScores() {
+    redirectTimer = setTimeout(function () {
+      window.location.href = "./../highscores/highscores.html";
+    }, 3000);
+  }
 
   function stopGame() {
     clearInterval(game);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    timer = setTimeout(function () {
-      window.location.href = "./../highscores/highscores.html";
-    }, 3000);
+
     $.ajax({
       type: "GET",
       url: `http://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=gameover&limit=1`,
@@ -104,6 +109,10 @@ $(function () {
       // add below link into canvas
       // `https://giphy.com/gifs/universalafrica-back-to-you-matthewmole-matthew-mole-eJ4j2VnYOZU8qJU3Py`,
     });
+    highScores();
+  }
+  function startGame() {
+    game = setInterval(gameLoop, fps);
   }
 
   function gameLoop() {
