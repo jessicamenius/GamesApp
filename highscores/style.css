@@ -83,3 +83,12 @@ body {
 #giphy {
   padding-left: 20px;
 }
+
+.navbar a {
+  color: white !important;
+}
+
+.dropdown-menu {
+  background-color: #a641c9;
+  color: white;
+}
