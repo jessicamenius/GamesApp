@@ -35,12 +35,16 @@
   color: white !important;
 }
 
+.dropdown-menu {
+  background-color: #a641c9;
+}
+
 #footer {
   background-color: #a641c9;
 }
 
 #blockquote {
-  color: white;
+  color: black;
 }
 
 .theme1 {

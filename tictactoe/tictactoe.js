@@ -1,3 +1,44 @@
+$(document).ready(function () {
+  $("#toggleBtn").on("click", function () {
+    if ($("#toggleDisplay").attr("class") === "toggle toggleFalse") {
+      darkMode();
+    } else {
+      lightMode();
+    }
+  });
+
+  if (window.localStorage.getItem("mode") === "light-mode") {
+    lightMode();
+  }
+  if (window.localStorage.getItem("mode") === "dark-mode") {
+    darkMode();
+  }
+
+  function darkMode() {
+    window.localStorage.setItem("mode", "dark-mode");
+    $(".navbar").attr(
+      "class",
+      "navbar navbar-expand-lg navbar-dark bg-dark dark-mode fixed-top"
+    );
+    $("body").attr("class", "dark-mode");
+    $("#toggleDisplay").attr("class", "toggle toggleTrue");
+    $(".card").attr("class", "card dark-mode border-white mt-5");
+    $("#footer").attr("style", `background-color: #343A40; color: white;`);
+  }
+
+  function lightMode() {
+    window.localStorage.setItem("mode", "light-mode");
+    $(".navbar").attr(
+      "class",
+      "navbar navbar-expand-lg navbar-light light-mode fixed-top"
+    );
+    $(".card").attr("class", "card light-mode mt-5");
+    $("body").attr("class", "light-mode");
+    $("#toggleDisplay").attr("class", "toggle toggleFalse");
+    $("#footer").attr("style", `background-color: #a641c9; color: black`);
+  }
+});
+
 function clickButton(event) {
   $(".item").click(function (event) {
     var thingClicked = this.innerHTML;
@@ -255,7 +296,7 @@ function playGame() {
   }
   if (winner) {
     console.log("game over, resetting game");
-    setTimeout(reset, 3000); //call reset after 3 seconds...
+    // setTimeout(reset, 3000); //call reset after 3 seconds...
   }
 }
 playGame();
