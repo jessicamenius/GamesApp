@@ -2,7 +2,6 @@ $(document).ready(function () {
   var highScore = JSON.parse(window.localStorage.getItem("highScore")) || [];
   score = window.localStorage.getItem("score");
   playgame = window.localStorage.getItem("playgame");
-  console.log(playgame);
   var mode = "lightMode";
   enterInitials();
   $("#toggleBtn").on("click", function () {
@@ -83,7 +82,7 @@ $(document).ready(function () {
       "<input id='name' autofocus type='text' class='mr-3' placeholder='enter name here'></input>"
     );
     $("#form").append(
-      "<input id='btnSubmit' type='submit' value='Submit'></input>"
+      "<input id='btnSubmit' type='submit' value='Submit' class='btn easy'></input>"
     );
     $(document).on("click", "#btnSubmit", function (e) {
       e.preventDefault();
@@ -146,11 +145,12 @@ $(document).ready(function () {
   var apiKey = "ne5Joz1LAIF9FLe8LEIb6bMrrVfVxST7";
   $.ajax({
     type: "GET",
-    url: `http://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${playgame}&limit=1`,
+    url: `http://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${playgame}`,
     dataType: "JSON",
   }).then(function (res) {
     console.log(res);
-    var gif = res.data[0].images.original.url;
+    var gif =
+      res.data[Math.floor(Math.random() * res.data.length)].images.original.url;
     $("#giphy").html(`<img class="gif"  data-gif=${gif} src=${gif}></img>`);
   });
 });
