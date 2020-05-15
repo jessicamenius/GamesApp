@@ -99,3 +99,7 @@
   background: #ffb48f;
   color: white;
 }
+
+#dropdown a {
+  color: black !important;
+}
