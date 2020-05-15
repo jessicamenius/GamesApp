@@ -2,6 +2,7 @@ $(document).ready(function () {
   var highScore = JSON.parse(window.localStorage.getItem("highScore")) || [];
   score = window.localStorage.getItem("score");
   playgame = window.localStorage.getItem("playgame");
+  console.log(playgame);
   var mode = "lightMode";
   enterInitials();
   $("#toggleBtn").on("click", function () {
@@ -23,7 +24,7 @@ $(document).ready(function () {
     window.localStorage.setItem("mode", "dark-mode");
     $(".navbar").attr(
       "class",
-      "navbar navbar-expand-lg navbar-dark bg-dark dark-mode "
+      "navbar navbar-expand-lg navbar-dark bg-dark dark-mode fixed-top"
     );
     $("body").attr("class", "dark-mode");
     $("#toggleDisplay").attr("class", "toggle toggleTrue");
@@ -42,7 +43,7 @@ $(document).ready(function () {
     window.localStorage.setItem("mode", "light-mode");
     $(".navbar").attr(
       "class",
-      "navbar navbar-expand-lg navbar-light light-mode"
+      "navbar navbar-expand-lg navbar-light light-mode fixed-top"
     );
     $(".card").attr("class", "card light-mode mt-5");
     $("body").attr("class", "light-mode");
@@ -82,7 +83,7 @@ $(document).ready(function () {
       "<input id='name' autofocus type='text' class='mr-3' placeholder='enter name here'></input>"
     );
     $("#form").append(
-      "<input id='btnSubmit' type='submit' value='Submit' class='btn easy'></input>"
+      "<input id='btnSubmit' type='submit' value='Submit'></input>"
     );
     $(document).on("click", "#btnSubmit", function (e) {
       e.preventDefault();
@@ -145,12 +146,11 @@ $(document).ready(function () {
   var apiKey = "ne5Joz1LAIF9FLe8LEIb6bMrrVfVxST7";
   $.ajax({
     type: "GET",
-    url: `http://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${playgame}`,
+    url: `http://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${playgame}&limit=1`,
     dataType: "JSON",
   }).then(function (res) {
     console.log(res);
-    var gif =
-      res.data[Math.floor(Math.random() * res.data.length)].images.original.url;
+    var gif = res.data[0].images.original.url;
     $("#giphy").html(`<img class="gif"  data-gif=${gif} src=${gif}></img>`);
   });
 });
