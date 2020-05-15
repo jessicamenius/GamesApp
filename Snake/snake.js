@@ -101,6 +101,7 @@ $(function () {
       url: `http://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=gameover&limit=1`,
       dataType: "JSON",
     }).then(function (response) {
+      var gif = response.data.[0].images.original.url
       // add below link into canvas
       // `https://giphy.com/gifs/universalafrica-back-to-you-matthewmole-matthew-mole-eJ4j2VnYOZU8qJU3Py`,
     });
