@@ -1,7 +1,7 @@
 var apiKey = "fZd83cUM8MNVbIKeK8MuxdZLC4oIMih2";
 
 $(document).ready(function () {
-  var playgame = "snakeGame";
+  var playgame = "snake";
   window.localStorage.setItem("playgame", playgame);
 
   $("#toggleBtn").on("click", function () {

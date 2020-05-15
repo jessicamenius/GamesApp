@@ -39,6 +39,8 @@ $(document).ready(function () {
 
     console.log(choices);
 
+    var answer = results[i].correct_answer;
+
     function shuffleChoices(array) {
       var currentIndex = array.length,
         temporaryValue,
@@ -64,7 +66,7 @@ $(document).ready(function () {
 
     function displayQuestion() {
       document.getElementById("question").innerHTML =
-        question[currentQuestion].title;
+        question[currentQuestion].question;
       for (var i = 0; i < question[currentQuestion].choices.length; i += 1) {
         var button = document.createElement("button");
         button.type = "button";
@@ -79,10 +81,6 @@ $(document).ready(function () {
             window.score += 1;
             document.getElementById("score").innerHTML =
               "Score: " + window.score;
-          } else {
-            // the answer is wrong
-            window.timer -= 10;
-            showAlert();
           }
 
           var currentQuestion = 0;
