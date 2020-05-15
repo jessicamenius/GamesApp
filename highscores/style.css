@@ -68,6 +68,11 @@ body {
 }
 
 .card {
-  border-color: #fccd04;
+  border: solid #17e9e0 3px;
   height: 600px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
 }

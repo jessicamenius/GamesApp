@@ -3,8 +3,8 @@ $(document).ready(function () {
   score = window.localStorage.getItem("score");
   playgame = window.localStorage.getItem("playgame");
   var mode = "lightMode";
+  enterInitials();
   $("#toggleBtn").on("click", function () {
-    enterInitials();
     if ($("#toggleDisplay").attr("class") === "toggle toggleFalse") {
       $(".navbar").attr(
         "class",
@@ -14,13 +14,14 @@ $(document).ready(function () {
       $("#toggleDisplay").attr("class", "toggle toggleTrue");
       $(".card").attr("class", "card dark-mode border-white");
       mode = "darkMode";
-      window.localStorage.setItem("mode", mode);
     } else {
       $(".navbar").attr("class", "navbar navbar-expand-lg light-mode");
       $(".card").attr("class", "card light-mode");
       $("body").attr("class", "light-mode");
       $("#toggleDisplay").attr("class", "toggle toggleFalse");
     }
+
+    window.localStorage.setItem("mode", mode);
   });
   newJoke();
 
