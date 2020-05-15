@@ -109,6 +109,8 @@ table {
   border-top: 2px solid black;
   border-bottom: 2px solid black;
 }
+
+/* main css */
 .toggler {
   height: 30px;
   width: 60px;
@@ -134,12 +136,20 @@ table {
   color: white;
 }
 .light-mode {
-  background-color: white;
   color: black;
 }
 
 .navbar {
-  background-color: #a64ac9;
+  background-color: #a641c9;
+}
+
+.navbar a {
+  color: white !important;
+}
+
+.dropdown-menu {
+  background-color: #a641c9;
+  color: white;
 }
 
 #footer {
@@ -198,6 +208,11 @@ table {
   color: black;
 }
 
-.dropdown {
-  color: black;
+.warning:hover {
+  background: #ffb48f;
+  color: white;
+}
+
+#dropdown a {
+  color: black !important;
 }
