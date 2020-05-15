@@ -7,24 +7,10 @@ $(document).ready(function () {
   enterInitials();
   $("#toggleBtn").on("click", function () {
     if ($("#toggleDisplay").attr("class") === "toggle toggleFalse") {
-      $(".navbar").attr(
-        "class",
-        "navbar navbar-expand-lg navbar-dark bg-dark dark-mode"
-      );
-      $("body").attr("class", "dark-mode");
-      $("#toggleDisplay").attr("class", "toggle toggleTrue");
-      $(".card").attr("class", "card dark-mode border-white");
-      mode = "darkMode";
+      darkMode();
     } else {
-      $(".navbar").attr(
-        "class",
-        "navbar navbar-expand-lg navbar-light light-mode"
-      );
-      $(".card").attr("class", "card light-mode");
-      $("body").attr("class", "light-mode");
-      $("#toggleDisplay").attr("class", "toggle toggleFalse");
+      lightMode();
     }
-<<<<<<< HEAD
   });
 
   if (window.localStorage.getItem("mode") === "light-mode") {
@@ -70,11 +56,6 @@ $(document).ready(function () {
     $("#reaction").attr("src", "./assets/reaction.png");
     $("#tictactoe").attr("src", "./assets/tictactoe.png");
   }
-=======
-
-    window.localStorage.setItem("mode", mode);
-  });
->>>>>>> 0f6008e29688945e63b50cb95fc09e3e9c12c378
   newJoke();
 
   function newJoke() {
