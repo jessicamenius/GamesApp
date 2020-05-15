@@ -81,10 +81,6 @@ $(document).ready(function () {
             window.score += 1;
             document.getElementById("score").innerHTML =
               "Score: " + window.score;
-          } else {
-            // the answer is wrong
-            window.timer -= 10;
-            showAlert();
           }
 
           var currentQuestion = 0;
