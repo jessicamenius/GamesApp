@@ -94,23 +94,26 @@ $(function () {
   function highScores() {
     redirectTimer = setTimeout(function () {
       window.location.href = "./../highscores/highscores.html";
-    }, 3000);
+    }, 5000);
   }
 
   function stopGame() {
     clearInterval(game);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    $("#canvas").hide();
 
     $.ajax({
       type: "GET",
       url: `http://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=gameover&limit=1`,
       dataType: "JSON",
     }).then(function (response) {
-      // add below link into canvas
-      // `https://giphy.com/gifs/universalafrica-back-to-you-matthewmole-matthew-mole-eJ4j2VnYOZU8qJU3Py`,
+      var gif = response.data[0].images.original.url;
+      $(".container").prepend(`<img src=${gif} />`);
     });
+
     highScores();
   }
+
   function startGame() {
     game = setInterval(gameLoop, fps);
   }
