@@ -1,4 +1,5 @@
 var apiKey = "fZd83cUM8MNVbIKeK8MuxdZLC4oIMih2";
+var timer = "";
 
 $(document).ready(function () {
   var playgame = "snakeGame";
@@ -81,13 +82,18 @@ $(function () {
     startGame();
     function startGame() {
       game = setInterval(gameLoop, fps);
+      $("#restart").on("click", function (e) {
+        e.preventDefault();
+        gameLoop();
+        clearTimeout(timer);
+      });
     }
   });
 
   function stopGame() {
     clearInterval(game);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    setTimeout(function () {
+    timer = setTimeout(function () {
       window.location.href = "./../highscores/highscores.html";
     }, 3000);
     $.ajax({
