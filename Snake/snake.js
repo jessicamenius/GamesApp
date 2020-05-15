@@ -104,12 +104,13 @@ $(function () {
 
     $.ajax({
       type: "GET",
-      url: `http://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=gameover&limit=1`,
+      url: `http://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=loser&limit=1`,
       dataType: "JSON",
     }).then(function (response) {
       var gif = response.data[0].images.original.url;
       $(".container").prepend(`<img src=${gif} />`);
     });
+    ``;
 
     highScores();
   }
