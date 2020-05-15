@@ -31,12 +31,16 @@
   background-color: #a641c9;
 }
 
+.navbar a {
+  color: white !important;
+}
+
 #footer {
   background-color: #a641c9;
 }
 
 #blockquote {
-  color: black;
+  color: white;
 }
 
 .theme1 {

@@ -11,11 +11,14 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../nav.css" />
   </head>
   <body>
     <!-- start nav  -->
-    <nav class="navbar navbar-expand-lg navbar-light light-mode">
-      <a class="navbar-brand" href="./index.html">Games App</a>
+    <div id="nav"></div>
+
+    <!-- <nav class="navbar navbar-expand-lg navbar-light light-mode">
+      <a class="navbar-brand">Games App</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -31,7 +34,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="./index.html"
+            <a class="nav-link" href="../index.html"
               >Home <span class="sr-only">(current)</span></a
             >
           </li>
@@ -74,28 +77,25 @@
       <div id="toggleBtn" class="toggler">
         <div id="toggleDisplay" class="toggle toggleFalse"></div>
       </div>
-    </nav>
+    </nav> -->
     <!-- end nav -->
 
     <!-- get started button -->
-    <button id="submitBtn" type="submit" class="btn center">
-      Let's play some trivia!
-    </button>
+    <div class="center">
+      <button id="submitBtn" type="submit" class="btn theme3 text-light">
+        Start Quiz
+      </button>
+    </div>
 
-    <!-- questions -->
-    <div class="container">
-      <div class="row">
-        <div class="row">
-          <div id="triviaGame">
-            <div class="card text-center">
-              <div class="card-body" id="prompt_display">
-                <div id="question"></div>
-                <ul id="choices" class="list-group"></ul>
-                <p class="card-text"></p>
-                <div id="alert"></div>
-              </div>
-            </div>
-          </div>
+    <div class="score"></div>
+
+    <div id="quiz">
+      <div class="card text-center">
+        <div class="card-body" id="prompt_display">
+          <div id="question"></div>
+          <ul id="answers"></ul>
+          <p class="card-text"></p>
+          <div id="alert"></div>
         </div>
       </div>
     </div>
@@ -108,6 +108,7 @@
       integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
       crossorigin="anonymous"
     ></script>
+    <script src="nav.js"></script>
     <script src="app.js"></script>
   </body>
 </html>

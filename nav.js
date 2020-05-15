@@ -13,7 +13,7 @@ toggleBtn.addEventListener("click", function () {
 });
 
 $(document).ready(function () {
-  console.log("hello");
+  // console.log("hello");
   $("#toggleBtn").on("click", function () {
     if (toggleStatus === "toggle toggleFalse") {
       $(".navbar").attr(
