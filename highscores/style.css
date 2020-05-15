@@ -69,7 +69,7 @@ body {
 
 .card {
   border: solid #17e9e0 3px;
-  height: 600px;
+  height: 800px;
 }
 
 .container {
@@ -79,9 +79,12 @@ body {
 
 #giphy img {
   border: solid #fccd04 3px;
+  display: flex;
+  justify-content: center;
 }
 #giphy {
-  padding-left: 20px;
+  display: flex;
+  justify-content: center;
 }
 
 .navbar a {

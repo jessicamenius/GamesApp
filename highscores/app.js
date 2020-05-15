@@ -24,7 +24,7 @@ $(document).ready(function () {
     window.localStorage.setItem("mode", "dark-mode");
     $(".navbar").attr(
       "class",
-      "navbar navbar-expand-lg navbar-dark bg-dark dark-mode fixed-top"
+      "navbar navbar-expand-lg navbar-dark bg-dark dark-mode "
     );
     $("body").attr("class", "dark-mode");
     $("#toggleDisplay").attr("class", "toggle toggleTrue");
@@ -43,7 +43,7 @@ $(document).ready(function () {
     window.localStorage.setItem("mode", "light-mode");
     $(".navbar").attr(
       "class",
-      "navbar navbar-expand-lg navbar-light light-mode fixed-top"
+      "navbar navbar-expand-lg navbar-light light-mode"
     );
     $(".card").attr("class", "card light-mode mt-5");
     $("body").attr("class", "light-mode");
