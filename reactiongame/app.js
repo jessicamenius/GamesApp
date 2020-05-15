@@ -197,7 +197,7 @@ function restart() {
 function fastReaction() {
   $.ajax({
     type: "GET",
-    url: `http://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=slow&limit=5`,
+    url: `http://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=slow&limit=1`,
     dataType: "JSON",
   }).then(function (res) {
     console.log(res);
