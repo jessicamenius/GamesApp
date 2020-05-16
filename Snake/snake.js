@@ -176,7 +176,7 @@ $(function () {
       updateSpeed();
     }
   }
-
+  // make fps higher to make it faster
   function updateSpeed() {
     fps += 10;
   }
