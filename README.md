@@ -1,5 +1,9 @@
 # Project 1
 
+# Games App
+
+![](darkmode.gif)
+
 ## Application Requirements
 
 - Must use at least two server-side APIs
