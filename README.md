@@ -2,9 +2,18 @@
 
 # Games App
 
-![demo](assets\darkmode.gif)
+- Used HTML, CSS, JQuery, Javascript, APIs, Ajax, Photoshop, Noun Project
+- Over 220 commits with almost no merge conflicts
+- Each person had at least one game to code
+- All collaborated on main page and highscores page
+- End of game workflows were collaborative
+- Met every evening for at least 2 hours
+- Helped each other fix bugs in code
+- Used google, stackoverflow, W3schools, MDNweb + TAs+ tutors
 
-![snake](assets\snake.png)
+![demo](assets/darkmode.gif)
+
+![snake](assets/snake.png)
 
 ## Application Requirements
 
