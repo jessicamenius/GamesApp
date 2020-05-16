@@ -39,11 +39,17 @@ $(document).ready(function () {
 
         for (var i = 0; i < questions[currentQuestion].answers.length; i++) {
           $("#answers").append(
-            `<button> ${questions[currentQuestion].answers[i]} </button>`
+            `<button id = "answer"> ${questions[currentQuestion].answers[i]} </button>`
           );
         }
       }
       displayQuestions();
+
+      $("#answer").on("click", function () {
+        for (var i = 0; i < 10; i++) {
+          displayQuestions();
+        }
+      });
 
       function verifyAnswer() {
         var userAnswer = event.target.value;
