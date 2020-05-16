@@ -1,5 +1,22 @@
 # Project 1
 
+# Games App
+
+- Used HTML, CSS, JQuery, Javascript, APIs, Ajax, Photoshop, Noun Project
+- Over 220 commits with almost no merge conflicts
+- Each person had at least one game to code
+- All collaborated on main page and highscores page
+- End of game workflows were collaborative
+- Met every evening for at least 2 hours
+- Helped each other fix bugs in code
+- Used google, stackoverflow, W3schools, MDNweb + TAs+ tutors
+
+![demo](assets/darkmode.gif)
+
+![snake](assets/snakegame.gif)
+
+![memorygame](assets/memorygame.gif)
+
 ## Application Requirements
 
 - Must use at least two server-side APIs

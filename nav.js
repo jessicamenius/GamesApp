@@ -1,7 +1,7 @@
 $(document).ready(function () {
   $(
     ".navbar"
-  ).html(`    <a class="navbar-brand" href="../index.html">Games App</a>
+  ).html(`    <a class="navbar-brand" href=".././Index/index.html">Games App</a>
 <button
   class="navbar-toggler"
   type="button"
@@ -17,8 +17,8 @@ $(document).ready(function () {
 <div class="collapse navbar-collapse" id="navbarSupportedContent">
   <ul class="navbar-nav mr-auto">
     <li class="nav-item active">
-      <a class="nav-link" href="../index.html"
-        >Home <span class="sr-only">(current)</span></a
+      <a class="nav-link" href=".././Index/index.html"
+        >Home <span class="sr-only"></span></a
       >
     </li>
     <li class="nav-item dropdown">
@@ -49,7 +49,7 @@ $(document).ready(function () {
       </div>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="../highscores.html">Highscores</a>
+      <a class="nav-link" href=".././highscores/highscores.html">Highscores</a>
     </li>
   </ul>
 </div>
