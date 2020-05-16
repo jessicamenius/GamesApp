@@ -15,7 +15,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="trivia.css" />
-    <link rel="stylesheet" href="./../nav.css" />
+    <link rel="stylesheet" href="../nav.css" />
   </head>
 
   <body>
@@ -24,12 +24,15 @@
 
     <!-- heading -->
 
-    <div id="score" class="d-inline float-right mr-3"></div>
-
+    <ul class="nav flex-column d-inline float-right mr-3">
+      <ul class="nav flex-column">
+        <li class="nav-item" id="score">Score:</li>
+      </ul>
+    </ul>
+    <br />
     <br />
     <h1 class="center">Trivia</h1>
     <h3 class="center">Test your knowledge!</h3>
-
     <br />
     <!-- get started button -->
 
@@ -37,13 +40,12 @@
       <button id="submitBtn" type="submit" class="btn warning">
         Let's play!
       </button>
+      <div id="quiz" class="center"></div>
     </div>
 
     <br />
 
     <!-- quiz -->
-
-    <div id="quiz" class="center"></div>
 
     <!-- script  -->
     <script

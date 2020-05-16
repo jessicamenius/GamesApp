@@ -15,6 +15,7 @@
     />
     <link rel="stylesheet" href="tictactoe.css" />
     <link rel="stylesheet" href="../nav.css" />
+    <a href="../highscores/highscores.html"></a>
     <title>Tic Tac Toe</title>
   </head>
   <body>
@@ -22,16 +23,12 @@
     <!-- game  -->
 
     <div class="container">
-      <div id="score" class="d-inline float-right mr-3"></div>
-
-      <canvas id="myCanvas" width="200" height="100"></canvas>
-
       <h1>Tic-Tac-Toe</h1>
       <br />
       <h2>You are O.</h2>
-      <br />
-      <br />
 
+      <br />
+      <br />
       <div class="play-area">
         <div id="block_0" class="block"></div>
         <div id="block_1" class="block"></div>
@@ -45,8 +42,9 @@
       </div>
       <br />
       <h2 id="winner"></h2>
-      <br />
-      <button class="btn warning" onclick="reset_board()">RESET BOARD</button>
+
+      <button class="btn warning center" onclick="reset_board()">Reset</button>
+      <button class="btn warning center" onclick="endGame()">End</button>
     </div>
 
     <!-- script  -->

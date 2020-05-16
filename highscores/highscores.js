@@ -48,10 +48,10 @@ $(document).ready(function () {
 
   function enterInitials() {
     $("#showQuestion").text(`Your final score is ${score}`);
-    $("#showOptions").append(`<div>Enter your name here</div>`);
+    $("#showOptions").append(`<div>Enter your name here:</div>`);
     $("#showOptions").append("<form id='form'></form>");
     $("#form").append(
-      "<input id='name' autofocus type='text' class='mr-3' placeholder='enter name here'></input>"
+      "<input id='name' autofocus type='text' class='mr-3' placeholder='Enter name here'></input>"
     );
     $("#form").append(
       "<input id='btnSubmit' type='submit' value='Submit'></input>"

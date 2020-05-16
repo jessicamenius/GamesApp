@@ -9,15 +9,12 @@ $(document).ready(function () {
 $(function () {
   var canvas = $("#canvas")[0];
   var ctx = canvas.getContext("2d");
-
   var cHeight = canvas.height;
   var cWidth = canvas.width;
   var snakeHeight = 10;
   var snakeWidth = 10;
   var blockSize = 10;
-
   var score = 0;
-
   var snake = [
     {
       x: 200,
@@ -56,7 +53,7 @@ $(function () {
   var keyPressed = DOWN;
 
   var game;
-
+  // start and restart button functions to hide and show
   var redirectTimer;
   $("#restart").hide();
   $("#submitBtn").on("click", function (event) {
@@ -65,19 +62,18 @@ $(function () {
     $("#submitBtn").hide();
     $("#restart").show();
   });
-
+  // restart button on click function to refresh
   $("#restart").on("click", function (event) {
     event.preventDefault();
-    // console.log("hello");
     window.location.href = "./snake.html";
   });
-
+  // redirects to high scores after 5 seconds
   function highScores() {
     redirectTimer = setTimeout(function () {
       window.location.href = "./../highscores/highscores.html";
     }, 5000);
   }
-
+  // game over function => gif
   function stopGame() {
     clearInterval(game);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -96,18 +92,18 @@ $(function () {
     });
     highScores();
   }
-
+  // what runs the game
   function startGame() {
     game = setInterval(gameLoop, fps);
   }
-
+  // what is running to make game start
   function gameLoop() {
     clearCanvas();
     drawFood();
     moveSnake(keyPressed);
     drawSnake();
   }
-
+  // logic for the snake
   function drawSnake() {
     ctx.fillStyle = "#a64ac9";
     ctx.lineWidth = 2;
@@ -146,14 +142,14 @@ $(function () {
   function updateFoodEatenFlag() {
     food.eaten = true;
   }
-
+  // increases snake length
   function makeSnakeBigger() {
     snake.push({
       x: snake[snake.length - 1].x,
       y: snake[snake.length - 1].y,
     });
   }
-
+  // logic if snake collides with itself
   function collided(x, y) {
     return (
       snake.filter((item, index) => {
@@ -165,11 +161,11 @@ $(function () {
       y > cHeight
     );
   }
-
+  // function to catch food
   function caughtFood(x, y) {
     return x == food.x && y == food.y;
   }
-
+  // drawing the food on canvas
   function drawFood() {
     ctx.fillStyle = "#fccd04";
     let xy = getPositionForFood();
@@ -180,7 +176,7 @@ $(function () {
     };
     ctx.fillRect(food.x, food.y, snakeWidth, snakeHeight);
   }
-
+  // to move food into random position
   function getPositionForFood() {
     let xy;
     if (food.eaten == true) {
@@ -212,7 +208,7 @@ $(function () {
       return getEmptyBlock(xArray, yArray);
     }
   }
-
+  // random position of food
   function getRandomNumber(max, multipleOf) {
     let result = Math.floor(Math.random() * max);
     result = result % 10 == 0 ? result : result + (multipleOf - (result % 10));
@@ -228,7 +224,7 @@ $(function () {
       keyPressed = checkKeyAllowed(e.which);
     }
   });
-
+  // for keys to not conflict
   function checkKeyAllowed(tempKey) {
     let key;
     if (tempKey == DOWN) {
@@ -242,7 +238,7 @@ $(function () {
     }
     return key;
   }
-
+  // when moving keys
   function moveSnake(keyPressed) {
     $.each(snake, function (index, value) {
       if (snake[index].drawn == true) {
