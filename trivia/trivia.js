@@ -9,11 +9,21 @@ $(document).ready(function () {
   var answers = [];
   var correctAnswer = [];
   var score = 0;
+
   $("#score").text(`Score: ${score}`);
   window.localStorage.setItem("score", score);
 
   $("#submitBtn").on("click", function () {
     $("#submitBtn").hide();
+    $("#quiz").append(
+      `<div class="card">
+        <div class="card-body">
+          <div id="question" class="center"></div>
+        <div id="answers" class="list-group"></div>
+        </div>
+        </div>
+      </div>`
+    );
 
     $.ajax({
       type: "GET",
@@ -27,10 +37,21 @@ $(document).ready(function () {
             ...res.results[i].incorrect_answers,
             res.results[i].correct_answer,
           ],
-          // 3 dots opens up array items and puts in a new array
           correctAnswer: res.results[i].correct_answer,
         });
         shuffleChoices(questions[i].answers);
+      }
+      function verifyAnswer() {
+        var userAnswer = event.target.value;
+        var correctAnswer = questions[currentQuestion].correct_answer;
+
+        if (userAnswer === correctAnswer) {
+          window.score++;
+          document.getElementById("score").innerHTML = "Score: " + window.score;
+
+          currentQuestion++;
+        }
+        console.log(userAnswer);
       }
 
       function displayQuestions() {
@@ -57,18 +78,6 @@ $(document).ready(function () {
         }
       });
 
-      function verifyAnswer() {
-        var userAnswer = event.target.value;
-        var correctAnswer = questions[currentQuestion].correct_answer;
-
-        if (userAnswer === correctAnswer) {
-          window.score++;
-          document.getElementById("score").innerHTML = "Score: " + window.score;
-
-          currentQuestion++;
-        }
-        console.log(userAnswer);
-      }
       verifyAnswer();
     });
   });
