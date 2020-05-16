@@ -1,5 +1,3 @@
-var mode = "lightMode";
-
 $(document).ready(function () {
   var playgame = "trivia";
   window.localStorage.setItem("playgame", playgame);
