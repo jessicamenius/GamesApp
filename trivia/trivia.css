@@ -9,10 +9,6 @@ body {
   text-align: center;
 }
 
-#triviagame {
-  width: 100px;
-}
-
 .score {
   justify-content: right;
 }

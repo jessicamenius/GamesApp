@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Trivia</title>
     <link
-    href="https://fonts.googleapis.com/css?family=Karla"
-    rel="stylesheet"
-  />
+      href="https://fonts.googleapis.com/css?family=Karla"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -15,79 +15,20 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="trivia.css" />
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="./../nav.css" />
   </head>
 
   <body>
-    <!-- navbar -->
-    <body id="body">
-      <nav class="navbar navbar-expand-lg navbar-light light-mode">
-        <a class="navbar-brand">Games App</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-  
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="../index.html"
-                >Home <span class="sr-only">(current)</span></a
-              >
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdown"
-                role="button"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                Games
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="../warcardgame/index.html">War</a>
-                <a class="dropdown-item" href="../memorygame/memorygame.html"
-                  >Memory</a
-                >
-                <a class="dropdown-item" href="../trivia/trivia.html">Trivia</a>
-                <a class="dropdown-item" href="../Snake/snake.html">Snake</a>
-                <a class="dropdown-item" href="../reactiongame/index.html"
-                  >Reaction</a
-                >
-                <a class="dropdown-item" href="../tictactoe/tictactoe.html"
-                  >Tic Tac Toe</a
-                >
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../highscores.html">Highscores</a>
-            </li>
-          </ul>
-        </div>
-        <div id="toggleBtn" class="toggler">
-          <div id="toggleDisplay" class="toggle toggleFalse"></div>
-        </div>
-      </nav>
+    <nav class="navbar"></nav>
+    <br />
 
     <!-- heading -->
 
     <div id="score" class="d-inline float-right mr-3"></div>
 
-
-    <div>
-      <h1 class="center">Trivia</h1>
-      <h3 class="center">Test your knowledge!</h3>
-    </div>
+    <br />
+    <h1 class="center">Trivia</h1>
+    <h3 class="center">Test your knowledge!</h3>
 
     <br />
     <!-- get started button -->
@@ -102,18 +43,14 @@
 
     <!-- quiz -->
 
-    <div class="card center" id="triviagame">
-      <div class="card-body">
-        <div id="question" class="center"></div>
-        <div id="answers" class="list-group"></div>
-      </div>
-    </div>
+    <div id="quiz" class="center"></div>
 
     <!-- script  -->
     <script
-    src="https://code.jquery.com/jquery-3.5.1.min.js"
-    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
-    crossorigin="anonymous"></script>
+      src="https://code.jquery.com/jquery-3.5.1.min.js"
+      integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+      crossorigin="anonymous"
+    ></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
       integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
@@ -126,6 +63,6 @@
     ></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="trivia.js"></script>
-    <script src="../app.js"></script>
+    <script src="../nav.js"></script>
   </body>
 </html>

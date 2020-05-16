@@ -1,5 +1,3 @@
-var mode = "lightMode";
-
 $(document).ready(function () {
   var playgame = "trivia";
   window.localStorage.setItem("playgame", playgame);
@@ -10,8 +8,20 @@ $(document).ready(function () {
   var correctAnswer = [];
   var score = 0;
 
+  $("#score").text(`Score: ${score}`);
+  window.localStorage.setItem("score", score);
+
   $("#submitBtn").on("click", function () {
     $("#submitBtn").hide();
+    $("#quiz").append(
+      `<div class="card">
+        <div class="card-body">
+          <div id="question" class="center"></div>
+        <div id="answers" class="list-group"></div>
+        </div>
+        </div>
+      </div>`
+    );
 
     $.ajax({
       type: "GET",
@@ -25,26 +35,10 @@ $(document).ready(function () {
             ...res.results[i].incorrect_answers,
             res.results[i].correct_answer,
           ],
-          // 3 dots opens up array items and puts in a new array
           correctAnswer: res.results[i].correct_answer,
         });
         shuffleChoices(questions[i].answers);
       }
-
-      function displayQuestions() {
-        $("#question").html("");
-        $("#answers").html("");
-
-        $("#question").html(questions[currentQuestion].question);
-
-        for (var i = 0; i < questions[currentQuestion].answers.length; i++) {
-          $("#answers").append(
-            `<button> ${questions[currentQuestion].answers[i]} </button>`
-          );
-        }
-      }
-      displayQuestions();
-
       function verifyAnswer() {
         var userAnswer = event.target.value;
         var correctAnswer = questions[currentQuestion].correct_answer;
@@ -57,6 +51,31 @@ $(document).ready(function () {
         }
         console.log(userAnswer);
       }
+
+      function displayQuestions() {
+        $("#question").html("");
+        $("#answers").html("");
+
+        $("#question").html(questions[currentQuestion].question);
+
+        for (var i = 0; i < questions[currentQuestion].answers.length; i++) {
+          $("#answers").append(
+            '<button onclick="verifyAnswer()" value="' +
+              questions[currentQuestion].answers[i] +
+              '">' +
+              questions[currentQuestion].answers[i] +
+              "</button>"
+          );
+        }
+      }
+      displayQuestions();
+
+      $("#answer").on("click", function () {
+        for (var i = 0; i < 10; i++) {
+          displayQuestions();
+        }
+      });
+
       verifyAnswer();
     });
   });
@@ -71,44 +90,25 @@ function shuffleChoices(array) {
   }
 }
 
-//   function displayQuestion() {
-//     $("#question").text(question);
-//     console.log(choices);
-//     for (var i = 0; i < 10; i++) {
-//       var button = document.createElement("button");
-//       button.type = "button";
-//       button.value = i;
-//       button.innerHTML = choices[i];
-//       button.addEventListener("click", function (event) {
-//         var buttonValue = event.target.value;
+function endGame() {
+  $(".container").html("");
+  window.localStorage.setItem("score", score);
+  getGiphy("gameover");
+  setTimeout(function () {
+    window.location.href = "./../highscores/highscores.html";
+  }, 5000);
+}
 
-//         if (buttonValue == answer) {
-//           // the answer is correct
-//           // add to their score here
-//           window.score++;
-//           // document.getElementById("score").innerHTML = "Score: " + window.score;
-//         }
-
-//         // move onto next question
-//         $("#answer").html("");
-
-//         // last question
-//         if (currentQuestion === question.length - 1) {
-//           endQuiz();
-//         } else {
-//           currentQuestion += 1;
-//           displayQuestion();
-//         }
-//       });
-//       document.getElementById("answers").append(button);
-//     }
-//   }
-
-//   function endQuiz() {
-//     // clear the question
-//     // save the score in localStorage
-//     clearInterval(window.createTimer);
-//     document.getElementById("question").innerHTML = "";
-//     handleEndQuiz();
-//   }
-// });
+function getGiphy(str) {
+  var apiKey = "WEBIEMxP2gpqmX8BNbn1G6i6BYEtlVML";
+  $.ajax({
+    type: "GET",
+    url: `http://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${str}`,
+    dataType: "JSON",
+  }).then(function (res) {
+    var gif = res.data[randNumber(res.data.length)].images.original.url;
+    $(".container").prepend(
+      `<img src=${gif} class="img-fluid rounded mx-auto d-block mt-5"/>`
+    );
+  });
+}

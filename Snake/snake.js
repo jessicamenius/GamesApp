@@ -2,48 +2,10 @@ var apiKey = "fZd83cUM8MNVbIKeK8MuxdZLC4oIMih2";
 var mode = "lightMode";
 $(document).ready(function () {
   var playgame = "snake";
+  // local storage for dark mode
   window.localStorage.setItem("playgame", playgame);
-  $("#toggleBtn").on("click", function () {
-    if ($("#toggleDisplay").attr("class") === "toggle toggleFalse") {
-      darkMode();
-    } else {
-      lightMode();
-    }
-  });
-
-  if (window.localStorage.getItem("mode") === "light-mode") {
-    lightMode();
-  }
-  if (window.localStorage.getItem("mode") === "dark-mode") {
-    darkMode();
-  }
-
-  function darkMode() {
-    window.localStorage.setItem("mode", "dark-mode");
-    $(".navbar").attr(
-      "class",
-      "navbar navbar-expand-lg navbar-dark bg-dark dark-mode "
-    );
-    $("body").attr("class", "dark-mode");
-    $("#toggleDisplay").attr("class", "toggle toggleTrue");
-    $(".card").attr("class", "card dark-mode border-white mt-5");
-    $("#footer").attr("style", `background-color: #343A40; color: white;`);
-    $(".dropdwon-menu").attr("class");
-  }
-
-  function lightMode() {
-    window.localStorage.setItem("mode", "light-mode");
-    $(".navbar").attr(
-      "class",
-      "navbar navbar-expand-lg navbar-light light-mode"
-    );
-    $(".card").attr("class", "card light-mode mt-5");
-    $("body").attr("class", "light-mode");
-    $("#toggleDisplay").attr("class", "toggle toggleFalse");
-    $("#footer").attr("style", `background-color: #a641c9; color: black`);
-  }
 });
-
+// function for drawing canvas and contents within
 $(function () {
   var canvas = $("#canvas")[0];
   var ctx = canvas.getContext("2d");
