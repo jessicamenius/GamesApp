@@ -1,3 +1,5 @@
+var mode = "lightMode";
+
 $(document).ready(function () {
   var playgame = "trivia";
   window.localStorage.setItem("playgame", playgame);
@@ -100,8 +102,11 @@ $(document).ready(function () {
 
         if (userAnswer === correctAnswer) {
           window.score++;
+          document.getElementById("score").innerHTML = "Score: " + window.score;
+
           currentQuestion++;
         }
+        console.log(userAnswer);
       }
       verifyAnswer();
     });
@@ -116,26 +121,6 @@ function shuffleChoices(array) {
     array[j] = temp;
   }
 }
-
-// function shuffleChoices(array) {
-//   var currentIndex = array.length,
-//     temporaryValue,
-//     randomIndex;
-
-//   // While there remain elements to shuffle...
-//   while (0 !== currentIndex) {
-//     // Pick a remaining element...
-//     randomIndex = Math.floor(Math.random() * currentIndex);
-//     currentIndex -= 1;
-
-//     // And swap it with the current element.
-//     temporaryValue = array[currentIndex];
-//     array[currentIndex] = array[randomIndex];
-//     array[randomIndex] = temporaryValue;
-//   }
-
-//   return array;
-// }
 
 //   function displayQuestion() {
 //     $("#question").text(question);
