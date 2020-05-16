@@ -66,13 +66,40 @@ body {
 .btn-custom {
   background-color: #ffb48f;
 }
+.easy {
+  border-color: #ffb48f;
+  color: black;
+}
 
+.easy:hover {
+  background: #ffb48f;
+  color: white;
+}
 .card {
   border: solid #17e9e0 3px;
-  height: 600px;
+  height: 800px;
 }
 
 .container {
   display: flex;
   justify-content: center;
+}
+
+#giphy img {
+  border: solid #fccd04 3px;
+  display: flex;
+  justify-content: center;
+}
+#giphy {
+  display: flex;
+  justify-content: center;
+}
+
+.navbar a {
+  color: white !important;
+}
+
+.dropdown-menu {
+  background-color: #a641c9;
+  color: white;
 }

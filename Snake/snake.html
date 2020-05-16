@@ -17,14 +17,14 @@
     />
     <link rel="stylesheet" href="snake.css" />
 
-    <title>Snake Game</title>
+    <title>Snake</title>
   </head>
   <div id="header">
   
   </div>
   <body id="body">
-    <nav class="navbar navbar-expand-lg light-mode navbar-light">
-      <a class="navbar-brand" href="#">Games App</a>
+    <nav class="navbar navbar-expand-lg navbar-light light-mode">
+      <a class="navbar-brand">Games App</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -40,12 +40,9 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#"
+            <a class="nav-link" href="../index.html"
               >Home <span class="sr-only">(current)</span></a
             >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Highscores</a>
           </li>
           <li class="nav-item dropdown">
             <a
@@ -60,19 +57,22 @@
               Games
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="../warcardgame/index.html">War</a>
               <a class="dropdown-item" href="./memorygame/memorygame.html"
                 >Memory</a
               >
+              <a class="dropdown-item" href="./trivia/trivia.html">Trivia</a>
+              <a class="dropdown-item" href="./Snake/snake.html">Snake</a>
               <a class="dropdown-item" href="./reactiongame/index.html"
                 >Reaction</a
               >
-              <a class="dropdown-item" href="./Snake/snake.html">Snake</a>
-              <a class="dropdown-item" href="#">Tic Tac Toe</a>
-              <a class="dropdown-item" href="./triviaGame/trivia.html"
-                >Trivia</a
+              <a class="dropdown-item" href="./tictactoe/tictactoe.html"
+                >Tic Tac Toe</a
               >
-              <a class="dropdown-item" href="./warcardgame/index.html">War</a>
             </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./highscores/highscores.html">Highscores</a>
           </li>
         </ul>
       </div>
@@ -80,6 +80,7 @@
         <div id="toggleDisplay" class="toggle toggleFalse"></div>
       </div>
     </nav>
+
     <div id="header"><h1>Snake Game</h1></div>
     <div class="container">
       <br />

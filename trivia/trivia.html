@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trivia</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="trivia.css" />
+  </head>
+
+  <!-- <div id="header"></div> -->
+  <body>
+    <!-- navbar -->
+    <body id="body">
+      <nav class="navbar navbar-expand-lg navbar-light light-mode">
+        <a class="navbar-brand">Games App</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+  
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="../index.html"
+                >Home <span class="sr-only">(current)</span></a
+              >
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Games
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="../warcardgame/index.html">War</a>
+                <a class="dropdown-item" href="../memorygame/memorygame.html"
+                  >Memory</a
+                >
+                <a class="dropdown-item" href="trivia.html">Trivia</a>
+                <a class="dropdown-item" href="../Snake/snake.html">Snake</a>
+                <a class="dropdown-item" href="../reactiongame/index.html"
+                  >Reaction</a
+                >
+                <a class="dropdown-item" href="../tictactoe/tictactoe.html"
+                  >Tic Tac Toe</a
+                >
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../highscores/highscores.html">Highscores</a>
+            </li>
+          </ul>
+        </div>
+        <div id="toggleBtn" class="toggler">
+          <div id="toggleDisplay" class="toggle toggleFalse"></div>
+        </div>
+      </nav>
+
+    <!-- heading -->
+
+    <div id="score" class="d-inline float-right mr-3"></div>
+
+    <div>
+      <h1 class="center">Trivia</h1>
+      <h3 class="center">Test your knowledge!</h3>
+    </div>
+
+    <br />
+    <!-- get started button -->
+
+    <div class="container center">
+      <button id="submitBtn" type="submit" class="btn warning">
+        Let's play!
+      </button>
+    </div>
+
+    <br />
+
+    <!-- quiz -->
+
+    <div class="card" index="triviagame">
+      <div class="card-body">
+        <div id="question" class="center"></div>
+        <div id="answers" class="list-group"></div>
+      </div>
+    </div>
+
+    <!-- script  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="trivia.js"></script>
+  </body>
+</html>

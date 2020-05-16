@@ -1,16 +1,4 @@
 $(document).ready(function () {
-  var game = "trivia";
-  window.localStorage.setItem("playGame", game);
-  var score = 0;
-  window.localStorage.setItem("score", score);
-  setTimeout(function () {
-    window.location.href = "./../highscores/highscores.html";
-  }, 10000);
-
-
-  var currentQuestion = 0;
-  window.score = 0;
-
   $("#toggleBtn").on("click", function () {
     if ($("#toggleDisplay").attr("class") === "toggle toggleFalse") {
       $(".navbar").attr(
@@ -31,10 +19,10 @@ $(document).ready(function () {
     }
   });
 
-  $("#submitBtn").on("click", function (e) {
-    e.preventDefault();
-    $("#submitBtn").html("");
-  });
+  var game = "trivia";
+  window.localStorage.setItem("playGame", game);
+  var score = 0;
+  window.localStorage.setItem("score", score);
 
   $.ajax({
     type: "GET",
@@ -44,7 +32,7 @@ $(document).ready(function () {
     console.log(res);
     // console.log(res.results[0].question);
 
-    var question = res.results[i].question
+    var question = res.results[i].question;
 
     var choices = res.results[i].incorrect_answers;
     choices.push(res.results[i].correct_answer);
@@ -76,33 +64,59 @@ $(document).ready(function () {
 
     function displayQuestion() {
       document.getElementById("question").innerHTML =
-        questions[currentQuestion].title;
-      for (var i = 0; i < questions[currentQuestion].choices.length; i += 1) {
+        question[currentQuestion].title;
+      for (var i = 0; i < question[currentQuestion].choices.length; i += 1) {
         var button = document.createElement("button");
         button.type = "button";
         button.value = i;
-        button.innerHTML = questions[currentQuestion].choices[i];
+        button.innerHTML = question[currentQuestion].choices[i];
         button.addEventListener("click", function (event) {
           var buttonValue = event.target.value;
-    
-          if (buttonValue == questions[currentQuestion].answer) {
+
+          if (buttonValue == question[currentQuestion].answer) {
             // the answer is correct
             // add to their score here
             window.score += 1;
-            document.getElementById("score").innerHTML = "Score: " + window.score;
+            document.getElementById("score").innerHTML =
+              "Score: " + window.score;
           } else {
             // the answer is wrong
             window.timer -= 10;
             showAlert();
           }
-    
+
+          var currentQuestion = 0;
+          window.score = 0;
+
+          window.timer = 100;
+          var start = document.getElementById("start");
+
+          start.addEventListener("click", function () {
+            displayTimer();
+            displayQuestion();
+            start.parentNode.removeChild(start);
+          });
+
+          function displayTimer() {
+            window.createTimer = setInterval(function () {
+              window.timer -= 1;
+              document.getElementById("timer").innerHTML =
+                "Time Remaning: " + window.timer;
+              if (window.timer === 0) {
+                // endQuiz();
+              }
+            }, 1000);
+          }
+
           // move onto next question
           document.getElementById("answers").innerHTML = "";
         });
-        });
+      }
+      displayQuestion();
+    }
   });
 });
-});
-});
-});
-});
+
+// setTimeout(function () {
+//   window.location.href = "./../highscores/highscores.html";
+// }, 10000);

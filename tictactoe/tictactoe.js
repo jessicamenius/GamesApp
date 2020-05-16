@@ -5,14 +5,14 @@ function clickButton(event) {
     console.log("0. you clicked: ", thingClicked);
     var playerOne = getPlayerOne();
     if (playerOne === "X") {
-      $(this).addClass("blue"); //playerOne is always blue
+      $(this).addClass("theme3");
       $(this).html("X");
     }
     if (playerOne === "O") {
-      $(this).addClass("blue"); //playerOne is always blue
+      $(this).addClass("theme3");
       $(this).html("O");
     }
-    playGame(); //call playGame after every click, to check for winner & whose turn
+    playGame();
   });
 }
 clickButton(event);
