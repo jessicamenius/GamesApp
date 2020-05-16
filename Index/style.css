@@ -1,37 +1,5 @@
-.center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-#triviagame {
-  width: 100px;
-}
-
-.score {
-  justify-content: right;
-}
-
-/* Main CSS Doc  */
-.theme1 {
-  color: #a641c9;
-}
-
-.theme2 {
-  color: #fccd04;
-}
-
-.theme3 {
-  color: #ffb48f;
-}
-
-.theme4 {
-  color: #f5e6cc;
-}
-
-.theme5 {
-  color: #17e9e0;
+body {
+  font-family: karla !important;
 }
 
 .toggler {
@@ -59,7 +27,6 @@
   color: white;
 }
 .light-mode {
-  background-color: white;
   color: black;
 }
 
@@ -67,12 +34,41 @@
   background-color: #a641c9;
 }
 
+.navbar a {
+  color: white !important;
+}
+
+.dropdown-menu {
+  background-color: #a641c9;
+  color: white;
+}
+
 #footer {
   background-color: #a641c9;
 }
 
 #blockquote {
-  color: black;
+  color: white;
+}
+
+.theme1 {
+  color: #a641c9;
+}
+
+.theme2 {
+  color: #fccd04;
+}
+
+.theme3 {
+  color: #ffb48f;
+}
+
+.theme4 {
+  color: #f5e6cc;
+}
+
+.theme5 {
+  color: #17e9e0;
 }
 
 .card {

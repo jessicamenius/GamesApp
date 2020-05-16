@@ -30,6 +30,7 @@ $(document).ready(function () {
     $("#snake").attr("src", "./assets/snakeDark.png");
     $("#reaction").attr("src", "./assets/reactionDark.png");
     $("#tictactoe").attr("src", "./assets/tictactoeDark.png");
+    $(".dropdwon-menu").attr("class");
   }
 
   function lightMode() {

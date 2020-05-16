@@ -13,10 +13,11 @@ var defaults = {
     timeout: 1000,
   },
 };
-
+// variables for local storage
 var playgame = "Reaction";
 window.localStorage.setItem("playgame", playgame);
 
+//variables for game
 var intensity;
 var time;
 
@@ -29,6 +30,7 @@ var lastRandomCell = 0;
 var apiKey = "ne5Joz1LAIF9FLe8LEIb6bMrrVfVxST7";
 var reactionTimes = [];
 
+//timer to count down to take you to the highscores page
 var timer = "";
 function highScores() {
   timer = setTimeout(function () {
@@ -38,45 +40,6 @@ function highScores() {
 
 $(document).ready(function () {
   clearCells();
-  //toggle between light and dark mode
-  $("#toggleBtn").on("click", function () {
-    if ($("#toggleDisplay").attr("class") === "toggle toggleFalse") {
-      darkMode();
-    } else {
-      lightMode();
-    }
-  });
-
-  if (window.localStorage.getItem("mode") === "light-mode") {
-    lightMode();
-  }
-  if (window.localStorage.getItem("mode") === "dark-mode") {
-    darkMode();
-  }
-
-  function darkMode() {
-    window.localStorage.setItem("mode", "dark-mode");
-    $(".navbar").attr(
-      "class",
-      "navbar navbar-expand-lg navbar-dark bg-dark dark-mode"
-    );
-    $("body").attr("class", "dark-mode");
-    $("#toggleDisplay").attr("class", "toggle toggleTrue");
-    $(".card").attr("class", "card dark-mode border-white mt-5");
-    $("#footer").attr("style", `background-color: #343A40; color: white;`);
-  }
-
-  function lightMode() {
-    window.localStorage.setItem("mode", "light-mode");
-    $(".navbar").attr(
-      "class",
-      "navbar navbar-expand-lg navbar-light light-mode"
-    );
-    $(".card").attr("class", "card light-mode mt-5");
-    $("body").attr("class", "light-mode");
-    $("#toggleDisplay").attr("class", "toggle toggleFalse");
-    $("#footer").attr("style", `background-color: #a641c9; color: black`);
-  }
 
   $("td").click(function () {
     clearTimeout(gameTimeout);

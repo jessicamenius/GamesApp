@@ -1,3 +1,7 @@
+body {
+  font-family: karla !important;
+}
+
 .toggler {
   height: 30px;
   width: 60px;
@@ -23,7 +27,6 @@
   color: white;
 }
 .light-mode {
-  background-color: white;
   color: black;
 }
 
@@ -33,6 +36,15 @@
 
 .navbar a {
   color: white !important;
+}
+
+.dropdown-menu {
+  background-color: #a641c9;
+  color: white;
+}
+
+.dropdown-item:hover {
+  background-color: #17e9e0;
 }
 
 #footer {

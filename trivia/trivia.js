@@ -1,72 +1,93 @@
-var mode = "lightMode";
-
 $(document).ready(function () {
-  var playgame = "trivia";
-  window.localStorage.setItem("playgame", playgame);
-
-  $("#toggleBtn").on("click", function () {
-    if ($("#toggleDisplay").attr("class") === "toggle toggleFalse") {
-      darkMode();
-    } else {
-      lightMode();
-    }
-  });
-
-  if (window.localStorage.getItem("mode") === "light-mode") {
-    lightMode();
-  }
-  if (window.localStorage.getItem("mode") === "dark-mode") {
-    darkMode();
-  }
-
-  function darkMode() {
-    window.localStorage.setItem("mode", "dark-mode");
-    $(".navbar").attr(
-      "class",
-      "navbar navbar-expand-lg navbar-dark bg-dark dark-mode "
-    );
-    $("body").attr("class", "dark-mode");
-    $("#toggleDisplay").attr("class", "toggle toggleTrue");
-    $(".card").attr("class", "card dark-mode border-white mt-5");
-    $("#footer").attr("style", `background-color: #343A40; color: white;`);
-    $("#war").attr("src", "./assets/warDark.png");
-    $("#memory").attr("src", "./assets/memoryDark.png");
-    $("#trivia").attr("src", "./assets/triviaDark.png");
-    $("#snake").attr("src", "./assets/snakeDark.png");
-    $("#reaction").attr("src", "./assets/reactionDark.png");
-    $("#tictactoe").attr("src", "./assets/tictactoeDark.png");
-    $(".dropdwon-menu").attr("class");
-  }
-
-  function lightMode() {
-    window.localStorage.setItem("mode", "light-mode");
-    $(".navbar").attr(
-      "class",
-      "navbar navbar-expand-lg navbar-light light-mode"
-    );
-    $(".card").attr("class", "card light-mode mt-5");
-    $("body").attr("class", "light-mode");
-    $("#toggleDisplay").attr("class", "toggle toggleFalse");
-    $("#footer").attr("style", `background-color: #a641c9; color: black`);
-    $("#war").attr("src", "./assets/war.png");
-    $("#memory").attr("src", "./assets/memory.png");
-    $("#trivia").attr("src", "./assets/trivia.png");
-    $("#snake").attr("src", "./assets/snake.png");
-    $("#reaction").attr("src", "./assets/reaction.png");
-    $("#tictactoe").attr("src", "./assets/tictactoe.png");
-  }
   var questions = [];
   var currentQuestion = 0;
-  var answers = [];
-  var correctAnswer = [];
+  var playgame = "Trivia";
+  window.localStorage.setItem("playgame", playgame);
   var score = 0;
+  window.score = 0;
 
-  $("#submitBtn").on("click", function () {
+  function shuffleChoices(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+  }
+  function verifyAnswer(event) {
+    // compare the answer
+    var userAnswer = event.target.value;
+    var correctAnswer = questions[currentQuestion].correctAnswer;
+    if (userAnswer == correctAnswer) {
+      window.score++;
+      document.getElementById("score").innerHTML = "Score: " + window.score;
+    }
+    currentQuestion++;
+    if (currentQuestion === questions.length - 1) {
+      endGame("genius");
+    } else {
+      currentQuestion++;
+      displayQuestions();
+    }
+    function endGame() {
+      $(".container").html("");
+      $(".container").append("Your final score is: ", score);
+      window.localStorage.setItem("score", score);
+      getGiphy("genius");
+      setTimeout(function () {
+        window.location.href = "./../highscores/highscores.html";
+      }, 5000);
+    }
+
+    function getGiphy(str) {
+      var apiKey = "WEBIEMxP2gpqmX8BNbn1G6i6BYEtlVML";
+      $.ajax({
+        type: "GET",
+        url: `http://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${str}`,
+        dataType: "JSON",
+      }).then(function (res) {
+        var gif = res.data[randNumber(res.data.length)].images.original.url;
+        $(".container").prepend(
+          `<img src=${gif} class="img-fluid rounded mx-auto d-block mt-5"/>`
+        );
+      });
+    }
+  }
+  function displayQuestions() {
+    $("#question").html("");
+    $("#answers").html("");
+    $("#question").html(questions[currentQuestion].question);
+    for (var i = 0; i < questions[currentQuestion].answers.length; i++) {
+      $("#answers").append(
+        '<button class="btn-option"  value="' +
+          questions[currentQuestion].answers[i] +
+          '">' +
+          questions[currentQuestion].answers[i] +
+          "</button>"
+      );
+      console.log(questions[currentQuestion].question);
+    }
+  }
+
+  $(document).on("click", ".btn-option", function (e) {
+    verifyAnswer(e);
+  });
+  $("#submitBtn").click(function () {
     $("#submitBtn").hide();
+    $("score").append(score);
+    $("#quiz").append(` <div class="card text-center">
+    <div class="card-body" id="prompt_display">
+    <div id="question"></div>
+    <br>
+    <ul id="answers" class="list-group">
+    </ul>
+    <p class="card-text"></p>
+    <div id="alert"></div>
+  </div>`);
 
     $.ajax({
-      type: "GET",
-      url: `https://opentdb.com/api.php?amount=10&category=9&type=multiple`,
+      method: "GET",
+      url: "https://opentdb.com/api.php?amount=10&category=9&type=multiple",
     }).then(function (res) {
       console.log(res);
       for (var i = 0; i < res.results.length; i++) {
@@ -76,90 +97,12 @@ $(document).ready(function () {
             ...res.results[i].incorrect_answers,
             res.results[i].correct_answer,
           ],
-          // 3 dots opens up array items and puts in a new array
           correctAnswer: res.results[i].correct_answer,
         });
         shuffleChoices(questions[i].answers);
       }
 
-      function displayQuestions() {
-        $("#question").html("");
-        $("#answers").html("");
-
-        $("#question").html(questions[currentQuestion].question);
-
-        for (var i = 0; i < questions[currentQuestion].answers.length; i++) {
-          $("#answers").append(
-            `<button> ${questions[currentQuestion].answers[i]} </button>`
-          );
-        }
-      }
       displayQuestions();
-
-      function verifyAnswer() {
-        var userAnswer = event.target.value;
-        var correctAnswer = questions[currentQuestion].correct_answer;
-
-        if (userAnswer === correctAnswer) {
-          window.score++;
-          document.getElementById("score").innerHTML = "Score: " + window.score;
-
-          currentQuestion++;
-        }
-        console.log(userAnswer);
-      }
-      verifyAnswer();
     });
   });
 });
-
-function shuffleChoices(array) {
-  for (var i = array.length - 1; i > 0; i--) {
-    var j = Math.floor(Math.random() * (i + 1));
-    var temp = array[i];
-    array[i] = array[j];
-    array[j] = temp;
-  }
-}
-
-//   function displayQuestion() {
-//     $("#question").text(question);
-//     console.log(choices);
-//     for (var i = 0; i < 10; i++) {
-//       var button = document.createElement("button");
-//       button.type = "button";
-//       button.value = i;
-//       button.innerHTML = choices[i];
-//       button.addEventListener("click", function (event) {
-//         var buttonValue = event.target.value;
-
-//         if (buttonValue == answer) {
-//           // the answer is correct
-//           // add to their score here
-//           window.score++;
-//           // document.getElementById("score").innerHTML = "Score: " + window.score;
-//         }
-
-//         // move onto next question
-//         $("#answer").html("");
-
-//         // last question
-//         if (currentQuestion === question.length - 1) {
-//           endQuiz();
-//         } else {
-//           currentQuestion += 1;
-//           displayQuestion();
-//         }
-//       });
-//       document.getElementById("answers").append(button);
-//     }
-//   }
-
-//   function endQuiz() {
-//     // clear the question
-//     // save the score in localStorage
-//     clearInterval(window.createTimer);
-//     document.getElementById("question").innerHTML = "";
-//     handleEndQuiz();
-//   }
-// });

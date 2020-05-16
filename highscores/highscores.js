@@ -2,9 +2,9 @@ $(document).ready(function () {
   var highScore = JSON.parse(window.localStorage.getItem("highScore")) || [];
   score = window.localStorage.getItem("score");
   playgame = window.localStorage.getItem("playgame");
-  console.log(playgame);
-  var mode = "lightMode";
+  var mode = window.localStorage.getItem("mode");
   enterInitials();
+
   $("#toggleBtn").on("click", function () {
     if ($("#toggleDisplay").attr("class") === "toggle toggleFalse") {
       darkMode();
@@ -24,56 +24,27 @@ $(document).ready(function () {
     window.localStorage.setItem("mode", "dark-mode");
     $(".navbar").attr(
       "class",
-      "navbar navbar-expand-lg navbar-dark bg-dark dark-mode fixed-top"
+      "navbar navbar-expand-lg navbar-dark bg-dark dark-mode"
     );
     $("body").attr("class", "dark-mode");
     $("#toggleDisplay").attr("class", "toggle toggleTrue");
     $(".card").attr("class", "card dark-mode border-white mt-5");
-    $("#footer").attr("style", `background-color: #343A40; color: white;`);
-    $("#war").attr("src", "./assets/warDark.png");
-    $("#memory").attr("src", "./assets/memoryDark.png");
-    $("#trivia").attr("src", "./assets/triviaDark.png");
-    $("#snake").attr("src", "./assets/snakeDark.png");
-    $("#reaction").attr("src", "./assets/reactionDark.png");
-    $("#tictactoe").attr("src", "./assets/tictactoeDark.png");
-    $(".dropdwon-menu").attr("class");
+    $(".dropdown-menu").attr("style", "background-color: #343A40;");
+    $("table").attr("class", "table dark-mode");
   }
 
   function lightMode() {
     window.localStorage.setItem("mode", "light-mode");
     $(".navbar").attr(
       "class",
-      "navbar navbar-expand-lg navbar-light light-mode fixed-top"
+      "navbar navbar-expand-lg navbar-light light-mode"
     );
     $(".card").attr("class", "card light-mode mt-5");
     $("body").attr("class", "light-mode");
     $("#toggleDisplay").attr("class", "toggle toggleFalse");
-    $("#footer").attr("style", `background-color: #a641c9; color: black`);
-    $("#war").attr("src", "./assets/war.png");
-    $("#memory").attr("src", "./assets/memory.png");
-    $("#trivia").attr("src", "./assets/trivia.png");
-    $("#snake").attr("src", "./assets/snake.png");
-    $("#reaction").attr("src", "./assets/reaction.png");
-    $("#tictactoe").attr("src", "./assets/tictactoe.png");
+    $(".dropdown-menu").attr("style", "background-color: #a641c9;");
+    $("table").attr("class", "table light-mode");
   }
-  newJoke();
-
-  function newJoke() {
-    $.ajax({
-      type: "GET",
-      url: "https://icanhazdadjoke.com/",
-      dataType: "json",
-    }).then(function (res) {
-      console.log(res);
-      var joke = res.joke;
-      $("#joke").html(joke);
-    });
-  }
-
-  $("#joke").on("click", function (e) {
-    e.preventDefault();
-    newJoke();
-  });
 
   function enterInitials() {
     $("#showQuestion").text(`Your final score is ${score}`);
@@ -88,7 +59,6 @@ $(document).ready(function () {
     $(document).on("click", "#btnSubmit", function (e) {
       e.preventDefault();
       var $name = $("#name").val();
-
       if (!$name) {
         showPopup("Please enter a valid name", "info", score);
       } else {
@@ -99,7 +69,6 @@ $(document).ready(function () {
       }
     });
   }
-
   function showHighScore() {
     $("#showOptions").hide();
     $(document).on("click", "#resetHighScore", function () {
@@ -114,7 +83,6 @@ $(document).ready(function () {
     }
     insertHighScoreTable();
   }
-
   function insertHighScoreTable() {
     $("#showQuestion").html(
       `<div class='d-inline highScore'>HighScore</div>

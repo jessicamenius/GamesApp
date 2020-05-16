@@ -7,7 +7,10 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-
+    <link
+    href="https://fonts.googleapis.com/css?family=Karla"
+    rel="stylesheet"
+  />
     <!-- Bootstrap CSS -->
     <link
       rel="stylesheet"
@@ -16,6 +19,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="snake.css" />
+    <link rel="stylesheet" href="./../nav.css" />
 
     <title>Snake</title>
   </head>
@@ -23,63 +27,7 @@
   
   </div>
   <body id="body">
-    <nav class="navbar navbar-expand-lg navbar-light light-mode">
-      <a class="navbar-brand">Games App</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="../index.html"
-              >Home <span class="sr-only">(current)</span></a
-            >
-          </li>
-          <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle"
-              href="#"
-              id="navbarDropdown"
-              role="button"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              Games
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="../warcardgame/index.html">War</a>
-              <a class="dropdown-item" href="../memorygame/memorygame.html"
-                >Memory</a
-              >
-              <a class="dropdown-item" href="../trivia/trivia.html">Trivia</a>
-              <a class="dropdown-item" href="./Snake/snake.html">Snake</a>
-              <a class="dropdown-item" href="./reactiongame/index.html"
-                >Reaction</a
-              >
-              <a class="dropdown-item" href="../tictactoe/tictactoe.html"
-                >Tic Tac Toe</a
-              >
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../highscores/highscores.html">Highscores</a>
-          </li>
-        </ul>
-      </div>
-      <div id="toggleBtn" class="toggler">
-        <div id="toggleDisplay" class="toggle toggleFalse"></div>
-      </div>
-    </nav>
+    <nav class="navbar"></nav>
 
     <div id="header"><h1>Snake Game</h1></div>
     <div class="container">
@@ -87,8 +35,8 @@
       <canvas id="canvas" width="600" height="400"></canvas>
       <br />
       <span>Score: <b id="score"></b>  </b></span>
-      <br /><button id="submitBtn">Start Game</button>
-      <br /><button id="restart" type = "submit">Play Again</button>
+      <br /><button id="submitBtn" class="easy">Start Game</button>
+      <button id="restart" class= "medium" type = "submit">Play Again</button>
     </div>
 
     <!-- Optional JavaScript -->
@@ -109,5 +57,6 @@
     ></script>
     
     <script src="snake.js"></script>
+    <script src="./../nav.js"></script>
   </body>
 </html>

@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
+      href="https://fonts.googleapis.com/css?family=Karla"
+      rel="stylesheet"
+    />
+    <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
@@ -11,9 +15,11 @@
     />
 
     <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="../nav.css" />
     <title>Games App</title>
   </head>
   <body>
+    <!-- nav bar -->
     <nav class="navbar navbar-expand-lg navbar-light light-mode fixed-top">
       <a class="navbar-brand" href="./index.html">Games App</a>
       <button
@@ -46,14 +52,18 @@
             >
               Games
             </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="./warcardgame/index.html">War</a>
+            <div
+              id="dropdown"
+              class="dropdown-menu"
+              aria-labelledby="navbarDropdown"
+            >
+              <a class="dropdown-item" href="./warcardgame/war.html">War</a>
               <a class="dropdown-item" href="./memorygame/memorygame.html"
                 >Memory</a
               >
               <a class="dropdown-item" href="./trivia/trivia.html">Trivia</a>
               <a class="dropdown-item" href="./Snake/snake.html">Snake</a>
-              <a class="dropdown-item" href="./reactiongame/index.html"
+              <a class="dropdown-item" href="./reactiongame/reaction.html"
                 >Reaction</a
               >
               <a class="dropdown-item" href="./tictactoe/tictactoe.html"
@@ -74,6 +84,9 @@
         <div id="toggleDisplay" class="toggle toggleFalse"></div>
       </div>
     </nav>
+    <br />
+
+    <!-- cards -->
 
     <div class="container">
       <div id="row" class="row mt-4">
@@ -90,7 +103,7 @@
               <p class="card-text">
                 Classic Card Game of War
               </p>
-              <a href="./warcardgame/index.html" class="btn warning">Play</a>
+              <a href="../warcardgame/war.html" class="btn warning">Play</a>
             </div>
           </div>
         </div>
@@ -105,9 +118,9 @@
             <div class="card-body text-center">
               <h5 class="card-title">Memory</h5>
               <p class="card-text">
-                Info about Memory Game
+                Test your memory skills
               </p>
-              <a href="./memorygame/memorygame.html" class="btn warning"
+              <a href="../memorygame/memorygame.html" class="btn warning"
                 >Play</a
               >
             </div>
@@ -126,7 +139,7 @@
               <p class="card-text">
                 Test your knowledge
               </p>
-              <a href="./trivia/trivia.html" class="btn warning">Play</a>
+              <a href="../trivia/trivia.html" class="btn warning">Play</a>
             </div>
           </div>
         </div>
@@ -143,9 +156,9 @@
             <div class="card-body text-center">
               <h5 class="card-title">Snake</h5>
               <p class="card-text">
-                Help feed the snake using the arrow keys
+                Feed the snake using the arrow
               </p>
-              <a href="./Snake/snake.html" class="btn warning">Play</a>
+              <a href="../Snake/snake.html" class="btn warning">Play</a>
             </div>
           </div>
         </div>
@@ -160,9 +173,12 @@
             <div class="card-body text-center">
               <h5 class="card-title">Reaction Time</h5>
               <p class="card-text">
-                See how fast you can click each square
+                How fast can you click
               </p>
-              <a href="./reactiongame/index.html" class="btn warning">Play</a>
+
+              <a href="../reactiongame/reaction.html" class="btn warning"
+                >Play</a
+              >
             </div>
           </div>
         </div>
@@ -179,21 +195,24 @@
               <p class="card-text">
                 Get three Xs or Os in a row
               </p>
-              <a href="./tictactoe/index.html" class="btn warning">Play</a>
+              <a href="../tictactoe/tictactoe.html" class="btn warning">Play</a>
             </div>
           </div>
         </div>
       </div>
     </div>
     <br />
+    <br />
 
-    <div id="footer" class="border-0 fixed-bottom">
+    <div id="footer" class="border-0">
       <div class="card-body">
         <blockquote id="blockquote" class="blockquote mb-0">
           <div id="joke"></div>
         </blockquote>
       </div>
     </div>
+
+    <!-- script -->
     <script
       src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
       integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
@@ -210,5 +229,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="./app.js"></script>
+    <script src="../nav.js"></script>
   </body>
 </html>

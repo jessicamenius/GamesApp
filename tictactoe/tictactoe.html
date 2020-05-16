@@ -4,118 +4,48 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
+      href="https://fonts.googleapis.com/css?family=Karla"
+      rel="stylesheet"
+    />
+    <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
       integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="tictactoe.css" />
+    <link rel="stylesheet" href="../nav.css" />
+    <a href="../highscores/highscores.html"></a>
     <title>Tic Tac Toe</title>
   </head>
   <body>
-    <!-- nav bar -->
-    <nav class="navbar navbar-expand-lg navbar-light light-mode">
-      <a class="navbar-brand">Games App</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="../index.html">Home </a>
-          </li>
-          <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle"
-              href="#"
-              id="navbarDropdown"
-              role="button"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              Games
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="../warcardgame/index.html">War</a>
-              <a class="dropdown-item" href="../memorygame/memorygame.html"
-                >Memory</a
-              >
-              <a class="dropdown-item" href="../trivia/trivia.html">Trivia</a>
-              <a class="dropdown-item" href="../Snake/snake.html">Snake</a>
-              <a class="dropdown-item" href="../reactiongame/index.html"
-                >Reaction</a
-              >
-              <a class="dropdown-item" href="tictactoe.html"
-                >Tic Tac Toe<span class="sr-only">(current)</span></a
-              >
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../highscores/highscores.html"
-              >Highscores</a
-            >
-          </li>
-        </ul>
-      </div>
-      <div id="toggleBtn" class="toggler">
-        <div id="toggleDisplay" class="toggle toggleFalse"></div>
-      </div>
-    </nav>
-
+    <nav class="navbar"></nav>
     <!-- game  -->
-    <h1 class="center">
-      Tic-Tac-Toe
-    </h1>
 
-    <h3>
-      <form id="playerForm" class="center">
-        <div>
-          Would you like to be X or O?
-          <br /><br />
-        </div>
-        <input type="radio" name="radio" value="X" />X
-        <input type="radio" name="radio" value="O" />O
-      </form>
-    </h3>
+    <div class="container">
+      <h1>Tic-Tac-Toe</h1>
+      <br />
+      <h2>You are O.</h2>
 
-    <h3>
-      <div id="playerOne" class="center"></div>
-    </h3>
+      <br />
+      <br />
+      <div class="play-area">
+        <div id="block_0" class="block"></div>
+        <div id="block_1" class="block"></div>
+        <div id="block_2" class="block"></div>
+        <div id="block_3" class="block"></div>
+        <div id="block_4" class="block"></div>
+        <div id="block_5" class="block"></div>
+        <div id="block_6" class="block"></div>
+        <div id="block_7" class="block"></div>
+        <div id="block_8" class="block"></div>
+      </div>
+      <br />
+      <h2 id="winner"></h2>
 
-    <div id="gameResult" class="center"></div>
-    <div id="congratsOrSorry" class="center"></div>
-
-    <section id="gameInfo" class="infoContainer displayNone">
-      <div id="yourTurn" class="infoBox">Your turn</div>
-      <button id="resetButton" class="infoBox">Reset Game</button>
-      <div id="compTurn" class="infoBox">Computer's turn</div>
-    </section>
-
-    <div id="counter" class="center displayNone"></div>
-
-    <section id="gameGrid" class="gameContainer displayNone">
-      <div class="item item-1" id="one"></div>
-      <div class="item item-2" id="two"></div>
-      <div class="item item-3" id="three"></div>
-
-      <div class="item item-4" id="four"></div>
-      <div class="item item-5" id="five"></div>
-      <div class="item item-6" id="six"></div>
-
-      <div class="item item-7" id="seven"></div>
-      <div class="item item-8" id="eight"></div>
-      <div class="item item-9" id="nine"></div>
-    </section>
+      <button class="btn warning center" onclick="reset_board()">Reset</button>
+      <button class="btn warning center" onclick="endGame()">End</button>
+    </div>
 
     <!-- script  -->
     <script
@@ -134,5 +64,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="tictactoe.js"></script>
+    <script src="../app.js"></script>
+    <script src="./../nav.js"></script>
   </body>
 </html>
