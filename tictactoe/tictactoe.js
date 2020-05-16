@@ -59,7 +59,6 @@ const check_for_winner = () => {
     winner.innerText = "You win!!";
     winner.classList.add("playerWin");
     board_full = true;
-    window.score++;
   } else if (res == computer) {
     winner.innerText = "You lose";
     winner.classList.add("computerWin");
@@ -124,4 +123,10 @@ function endGame(str) {
   setTimeout(function () {
     window.location.href = "./../highscores/highscores.html";
   }, 5000);
+}
+
+function updateScore() {
+  score++;
+  $("#score").text(score);
+  window.localStorage.setItem("score", score);
 }

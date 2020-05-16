@@ -1,3 +1,5 @@
+var mode = "lightMode";
+
 $(document).ready(function () {
   var playgame = "trivia";
   window.localStorage.setItem("playgame", playgame);
@@ -39,18 +41,6 @@ $(document).ready(function () {
         });
         shuffleChoices(questions[i].answers);
       }
-      function verifyAnswer() {
-        var userAnswer = event.target.value;
-        var correctAnswer = questions[currentQuestion].correct_answer;
-
-        if (userAnswer === correctAnswer) {
-          window.score++;
-          document.getElementById("score").innerHTML = "Score: " + window.score;
-
-          currentQuestion++;
-        }
-        console.log(userAnswer);
-      }
 
       function displayQuestions() {
         $("#question").html("");
@@ -69,6 +59,19 @@ $(document).ready(function () {
         }
       }
       displayQuestions();
+
+      function verifyAnswer() {
+        var userAnswer = event.target.value;
+        var correctAnswer = questions[currentQuestion].correct_answer;
+
+        if (userAnswer === correctAnswer) {
+          window.score++;
+          document.getElementById("score").innerHTML = "Score: " + window.score;
+
+          currentQuestion++;
+        }
+        console.log(userAnswer);
+      }
 
       $("#answer").on("click", function () {
         for (var i = 0; i < 10; i++) {
