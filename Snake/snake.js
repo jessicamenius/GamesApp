@@ -28,12 +28,6 @@ $(document).ready(function () {
     $("#toggleDisplay").attr("class", "toggle toggleTrue");
     $(".card").attr("class", "card dark-mode border-white mt-5");
     $("#footer").attr("style", `background-color: #343A40; color: white;`);
-    $("#war").attr("src", "./assets/warDark.png");
-    $("#memory").attr("src", "./assets/memoryDark.png");
-    $("#trivia").attr("src", "./assets/triviaDark.png");
-    $("#snake").attr("src", "./assets/snakeDark.png");
-    $("#reaction").attr("src", "./assets/reactionDark.png");
-    $("#tictactoe").attr("src", "./assets/tictactoeDark.png");
     $(".dropdwon-menu").attr("class");
   }
 
@@ -47,12 +41,6 @@ $(document).ready(function () {
     $("body").attr("class", "light-mode");
     $("#toggleDisplay").attr("class", "toggle toggleFalse");
     $("#footer").attr("style", `background-color: #a641c9; color: black`);
-    $("#war").attr("src", "./assets/war.png");
-    $("#memory").attr("src", "./assets/memory.png");
-    $("#trivia").attr("src", "./assets/trivia.png");
-    $("#snake").attr("src", "./assets/snake.png");
-    $("#reaction").attr("src", "./assets/reaction.png");
-    $("#tictactoe").attr("src", "./assets/tictactoe.png");
   }
 });
 
