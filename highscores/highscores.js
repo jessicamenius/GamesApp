@@ -1,25 +1,23 @@
 $(document).ready(function () {
-  var mode = "light-mode";
-  window.localStorage.setItem("mode", mode);
   var highScore = JSON.parse(window.localStorage.getItem("highScore")) || [];
   score = window.localStorage.getItem("score");
   playgame = window.localStorage.getItem("playgame");
+  var mode = window.localStorage.getItem("mode");
   enterInitials();
 
   function enterInitials() {
     $("#showQuestion").text(`Your final score is ${score}`);
-    $("#showOptions").append(`<div></div>`);
+    $("#showOptions").append(`<div>Enter your name here</div>`);
     $("#showOptions").append("<form id='form'></form>");
     $("#form").append(
-      "<input id='name' autofocus type='text' class='mr-3' placeholder='Enter name here'></input>"
+      "<input id='name' autofocus type='text' class='mr-3' placeholder='enter name here'></input>"
     );
     $("#form").append(
-      "<input id='btnSubmit' type='submit' value='Submit' class='easy'></input>"
+      "<input id='btnSubmit' type='submit' value='Submit'></input>"
     );
     $(document).on("click", "#btnSubmit", function (e) {
       e.preventDefault();
       var $name = $("#name").val();
-
       if (!$name) {
         showPopup("Please enter a valid name", "info", score);
       } else {
@@ -30,7 +28,6 @@ $(document).ready(function () {
       }
     });
   }
-
   function showHighScore() {
     $("#showOptions").hide();
     $(document).on("click", "#resetHighScore", function () {
@@ -45,11 +42,10 @@ $(document).ready(function () {
     }
     insertHighScoreTable();
   }
-
   function insertHighScoreTable() {
     $("#showQuestion").html(
       `<div class='d-inline highScore'>HighScore</div>
-      <div class='d-inline float-right btn easy mb-2' id='resetHighScore'>RESET Score</div>
+      <div class='d-inline float-right btn' id='resetHighScore'>RESET Score</div>
       <table class='table'>
       <thead>
       <th scope='col'>Game</th>
@@ -77,14 +73,11 @@ $(document).ready(function () {
   var apiKey = "ne5Joz1LAIF9FLe8LEIb6bMrrVfVxST7";
   $.ajax({
     type: "GET",
-    url: `http://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${playgame}`,
+    url: `http://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${playgame}&limit=1`,
     dataType: "JSON",
   }).then(function (res) {
     console.log(res);
-    var gif =
-      res.data[Math.floor(Math.random() * res.data.length)].images.original.url;
-    $("#giphy").html(
-      `<img class="gif mb-4 img-fluid" style="max-height: 300px; max-width: auto" data-gif=${gif} src=${gif}></img>`
-    );
+    var gif = res.data[0].images.original.url;
+    $("#giphy").html(`<img class="gif"  data-gif=${gif} src=${gif}></img>`);
   });
 });
