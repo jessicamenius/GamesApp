@@ -2,15 +2,15 @@
 var defaults = {
   easy: {
     gridSize: 3,
-    timeout: 1800,
+    timeout: 1500,
   },
   medium: {
     gridSize: 4,
-    timeout: 1500,
+    timeout: 1300,
   },
   hard: {
     gridSize: 5,
-    timeout: 1200,
+    timeout: 1000,
   },
 };
 
@@ -130,7 +130,7 @@ function countdown() {
       timer = timer - 1;
       $(".countdown").text(timer);
     }
-  }, 1000);
+  }, 900);
 }
 
 function start() {
