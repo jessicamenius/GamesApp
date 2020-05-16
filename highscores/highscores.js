@@ -6,6 +6,47 @@ $(document).ready(function () {
   playgame = window.localStorage.getItem("playgame");
   enterInitials();
 
+  $("#toggleBtn").on("click", function () {
+    if ($("#toggleDisplay").attr("class") === "toggle toggleFalse") {
+      darkMode();
+    } else {
+      lightMode();
+    }
+  });
+
+  if (window.localStorage.getItem("mode") === "light-mode") {
+    lightMode();
+  }
+  if (window.localStorage.getItem("mode") === "dark-mode") {
+    darkMode();
+  }
+
+  function darkMode() {
+    window.localStorage.setItem("mode", "dark-mode");
+    $(".navbar").attr(
+      "class",
+      "navbar navbar-expand-lg navbar-dark bg-dark dark-mode"
+    );
+    $("body").attr("class", "dark-mode");
+    $("#toggleDisplay").attr("class", "toggle toggleTrue");
+    $(".card").attr("class", "card dark-mode border-white mt-5");
+    $(".dropdown-menu").attr("style", "background-color: #343A40;");
+    $("table").attr("class", "table dark-mode");
+  }
+
+  function lightMode() {
+    window.localStorage.setItem("mode", "light-mode");
+    $(".navbar").attr(
+      "class",
+      "navbar navbar-expand-lg navbar-light light-mode"
+    );
+    $(".card").attr("class", "card light-mode mt-5");
+    $("body").attr("class", "light-mode");
+    $("#toggleDisplay").attr("class", "toggle toggleFalse");
+    $(".dropdown-menu").attr("style", "background-color: #a641c9;");
+    $("table").attr("class", "table light-mode");
+  }
+
   function enterInitials() {
     $("#showQuestion").text(`Your final score is ${score}`);
     $("#showOptions").append(`<div></div>`);
