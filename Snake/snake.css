@@ -46,3 +46,12 @@
 .navbar {
   background-color: #a64ac9;
 }
+
+.navbar a {
+  color: white !important;
+}
+
+.dropdown-menu {
+  background-color: #a641c9;
+  color: white;
+}

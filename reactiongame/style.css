@@ -189,3 +189,12 @@ table tr td {
   padding-left: 20px;
   margin-top: 100px;
 }
+
+.navbar a {
+  color: white !important;
+}
+
+.dropdown-menu {
+  background-color: #a641c9;
+  color: white;
+}
