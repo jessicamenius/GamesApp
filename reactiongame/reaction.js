@@ -13,10 +13,11 @@ var defaults = {
     timeout: 1000,
   },
 };
-
+// variables for local storage
 var playgame = "Reaction";
 window.localStorage.setItem("playgame", playgame);
 
+//variables for game
 var intensity;
 var time;
 
@@ -29,6 +30,7 @@ var lastRandomCell = 0;
 var apiKey = "ne5Joz1LAIF9FLe8LEIb6bMrrVfVxST7";
 var reactionTimes = [];
 
+//timer to count down to take you to the highscores page
 var timer = "";
 function highScores() {
   timer = setTimeout(function () {
