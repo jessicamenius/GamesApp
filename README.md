@@ -11,9 +11,15 @@
 - Helped each other fix bugs in code
 - Used google, stackoverflow, W3schools, MDNweb + TAs+ tutors
 
+# Main Page
+
 ![demo](assets/darkmode.gif)
 
+# Snake Game
+
 ![snake](assets/snakegame.gif)
+
+# Memory Game
 
 ![memorygame](assets/memorygame.gif)
 
