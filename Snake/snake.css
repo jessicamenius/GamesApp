@@ -1,6 +1,10 @@
 /* #body {
   background-color: white;
 } */
+body {
+  font-family: karla !important;
+}
+
 .container {
   text-align: center;
 }
