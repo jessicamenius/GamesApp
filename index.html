@@ -14,7 +14,8 @@
     <title>Games App</title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light light-mode">
+    <!-- nav bar -->
+    <nav class="navbar navbar-expand-lg navbar-light light-mode fixed-top">
       <a class="navbar-brand" href="./index.html">Games App</a>
       <button
         class="navbar-toggler"
@@ -27,7 +28,6 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
@@ -47,30 +47,22 @@
             >
               Games
             </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <div
+              id="dropdown"
+              class="dropdown-menu"
+              aria-labelledby="navbarDropdown"
+            >
+              <a class="dropdown-item" href="./warcardgame/index.html">War</a>
               <a class="dropdown-item" href="./memorygame/memorygame.html"
                 >Memory</a
               >
+              <a class="dropdown-item" href="./trivia/trivia.html">Trivia</a>
+              <a class="dropdown-item" href="./Snake/snake.html">Snake</a>
               <a class="dropdown-item" href="./reactiongame/index.html"
                 >Reaction</a
               >
-              <a class="dropdown-item" href="../GroupProject1/Snake/snake.html"
-                >Snake</a
-              >
-              <a
-                class="dropdown-item"
-                href="../GroupProject1/tictactoegame/tictac.html"
+              <a class="dropdown-item" href="./tictactoe/tictactoe.html"
                 >Tic Tac Toe</a
-              >
-              <a
-                class="dropdown-item"
-                href="../GroupProject1/triviaGame/trivia.html"
-                >Trivia</a
-              >
-              <a
-                class="dropdown-item"
-                href="../GroupProject1/warcardgame/index.html"
-                >War</a
               >
             </div>
           </li>
@@ -87,12 +79,17 @@
         <div id="toggleDisplay" class="toggle toggleFalse"></div>
       </div>
     </nav>
+    <br />
+
+    <!-- cards -->
+
     <div class="container">
       <div id="row" class="row mt-4">
         <div class="col-4">
-          <div class="card light-mode">
+          <div class="card light-mode mt-5">
             <img
-              src="./assets/poker.png"
+              id="war"
+              src="./assets/war.png"
               class="card-img-top img-fluid light-mode"
               alt="..."
             />
@@ -106,9 +103,10 @@
           </div>
         </div>
         <div class="col-4">
-          <div class="card light-mode">
+          <div class="card light-mode mt-5">
             <img
-              src="./assets/memory-icon.png"
+              id="memory"
+              src="./assets/memory.png"
               class="card-img-top"
               alt="..."
             />
@@ -124,9 +122,10 @@
           </div>
         </div>
         <div class="col-4">
-          <div class="card light-mode">
+          <div class="card light-mode mt-5">
             <img
-              src="./assets/trivia-icon.jpg"
+              id="trivia"
+              src="./assets/trivia.png"
               class="card-img-top"
               alt="..."
             />
@@ -135,16 +134,17 @@
               <p class="card-text">
                 Test your knowledge
               </p>
-              <a href="./triviaGame/trivia.html" class="btn warning">Play</a>
+              <a href="./trivia/trivia.html" class="btn warning">Play</a>
             </div>
           </div>
         </div>
       </div>
-      <div id="row" class="row mt-5">
+      <div id="row" class="row mt-5 mb-5">
         <div class="col-4">
           <div class="card light-mode">
             <img
-              src="./assets/noun_snake game_1500006.png"
+              id="snake"
+              src="./assets/snake.png"
               class="card-img-top img-fluid"
               alt="..."
             />
@@ -160,14 +160,15 @@
         <div class="col-4">
           <div class="card light-mode">
             <img
-              src="./assets/reaction-icon.png"
+              id="reaction"
+              src="./assets/reaction.png"
               class="card-img-top img-fluid"
               alt="..."
             />
             <div class="card-body text-center">
               <h5 class="card-title">Reaction Time</h5>
               <p class="card-text">
-                See how fast you can click on the squares
+                See how fast you can click each square
               </p>
               <a href="./reactiongame/index.html" class="btn warning">Play</a>
             </div>
@@ -176,31 +177,34 @@
         <div class="col-4">
           <div class="card light-mode">
             <img
-              src="./assets/noun_Game_1127407.png"
+              id="tictactoe"
+              src="./assets/tictactoe.png"
               class="card-img-top img-fluid"
               alt="..."
             />
             <div class="card-body text-center">
               <h5 class="card-title">Tic Tac Toe</h5>
               <p class="card-text">
-                Get three Xs in a row
+                Get three Xs or Os in a row
               </p>
-              <a href="../tictactoegame/tictac.html" class="btn warning"
-                >Play</a
-              >
+              <a href="./tictactoe/tictactoe.html" class="btn warning">Play</a>
             </div>
           </div>
         </div>
       </div>
     </div>
     <br />
-    <div id="footer" class="border-0">
+    <br />
+
+    <div id="footer" class="border-0 fixed-bottom">
       <div class="card-body">
         <blockquote id="blockquote" class="blockquote mb-0">
           <div id="joke"></div>
         </blockquote>
       </div>
     </div>
+
+    <!-- script -->
     <script
       src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
       integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"

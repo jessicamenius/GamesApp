@@ -23,7 +23,6 @@
   color: white;
 }
 .light-mode {
-  background-color: white;
   color: black;
 }
 
@@ -31,12 +30,21 @@
   background-color: #a641c9;
 }
 
+.navbar a {
+  color: white !important;
+}
+
+.dropdown-menu {
+  background-color: #a641c9;
+  color: white;
+}
+
 #footer {
   background-color: #a641c9;
 }
 
 #blockquote {
-  color: black;
+  color: white;
 }
 
 .theme1 {
@@ -91,3 +99,10 @@
   background: #ffb48f;
   color: white;
 }
+<<<<<<< HEAD
+
+#dropdown a {
+  color: white !important;
+}
+=======
+>>>>>>> 2efb22f86a591b513651a9d223d1bfbe59fc2d9e

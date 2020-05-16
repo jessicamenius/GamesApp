@@ -13,8 +13,8 @@
     <title>ReactionTime</title>
   </head>
   <body>
-    <nav id = "nav" class="navbar navbar-expand-lg light-mode">
-      <a class="navbar-brand" href="../index.html">Games App</a>
+    <nav class="navbar navbar-expand-lg navbar-light light-mode">
+      <a class="navbar-brand">Games App</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -34,9 +34,6 @@
               >Home <span class="sr-only">(current)</span></a
             >
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../highscores.html">Highscores</a>
-          </li>
           <li class="nav-item dropdown">
             <a
               class="nav-link dropdown-toggle"
@@ -50,19 +47,22 @@
               Games
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="./warcardgame/index.html">War</a>
               <a class="dropdown-item" href="./memorygame/memorygame.html"
                 >Memory</a
               >
+              <a class="dropdown-item" href="./trivia/trivia.html">Trivia</a>
+              <a class="dropdown-item" href="./Snake/snake.html">Snake</a>
               <a class="dropdown-item" href="./reactiongame/index.html"
                 >Reaction</a
               >
-              <a class="dropdown-item" href="./Snake/snake.html">Snake</a>
-              <a class="dropdown-item" href="../tictactoegame/tictac.html">Tic Tac Toe</a>
-              <a class="dropdown-item" href="./triviaGame/trivia.html"
-                >Trivia</a
+              <a class="dropdown-item" href="./tictactoe/tictactoe.html"
+                >Tic Tac Toe</a
               >
-              <a class="dropdown-item" href="./warcardgame/index.html">War</a>
             </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./highscores.html">Highscores</a>
           </li>
         </ul>
       </div>
@@ -70,8 +70,8 @@
         <div id="toggleDisplay" class="toggle toggleFalse"></div>
       </div>
     </nav>
+    
     <div id="selector">
-      <div class="instructions">Choose a Difficulty Level</div>
       <div class="level">
           <div class="levelText easyL" onclick="prepare('easy')">Easy</div>
         <div class="levelText mediumL" onclick="prepare('medium')">Medium</div>
