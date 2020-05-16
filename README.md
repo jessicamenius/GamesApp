@@ -2,9 +2,9 @@
 
 # Games App
 
-![demo](.\assets\darkmode.gif.gif)
+![demo](assets\darkmode.gif)
 
-![snake](.\assets\snakegame.gif.gif)
+![snake](assets\snake.png)
 
 ## Application Requirements
 
