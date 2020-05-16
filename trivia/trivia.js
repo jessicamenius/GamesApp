@@ -42,11 +42,11 @@ $(document).ready(function () {
         $("#question").html(questions[currentQuestion].question);
         for (var i = 0; i < questions[currentQuestion].answers.length; i++) {
           $("#answers").append(
-            `<button onclick=${verifyAnswer()} value="' +
+            '<button onclick="verifyAnswer()" value="' +
               questions[currentQuestion].answers[i] +
               '">' +
               questions[currentQuestion].answers[i] +
-              "</button>`
+              "</button>"
           );
         }
       }
