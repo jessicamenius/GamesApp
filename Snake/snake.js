@@ -2,6 +2,7 @@ var apiKey = "fZd83cUM8MNVbIKeK8MuxdZLC4oIMih2";
 var mode = "lightMode";
 $(document).ready(function () {
   var playgame = "snake";
+  // local storage for dark mode
   window.localStorage.setItem("playgame", playgame);
   $("#toggleBtn").on("click", function () {
     if ($("#toggleDisplay").attr("class") === "toggle toggleFalse") {
@@ -17,7 +18,7 @@ $(document).ready(function () {
   if (window.localStorage.getItem("mode") === "dark-mode") {
     darkMode();
   }
-
+  // JQuery for dark mode
   function darkMode() {
     window.localStorage.setItem("mode", "dark-mode");
     $(".navbar").attr(
@@ -30,7 +31,7 @@ $(document).ready(function () {
     $("#footer").attr("style", `background-color: #343A40; color: white;`);
     $(".dropdwon-menu").attr("class");
   }
-
+  // JQuery for light mode
   function lightMode() {
     window.localStorage.setItem("mode", "light-mode");
     $(".navbar").attr(
@@ -43,7 +44,7 @@ $(document).ready(function () {
     $("#footer").attr("style", `background-color: #a641c9; color: black`);
   }
 });
-
+// function for drawing canvas and contents within
 $(function () {
   var canvas = $("#canvas")[0];
   var ctx = canvas.getContext("2d");
