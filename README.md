@@ -2,7 +2,7 @@
 
 # Games App
 
-![demo](darkmode.gif)
+![demo](GroupProject1\assets\darkmode.gif.gif)
 
 ## Application Requirements
 
