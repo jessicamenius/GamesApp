@@ -1,5 +1,4 @@
 var score = 0;
-$("#score").text(`Score: ${score}`);
 window.localStorage.setItem("score", score);
 
 var playgame = "tic-tac-toe";
@@ -121,7 +120,7 @@ function endGame(str) {
   window.localStorage.setItem("score", score);
   getGiphy(`${str}`);
   setTimeout(function () {
-    window.location.href = "./../highscores/highscores.html";
+    window.location.href = "../highscores/highscores.html";
   }, 5000);
 }
 

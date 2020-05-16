@@ -49,40 +49,25 @@ $(document).ready(function () {
         $("#question").html(questions[currentQuestion].question);
 
         for (var i = 0; i < questions[currentQuestion].answers.length; i++) {
-          $("#answers").append(
-            '<button onclick="verifyAnswer()" value="' +
-              questions[currentQuestion].answers[i] +
-              '">' +
-              questions[currentQuestion].answers[i] +
-              "</button>"
-          );
-        }
-      }
-      displayQuestions();
+      
+          var button = document.createElement("button");
+          button.type = "button";
+          button.value = i;
+          button.innerHTML = questions[currentQuestion].answers[i];
+          button.addEventListener("click", function (event) {
+            var userAnswer = event.target.value;
+            var correctAnswer = questions[currentQuestion].correct_answer;
 
-      function verifyAnswer() {
-        var userAnswer = event.target.value;
-        var correctAnswer = questions[currentQuestion].correct_answer;
-
-        if (userAnswer === correctAnswer) {
-          window.score++;
-          document.getElementById("score").innerHTML = "Score: " + window.score;
-
-          currentQuestion++;
-        }
-        console.log(userAnswer);
-      }
-
-      $("#answer").on("click", function () {
-        for (var i = 0; i < 10; i++) {
-          displayQuestions();
-        }
-      });
-
-      verifyAnswer();
-    });
-  });
-});
+            if (userAnswer == correctAnswer) {
+              // the answer is correct
+              // add to their score here
+              window.score += 1;
+              document.getElementById("score").innerHTML = "Score: " + window.score;
+            } else {
+              // the answer is wrong
+              displayQuestions();
+            }
+          }
 
 function shuffleChoices(array) {
   for (var i = array.length - 1; i > 0; i--) {
@@ -92,26 +77,9 @@ function shuffleChoices(array) {
     array[j] = temp;
   }
 }
-
-function endGame() {
-  $(".container").html("");
-  window.localStorage.setItem("score", score);
-  getGiphy("gameover");
-  setTimeout(function () {
-    window.location.href = "./../highscores/highscores.html";
-  }, 5000);
-}
-
-function getGiphy(str) {
-  var apiKey = "WEBIEMxP2gpqmX8BNbn1G6i6BYEtlVML";
-  $.ajax({
-    type: "GET",
-    url: `http://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${str}`,
-    dataType: "JSON",
-  }).then(function (res) {
-    var gif = res.data[randNumber(res.data.length)].images.original.url;
-    $(".container").prepend(
-      `<img src=${gif} class="img-fluid rounded mx-auto d-block mt-5"/>`
-    );
+  
+);
+      };
+    };
   });
-}
+});
