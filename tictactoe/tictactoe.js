@@ -129,3 +129,5 @@ function updateScore() {
   $("#score").text(score);
   window.localStorage.setItem("score", score);
 }
+
+// add end button
