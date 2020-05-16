@@ -2,7 +2,7 @@
 
 # Games App
 
-![](darkmode.gif)
+![demo](darkmode.gif)
 
 ## Application Requirements
 
