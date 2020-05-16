@@ -1,6 +1,3 @@
-var score = 1;
-window.localStorage.setItem("score", score);
-
 var playgame = "tic-tac-toe";
 window.localStorage.setItem("playgame", playgame);
 
@@ -118,8 +115,7 @@ render_board();
 // add end button
 function endGame() {
   $(".container").html("");
-  window.localStorage.setItem("score", score);
   setTimeout(function () {
     window.location.href = "./../highscores/highscores.html";
-  }, 5000);
+  }, 1000);
 }
