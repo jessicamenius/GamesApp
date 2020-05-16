@@ -1,3 +1,7 @@
+body {
+  font-family: karla !important;
+}
+
 .toggler {
   height: 30px;
   width: 60px;
@@ -23,7 +27,6 @@
   color: white;
 }
 .light-mode {
-  background-color: white;
   color: black;
 }
 
@@ -33,6 +36,11 @@
 
 .navbar a {
   color: white !important;
+}
+
+.dropdown-menu {
+  background-color: #a641c9;
+  color: white;
 }
 
 #footer {
@@ -69,6 +77,21 @@
 
 .card:hover {
   border: solid #17e9e0 8px;
+}
+
+.btn {
+  color: hsl(0, 0%, 100%);
+  text-align: center;
+  background-color: #ffb48f;
+}
+
+.btn {
+  border: 2px solid black;
+  background-color: white;
+  color: black;
+  padding: 14px 28px;
+  font-size: 18px;
+  cursor: pointer;
 }
 
 .warning {

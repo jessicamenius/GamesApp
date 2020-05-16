@@ -30,7 +30,10 @@ $(document).ready(function () {
     $("#snake").attr("src", "./assets/snakeDark.png");
     $("#reaction").attr("src", "./assets/reactionDark.png");
     $("#tictactoe").attr("src", "./assets/tictactoeDark.png");
-    $(".dropdwon-menu").attr("class");
+    $(".dropdown-menu").attr(
+      "class",
+      "navbar navbar-expand-lg navbar-dark bg-dark dark-mode fixed-top"
+    );
   }
 
   function lightMode() {
