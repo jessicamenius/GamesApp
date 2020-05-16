@@ -13,7 +13,9 @@
 
 ![demo](assets/darkmode.gif)
 
-![snake](assets/snake.png)
+![snake](assets/snakegame.gif)
+
+![memorygame](assets/memorygame.gif)
 
 ## Application Requirements
 
