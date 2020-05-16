@@ -1,10 +1,11 @@
 $(document).ready(function () {
   var questions = [];
   var currentQuestion = 0;
-  var playgame = "Memory";
+  var playgame = "Trivia";
   window.localStorage.setItem("playgame", playgame);
+  var score = 0;
+  window.score = 0;
 
-​
   function shuffleChoices(array) {
     for (var i = array.length - 1; i > 0; i--) {
       var j = Math.floor(Math.random() * (i + 1));
@@ -13,31 +14,31 @@ $(document).ready(function () {
       array[j] = temp;
     }
   }
-​
   function verifyAnswer(event) {
     // compare the answer
     var userAnswer = event.target.value;
     var correctAnswer = questions[currentQuestion].correctAnswer;
     if (userAnswer == correctAnswer) {
-      window.score += 1;
+      window.score++;
       document.getElementById("score").innerHTML = "Score: " + window.score;
     }
     currentQuestion++;
     if (currentQuestion === questions.length - 1) {
       endGame("genius");
     } else {
-      currentQuestion ++;
+      currentQuestion++;
       displayQuestions();
     }
     function endGame() {
       $(".container").html("");
+      $(".container").append("Your final score is: ", score);
       window.localStorage.setItem("score", score);
       getGiphy("genius");
       setTimeout(function () {
         window.location.href = "./../highscores/highscores.html";
       }, 5000);
     }
-  
+
     function getGiphy(str) {
       var apiKey = "WEBIEMxP2gpqmX8BNbn1G6i6BYEtlVML";
       $.ajax({
@@ -52,7 +53,6 @@ $(document).ready(function () {
       });
     }
   }
-​
   function displayQuestions() {
     $("#question").html("");
     $("#answers").html("");
@@ -65,15 +65,16 @@ $(document).ready(function () {
           questions[currentQuestion].answers[i] +
           "</button>"
       );
+      console.log(questions[currentQuestion].question);
     }
   }
-  
-  $(document).on("click", ".btn-option", function(e){
-    verifyAnswer(e)
+
+  $(document).on("click", ".btn-option", function (e) {
+    verifyAnswer(e);
   });
-​
   $("#submitBtn").click(function () {
     $("#submitBtn").hide();
+    $("score").append(score);
     $("#quiz").append(` <div class="card text-center">
     <div class="card-body" id="prompt_display">
     <div id="question"></div>
@@ -84,11 +85,11 @@ $(document).ready(function () {
     <div id="alert"></div>
   </div>`);
 
-    $("score").html(`Score: ${score}`);
     $.ajax({
       method: "GET",
       url: "https://opentdb.com/api.php?amount=10&category=9&type=multiple",
     }).then(function (res) {
+      console.log(res);
       for (var i = 0; i < res.results.length; i++) {
         questions.push({
           question: res.results[i].question,
@@ -100,11 +101,8 @@ $(document).ready(function () {
         });
         shuffleChoices(questions[i].answers);
       }
-      
+
       displayQuestions();
- 
     });
-    
   });
-​
 });
