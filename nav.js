@@ -1,7 +1,8 @@
 $(document).ready(function () {
-  $(
-    ".navbar"
-  ).html(`    <a class="navbar-brand" href=".././Index/index.html">Games App</a>
+  $(".navbar").html(`    
+  <nav class="navbar navbar-expand-lg navbar-light light-mode fixed-top">
+
+  <a class="navbar-brand" href=".././Index/index.html">Games App</a>
 <button
   class="navbar-toggler"
   type="button"

@@ -45,8 +45,11 @@ $(document).ready(function () {
       function displayQuestions() {
         $("#question").html("");
         $("#answers").html("");
+        
+        document.getElementById(question).innerHTML = questions[currentQuestion].question
+      
 
-        $("#question").html(questions[currentQuestion].question);
+        // $("#question").html(questions[currentQuestion].question);
 
         for (var i = 0; i < questions[currentQuestion].answers.length; i++) {
       
