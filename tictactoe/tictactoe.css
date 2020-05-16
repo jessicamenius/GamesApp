@@ -1,3 +1,7 @@
+body {
+  font-family: karla !important;
+}
+
 .center {
   display: flex;
   justify-content: center;

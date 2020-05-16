@@ -5,15 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Trivia</title>
     <link
+    href="https://fonts.googleapis.com/css?family=Karla"
+    rel="stylesheet"
+  />
+    <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="trivia.css" />
+    <link rel="stylesheet" href="../style.css">
   </head>
 
-  <!-- <div id="header"></div> -->
   <body>
     <!-- navbar -->
     <body id="body">
@@ -79,6 +83,7 @@
 
     <div id="score" class="d-inline float-right mr-3"></div>
 
+
     <div>
       <h1 class="center">Trivia</h1>
       <h3 class="center">Test your knowledge!</h3>
@@ -97,7 +102,7 @@
 
     <!-- quiz -->
 
-    <div class="card" id="triviagame">
+    <div class="card center" id="triviagame">
       <div class="card-body">
         <div id="question" class="center"></div>
         <div id="answers" class="list-group"></div>
@@ -121,5 +126,6 @@
     ></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="trivia.js"></script>
+    <script src="../app.js"></script>
   </body>
 </html>
