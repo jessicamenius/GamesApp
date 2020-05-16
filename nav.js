@@ -1,6 +1,6 @@
 $(document).ready(function () {
   $(".navbar").html(`    
-  <a class="navbar-brand" href=".././Index/index.html">Games App</a>
+  <a class="navbar-brand" href=".././index/index.html">Games App</a>
 <button
   class="navbar-toggler"
   type="button"
