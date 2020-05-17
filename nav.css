@@ -37,6 +37,12 @@ body {
 .navbar a {
   color: white !important;
 }
+
+.dropdown-menu {
+  background-color: #a641c9;
+  color: white;
+}
+
 .dropdown-item:hover {
   background-color: #17e9e0;
 }

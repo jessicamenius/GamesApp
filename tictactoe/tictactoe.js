@@ -1,7 +1,3 @@
-var score = 0;
-$("#score").text(`Score: ${score}`);
-window.localStorage.setItem("score", score);
-
 var playgame = "tic-tac-toe";
 window.localStorage.setItem("playgame", playgame);
 
@@ -59,7 +55,6 @@ const check_for_winner = () => {
     winner.innerText = "You win!!";
     winner.classList.add("playerWin");
     board_full = true;
-    window.score++;
   } else if (res == computer) {
     winner.innerText = "You lose";
     winner.classList.add("computerWin");
@@ -117,11 +112,10 @@ const reset_board = () => {
 //initial render
 render_board();
 
-function endGame(str) {
+// add end button
+function endGame() {
   $(".container").html("");
-  window.localStorage.setItem("score", score);
-  getGiphy(`${str}`);
   setTimeout(function () {
     window.location.href = "./../highscores/highscores.html";
-  }, 5000);
+  }, 1000);
 }
