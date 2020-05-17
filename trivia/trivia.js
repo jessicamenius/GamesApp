@@ -60,17 +60,17 @@ $(document).ready(function () {
 
         for (var i = 0; i < questions[currentQuestion].answers.length; i++) {
           $("#answers").append(
-            '<button onclick="verifyAnswer()" value="' +
-              questions[currentQuestion].answers[i] +
+            `'<button onclick="${verifyAnswer()}" value="' +
+              ${questions[currentQuestion].answers[i]} +
               '">' +
-              questions[currentQuestion].answers[i] +
-              "</button>"
+              ${questions[currentQuestion].answers[i]} +
+              "</button>"`
           );
         }
       }
       displayQuestions();
 
-      $("#answer").on("click", function () {
+      $(document).on("click", "#answer", function () {
         for (var i = 0; i < 10; i++) {
           displayQuestions();
         }
