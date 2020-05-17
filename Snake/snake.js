@@ -80,7 +80,7 @@ $(function () {
     $("#canvas").hide();
     $.ajax({
       type: "GET",
-      url: `http://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=gameover`,
+      url: `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=gameover`,
       dataType: "JSON",
     }).then(function (res) {
       var gif =
