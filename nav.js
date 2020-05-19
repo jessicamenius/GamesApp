@@ -70,6 +70,9 @@ $(document).ready(function () {
   if (window.localStorage.getItem("mode") === "dark-mode") {
     darkMode();
   }
+  if (window.localStorage.getItem("mode") === null) {
+    lightMode();
+  }
 
   function darkMode() {
     window.localStorage.setItem("mode", "dark-mode");

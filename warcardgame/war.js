@@ -249,7 +249,7 @@ $(document).ready(function () {
     var apiKey = "WEBIEMxP2gpqmX8BNbn1G6i6BYEtlVML";
     $.ajax({
       type: "GET",
-      url: `http://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${str}`,
+      url: `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${str}`,
       dataType: "JSON",
     }).then(function (res) {
       var gif = res.data[randNumber(res.data.length)].images.original.url;
