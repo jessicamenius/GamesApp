@@ -3,7 +3,7 @@
 # Games App
 
 - Used HTML, CSS, JQuery, Javascript, APIs, Ajax, Photoshop, Noun Project
-- Over 220 commits with almost no merge conflicts
+- Over 300 commits with very few merge conflicts
 - Each person had at least one game to code
 - All collaborated on main page and highscores page
 - End of game workflows were collaborative
