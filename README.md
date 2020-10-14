@@ -2,7 +2,7 @@
 
 ## Description
 
-A landing page linking to 6 games developed by individual team members.
+From a landing page, 6 games developed by individual team members are available for play. The page can be toggled between light and dark mode.
 
 ```
 USER has the option of 6 games to play
