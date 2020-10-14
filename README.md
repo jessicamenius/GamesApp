@@ -55,5 +55,3 @@ EACH game adds the final score to the highscore page
  - Jim Mehta
  - Danielle Arias
  - Julia Hanlon
-
-## Future Development
