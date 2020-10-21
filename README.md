@@ -49,9 +49,3 @@ EACH game adds the final score to the highscore page
 ## Landing Page
 
 ![demo](assets/darkmode.gif)
-
-## Contributors
- - Jessica Menius
- - Jim Mehta
- - Danielle Arias
- - Julia Hanlon
